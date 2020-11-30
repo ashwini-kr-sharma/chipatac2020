@@ -1,37 +1,20 @@
-## Welcome to GitHub Pages
+# ChIP-seq and ATAC-seq Bioinformatics Analaysis Workshop
 
-You can use the [editor on GitHub](https://github.com/hdsu-bioquant/chipatac2020/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Welcome to the page of the workshop on the computational analysis of ChIP-seq and ATAC-seq analysis! This workshop is meant for people with little previous knowledge of bioinformatics.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Tutors
 
-### Markdown
+* Carl Herrmann, (Health Data Science Unit)[https://www.hdsu.org/] Medical Faculty Heidelberg and BioQuant
+* Ashwini Sharma, (Health Data Science Unit)[https://www.hdsu.org/] Medical Faculty Heidelberg and BioQuant
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Program
 
-```markdown
-Syntax highlighted code block
+This is the schedule of the two-day workshop
 
-# Header 1
-## Header 2
-### Header 3
+## Technical pre-requisites
 
-- Bulleted
-- List
+All the computation will be done on the cloud of the (German Bioinformatics Network de.NBI)[https://www.denbi.de/]. All you need is a personal laptop to access the cloud server. Check here of the technical pre-requisites, depending on your operating system:
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/hdsu-bioquant/chipatac2020/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+* I use MacOS
+* I use Windows
+* I use Linux
