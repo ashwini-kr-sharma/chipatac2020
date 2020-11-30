@@ -15,6 +15,6 @@ This is the schedule of the two-day workshop
 
 All the computation will be done on the cloud of the (German Bioinformatics Network de.NBI)[https://www.denbi.de/]. All you need is a personal laptop to access the cloud server. Check here of the technical pre-requisites, depending on your operating system:
 
-* I use MacOS
+* I use (MacOS)(./macos.md)
 * I use Windows
 * I use Linux
