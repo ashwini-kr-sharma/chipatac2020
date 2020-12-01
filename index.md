@@ -7,11 +7,11 @@ Welcome to the page of the workshop on the computational analysis of ChIP-seq an
 * Carl Herrmann, [Health Data Science Unit](https://www.hdsu.org/) Medical Faculty Heidelberg and BioQuant (carl.herrmann@bioquant.uni-heidelberg.de)
 * Ashwini Sharma, [Health Data Science Unit](https://www.hdsu.org/) Medical Faculty Heidelberg and BioQuant (ashwini.sharma@bioquant.uni-heidelberg.de)
 
-## Program
+## Schedule
 
 The course will run over 2 days (Monday, 14.12 and Tuesday, 15.12) from 9am - 12.30am and 1.30pm - 5.30pm
 
-Check the detailled program [here](./program.md)
+Check the detailled schedule [here](./schedule.md)
 
 
 ## Technical pre-requisites
