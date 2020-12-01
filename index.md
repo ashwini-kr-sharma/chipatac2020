@@ -4,12 +4,38 @@ Welcome to the page of the workshop on the computational analysis of ChIP-seq an
 
 ## Tutors
 
-* Carl Herrmann, [Health Data Science Unit](https://www.hdsu.org/) Medical Faculty Heidelberg and BioQuant
-* Ashwini Sharma, [Health Data Science Unit](https://www.hdsu.org/) Medical Faculty Heidelberg and BioQuant
+* Carl Herrmann, [Health Data Science Unit](https://www.hdsu.org/) Medical Faculty Heidelberg and BioQuant (carl.herrmann@bioquant.uni-heidelberg.de)
+* Ashwini Sharma, [Health Data Science Unit](https://www.hdsu.org/) Medical Faculty Heidelberg and BioQuant (ashwini.sharma@bioquant.uni-heidelberg.de)
 
 ## Program
 
-This is the schedule of the two-day workshop
+### Day 1 - Monday, 14.12
+
+#### Morning 
+
+* Lecture : General introduction to the concepts of ChIP-seq / ATAC-seq
+* Lecture : Introduction to the processing of sequencing data
+* Lecture : Specific processing of ChIP-seq data
+
+#### Afternoon
+* Hands-on : Quality control for ChIP-seq
+* Hands-on : Peak calling using MACS2
+* Hands-on : Peak annotations
+
+* Online discussion / debriefing 
+### Day 2 - Tuesday, 15.12
+
+#### Morning
+
+* Lecture : recap of the results
+* Lecture : Specific processing of ATAC-seq (footprinting)
+
+#### Afternoon
+
+* Hands-on  QC for ATAC-seq
+* Hands-on : ATAC-seq peak calling
+* Hands-on : peak annotation
+* Hands-on : TF footprinting
 
 ## Technical pre-requisites
 
