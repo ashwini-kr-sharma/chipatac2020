@@ -9,36 +9,13 @@ Welcome to the page of the workshop on the computational analysis of ChIP-seq an
 
 ## Program
 
-### Day 1 - Monday, 14.12
+The course will run over 2 days (Monday, 14.12 and Tuesday, 15.12) from 9am - 12.30am and 1.30pm - 5.30pm
 
-#### Morning 
+Check the detailled program [here](./program.md)
 
-* Lecture : General introduction to the concepts of ChIP-seq / ATAC-seq
-* Lecture : Introduction to the processing of sequencing data
-* Lecture : Specific processing of ChIP-seq data
-
-#### Afternoon
-* Hands-on : Quality control for ChIP-seq
-* Hands-on : Peak calling using MACS2
-* Hands-on : Peak annotations
-
-* Online discussion / debriefing 
-### Day 2 - Tuesday, 15.12
-
-#### Morning
-
-* Lecture : recap of the results
-* Lecture : Specific processing of ATAC-seq (footprinting)
-
-#### Afternoon
-
-* Hands-on  QC for ATAC-seq
-* Hands-on : ATAC-seq peak calling
-* Hands-on : peak annotation
-* Hands-on : TF footprinting
 
 ## Technical pre-requisites
 
 All the computation will be done on the cloud of the [German Bioinformatics Network de.NBI](https://www.denbi.de/). All you need is a personal laptop to access the cloud server. Check the technical pre-requisites, depending on whether your operating system is Windows, MacOS or Linux
 
-[Instructions are here](./technical.md)
+Instructions for all operating systems are [here](./technical.md)
