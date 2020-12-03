@@ -2,6 +2,8 @@
 
 You will connect to the remote server using the **ssh tool**. In order to use this tool, you will first ned to generate a pair of ssh keys, consisting of a *public* key and a *private* key!
 
+******
+
 ### MacOS / Linux
 
 If you are using macOS or Linux, you have a native terminal environment, with all required commands, like `ssh`.
@@ -33,6 +35,8 @@ Once this is done, we will copy your public key to the server, and inform you on
 2. Type `yes` if a question appears. 
 3. You should now be connected to the server: check if you see something like `user1@powerfulrutherford` in the command line. If so, you are connected to the Virtual machine `powerfulRutherford`!
 4. *Good to go!*
+
+******
 
 ### Windows
 
