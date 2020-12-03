@@ -1,4 +1,4 @@
-## Program
+## Schedule
 
 ### Day 1 - Monday, 14.12
 
