@@ -16,7 +16,6 @@
       <header>
         <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
         
-        {:toc}
 
         {% if site.logo %}
           <img src="{{site.logo | relative_url}}" alt="Logo" />
@@ -41,7 +40,8 @@
       <section>
 
       {{ content }}
-
+      {% include toc.html html=content %}
+      
       </section>
       <footer>
         
