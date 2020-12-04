@@ -78,17 +78,16 @@ We will then copy your public key onto your account on the server, and inform yo
 
 1. Open again a Git Bash window (Go to the list of programs)
 
-2. Type `cd` (then RETURN)
-
-3. Type the following command:
+2. Type the following command:
 
 ```bash
+cd
 ssh -i .ssh/id_rsa user1@134.176.27.78 -p 30127
-````
+```
 *(WARNING: replace `user1` with the user name in the column **Account** in the Google Sheet of the row you selected!!)*
 
-4. Type `yes` if a question appears.
+3. Type `yes` if a question appears.
 
-5. You should now be connected to the server: check if you see something like `user1@powerfulrutherford` in the command line. If so, you are connected to the Virtual machine `powerfulRutherford`!
+4. You should now be connected to the server: check if you see something like `user1@powerfulrutherford` in the command line. If so, you are connected to the Virtual machine `powerfulRutherford`!
 
-6. *Good to go!*
+5. *Good to go!*
