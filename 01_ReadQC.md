@@ -73,7 +73,7 @@ Based on these parameters one could estimate the sequncing quality and identify 
 
 ## FastQC
 
-Let try running FastQC on some of our `fastq` files.
+Let try running FastQC on some of our `fastq` files. Try performing this analysis on different `fastq` files of your choice.
 
 ```
 # Go to your home directory
@@ -99,14 +99,13 @@ fastqdata/ChIPseq/H3K4me3/H3K4me3_Rep1_ENCFF001FIS.fastq.gz
 
 # Find your results here
 cd myanalysis/FastQC
-
 ```
 
 ## Analyzing the output
 
 Now you can use Cyberduck to open the genrated html files -
 
-- Can you identify the Phred encoding
-- How does the base quality look like
-- Are there any adapter contaminations
+- Can you identify the Phred encoding ?
+- How does the base quality look like ?
+- Are there any adapter contaminations ?
 - Can you find any issues with the `fastq` files refer to [individual module description](#quality-control)
