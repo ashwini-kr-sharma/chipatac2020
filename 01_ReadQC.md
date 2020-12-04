@@ -109,4 +109,4 @@ Now you can use Cyberduck to open the genrated html files -
 - Can you identify the Phred encoding
 - How does the base quality look like
 - Are there any adapter contaminations
-- Can you find any issues with the `fastq` files refer to [individual module description](quality-control)
+- Can you find any issues with the `fastq` files refer to [individual module description](#quality-control)
