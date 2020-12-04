@@ -2,6 +2,8 @@
 
 Welcome to the page of the workshop on the computational analysis of ChIP-seq and ATAC-seq analysis! This workshop is meant for people with little previous knowledge of bioinformatics.
 
+* TOC {:toc}
+
 ******
 ## Tutors
 
