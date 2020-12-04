@@ -1,4 +1,4 @@
-# ChIP-seq and ATAC-seq Bioinformatics Analaysis Workshop
+# ChIP-seq and ATAC-seq Bioinformatics Analysis Workshop
 
 Welcome to the page of the workshop on the computational analysis of ChIP-seq and ATAC-seq analysis! This workshop is meant for people with little previous knowledge of bioinformatics.
 
@@ -14,6 +14,7 @@ Welcome to the page of the workshop on the computational analysis of ChIP-seq an
 ## Schedule
 
 The course will run over 2 days (Monday, 14.12 and Tuesday, 15.12) from 9am - 12.30am and 1.30pm - 5.30pm.
+
 Check the detailled schedule [here](./schedule.md)
 
 *********
@@ -26,7 +27,9 @@ The course will be online only!
 **********
 ## Technical pre-requisites
 
-All the computation will be done on the cloud of the [German Bioinformatics Network de.NBI](https://www.denbi.de/). All you need is a personal laptop to access the cloud server. Check the technical pre-requisites, depending on whether your operating system is Windows, MacOS or Linux
+All the computation will be done on the cloud of the [German Bioinformatics Network de.NBI](https://www.denbi.de/). All you need is a personal laptop to access the cloud server. 
+
+Check the technical pre-requisites, depending on whether your operating system is Windows, MacOS or Linux
 
 1. Generating ssh-keys and connecting to the server: instructions for all operating systems are [here](./ssh.md)
 2. Installing Cyberduck to access remote files: instructions are [here](./cyberduck.md)
