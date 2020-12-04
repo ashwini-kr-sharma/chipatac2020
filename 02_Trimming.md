@@ -47,4 +47,4 @@ Now you can run the trimming for all **CTCF** and **ATACseq** `fastq` files. Kee
 
 to change the **Trim Galore!** parameters accordingly.
 
-Next we will perform **read alignment** to the reference genome.
+In the next section, we will perform **read alignment** to the reference genome.
