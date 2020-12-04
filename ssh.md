@@ -53,7 +53,10 @@ Once this is done, we will copy your public key to the server, and inform you on
 If you are using Windows, you will need to install an additional software to use ssh; we recommend install the [Git for Windows](https://gitforwindows.org/) tools on your computer. Once it is installed, follow the instructions:
 
 1. Open the program **Git Bash**; a black window should appear
-2. type the following command: `ssh-keygen.exe` (followed by RETURN)
+2. type the following command: 
+
+ > `ssh-keygen.exe`
+
 3. Press RETURN at each question
 4. One this is done, you should have 2 files inside the `.ssh` folder in your home folder
 5. These 2 files might appear to have the same name (`id_rsa`), however, one should have the ending `.pub` (public key), the other has no ending (private key) *(If you do not see the ending `.pub` in the filename. do to `Ansicht` or `View`, then tick `Dateinamenerweiterung` or `File name extension`; now you see the ending in one of the files!)*
