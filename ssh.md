@@ -2,6 +2,8 @@
 
 You will connect to the remote server using the **ssh tool**. In order to use this tool, you will first ned to generate a pair of ssh keys, consisting of a *public* key and a *private* key!
 
+The exact procedure depends on whether you are using macOS/Linux or Windows.
+
 ******
 
 ### MacOS / Linux
@@ -11,10 +13,14 @@ If you are using macOS or Linux, you have a native terminal environment, with al
 First, you need to generate a pair of ssh-keys:
 
 1. open a terminal (the black window)
+
 2. type the following command: `ssh-keygen`
+
 3. press return at all the questions
 
-This will generate a pair of **ssh keys**, composed of a *private key* and a *public key*. If you have pressed return at all questions, this command will have generated new files in the `.ssh` directory in you home folder; inside this directory, you will find 2 files:
+This will generate a pair of **ssh keys**, composed of a *private key* and a *public key*. 
+
+If you have pressed return at all questions, this command will have generated new files in the `.ssh` directory in you home folder; inside this directory, you will find 2 files:
 
 * a file `id_rsa` : this contains your *private key* , and **should not be disclosed** !
 * a file `id_rsa.pub` : this contains your *public key*, which should start with `ssh-rsa ...` followed by a very long string, for example
@@ -32,8 +38,11 @@ This will generate a pair of **ssh keys**, composed of a *private key* and a *pu
 Once this is done, we will copy your public key to the server, and inform you once it is done. Once you get notified by us, you can connect to the server using the following command:
 
 1. Type `ssh -i .ssh/id_rsa user1@134.176.27.78 -p 30127` (RETURN) *(WARNING: replace `user1` with the user name in the column **Account** in the Google Sheet of the row you selected!!)*
+
 2. Type `yes` if a question appears. 
+
 3. You should now be connected to the server: check if you see something like `user1@powerfulrutherford` in the command line. If so, you are connected to the Virtual machine `powerfulRutherford`!
+
 4. *Good to go!*
 
 ******
