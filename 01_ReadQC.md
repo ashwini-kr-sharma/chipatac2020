@@ -112,3 +112,5 @@ Now you can use Cyberduck to open the genrated html files -
 - How does the base quality look like ?
 - Are there any adapter contaminations ?
 - Can you find any issues with the `fastq` files refer to [individual module description](#quality-control)
+
+In the next section, we will perform **adapter trimming/clipping** based on our knowlege of the FastQC results.
