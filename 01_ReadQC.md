@@ -80,7 +80,7 @@ Let try running FastQC on some of our `fastq` files. Try performing this analysi
 cd ~/
 
 # Create a folder for your analysis
-mkdir -p analysis/FastQC
+mkdir -p myanalysis/FastQC
 
 # Docker image for FastQC
 docker pull biocontainers/fastqc:v0.11.9_cv7
@@ -89,6 +89,8 @@ docker pull biocontainers/fastqc:v0.11.9_cv7
 
 # Pseudocode: 
 # fastqc --outdir <name of output directory> <space separated list of fastq files>
+
+##-- NOTE: change /home/sharma/ below to your home directory --##
 
 docker run \
 -v /vol/volume/HCT116/:/data/ \
