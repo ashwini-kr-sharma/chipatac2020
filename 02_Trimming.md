@@ -40,9 +40,9 @@ bschiffthaler/trim-galore:latest \
 
 ```
 
-Now you can run the trimming for all **CTCF** and **ATACseq** `fastq` files. Keep in find to use you knowledge of -
+Now you can run the trimming for all **CTCF** and **ATACseq** `fastq` files. Keep in mind to use your knowledge of -
 
-- Read encoding
+- Read encodings
 - Paired end/ Single end reads
 
 to change the **Trim Galore!** parameters accordingly.
