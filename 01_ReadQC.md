@@ -82,6 +82,7 @@ cd ~/
 # Create a folder for your analysis
 mkdir -p analysis/FastQC
 
+# Docker image for FastQC
 docker pull biocontainers/fastqc:v0.11.9_cv7
 
 # FastQC analysis for two fastq files
