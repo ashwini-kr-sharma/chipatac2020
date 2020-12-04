@@ -16,7 +16,9 @@ First, you need to generate a pair of ssh-keys:
 
 2. type the following command: 
 
-   > `ssh-keygen`
+```bash
+ssh-keygen
+```
 
 3. press return at all the questions
 
@@ -57,7 +59,9 @@ If you are using Windows, you will need to install an additional software to use
 1. Open the program **Git Bash**; a black window should appear
 2. type the following command: 
 
- > `ssh-keygen.exe`
+```bash
+ ssh-keygen.exe
+ ```
 
 3. Press RETURN at each question
 
@@ -77,7 +81,11 @@ We will then copy your public key onto your account on the server, and inform yo
 2. Type `cd` (then RETURN)
 
 3. Type the following command:
-`ssh -i .ssh/id_rsa user1@134.176.27.78 -p 30127` (RETURN) *(WARNING: replace `user1` with the user name in the column **Account** in the Google Sheet of the row you selected!!)*
+
+```bash
+ssh -i .ssh/id_rsa user1@134.176.27.78 -p 30127
+````
+*(WARNING: replace `user1` with the user name in the column **Account** in the Google Sheet of the row you selected!!)*
 
 4. Type `yes` if a question appears.
 
