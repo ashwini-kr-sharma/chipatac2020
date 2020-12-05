@@ -35,14 +35,20 @@ bowtie2 \
 <bowtie2.log> \
 | samtools view -h -b - > <aligned.bam>
 
-# Read filtering and sorting with samtools
+# Read filtering
 
-samtools view -h -b -F 1796 -q 30 -@ 10 <aligned.bam> ## For Paired end add SAM Flags -F 1804 -f 2
-| samtools sort -n -O BAM -@ 10 - > \
+samtools view -h -b -F 1796 -q 30 -@ 10 -o <aligned_filtered.bam> <aligned.bam> ## For Paired end add SAM Flags -F 1804 -f 2
+
+# Sorting, Fixmate and Duplicate removal
+
+# NOTE: fixmate needs bam files sorted by read name but
+# the downstream processes need co-ordinate sorted bam files, hence the two sorting steps
+# Fixmate is needed to add mate tags (-m), which is used for proper duplicate identification by markdup
+
+samtools sort -n -O BAM -@ 10 <aligned_filtered.bam>  \
 | samtools fixmate -m -@ 10 - - \
 | samtools sort -O BAM -@ 10 - > \
-| samtools markdup -r -S -@ 10 - \
-<aligned_filtered_sorted.bam>
+| samtools markdup -r -S -@ 10 - <aligned_filtered_sorted_duprmv.bam>
 
 # Indexing
 
@@ -80,8 +86,11 @@ docker pull biocontainers/samtools:v1.9-4-deb_cv1
 
 docker run \
 -v /vol/volume/HCT116/:/data/ \
--v /home/sharma/myanalysis/:/data/results \
-biocontainers/fastqc:v0.11.9_cv7 \
-samtools flagstat /data/analysis/xxx.bam /data/results/AlignmentStats/xxx.log
+biocontainers/samtools:v1.9-4-deb_cv1 \
+samtools flagstat analysis/ChIPseq/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_bowtie2_sorted_nofilt.bam > /home/sharma/myanalysis/AlignmentStats/CTCF_Rep1_ENCFF001HLV_trimmed_bowtie2_sorted_nofilt.log
 
 ```
+
+Can you modify the code above to run flagstas also on the corresponding **filtered and duplicate** removed `.bam` and compare the numbers from the two files. What do you learn ?
+
+
