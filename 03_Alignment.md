@@ -7,7 +7,9 @@ Due to the long computation time and memory constraints, we have precomputed for
 ## Pseudocode for alignment
 
 ```
+#------------------------------------------
 # Read alignment with Bowtie2 - Single end
+#------------------------------------------
 
 bowtie2 \
 --phred33 \
@@ -20,7 +22,11 @@ bowtie2 \
 <bowtie2.log> \
 | samtools view -h -b - > <aligned.bam>
 
+## OR
+
+#------------------------------------------
 # Read alignment with Bowtie2 - Paired end
+#------------------------------------------
 
 bowtie2 \
 --phred33 \
@@ -35,24 +41,47 @@ bowtie2 \
 <bowtie2.log> \
 | samtools view -h -b - > <aligned.bam>
 
-# Read filtering
+#--------------------------------------------
 
-samtools view -h -b -F 1796 -q 30 -@ 10 -o <aligned_filtered.bam> <aligned.bam> ## For Paired end add SAM Flags -F 1804 -f 2
+#----------------------------
+# Low quality read filtering
+#----------------------------
 
+# For Single end
+samtools view -h -b -F 1796 -q 30 -@ 10 -o <aligned_filtered.bam> <aligned.bam> 
+
+##OR
+
+# For paired end
+samtools view -h -b -F 1804 -f 2 -q 30 -@ 10 -o <aligned_filtered.bam> <aligned.bam> 
+
+#------------------------------------------------------------
+# NOTE:[Only for ATACseq] - Filtering Mitochondrial reads 
+# NOTE: With the new ATACseq protocol - OMNI-ATAC, 
+# mitochondrial contamination should no longer be a problem
+#------------------------------------------------------------
+
+samtools view -h -@ 15 <aligned_filtered.bam> | grep -v "chrM" | samtools view -h -b -@ 15 - > <aligned_filt_noMT.bam>
+
+#---------------------------------------
 # Sorting, Fixmate and Duplicate removal
+#---------------------------------------
 
 # NOTE: fixmate needs bam files sorted by read name but
 # the downstream processes need co-ordinate sorted bam files, hence the two sorting steps
 # Fixmate is needed to add mate tags (-m), which is used for proper duplicate identification by markdup
 
-samtools sort -n -O BAM -@ 10 <aligned_filtered.bam>  \
+samtools sort -n -O BAM -@ 10 <aligned_filtered.bam or aligned_filt_noMT.bam>  \
 | samtools fixmate -m -@ 10 - - \
 | samtools sort -O BAM -@ 10 - > \
 | samtools markdup -r -S -@ 10 - <aligned_filtered_sorted_duprmv.bam>
 
+#----------
 # Indexing
+#----------
 
 samtools index <aligned_filtered_sorted.bam> <aligned_filtered_sorted.bam.bai>
+
 ```
 
 A detailed explaination of the parameters used for alignment can be found [here](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#using-samtoolsbcftools-downstream), it is important to notice the difference for paired end and single end sequencing.
@@ -87,7 +116,7 @@ docker pull biocontainers/samtools:v1.9-4-deb_cv1
 docker run \
 -v /vol/volume/HCT116/:/data/ \
 biocontainers/samtools:v1.9-4-deb_cv1 \
-samtools flagstat analysis/ChIPseq/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_bowtie2_sorted_nofilt.bam > /home/sharma/myanalysis/AlignmentStats/CTCF_Rep1_ENCFF001HLV_trimmed_bowtie2_sorted_nofilt.log
+samtools flagstat analysis/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_bowtie2_sorted_nofilt.bam > /home/sharma/myanalysis/AlignmentStats/CTCF_Rep1_ENCFF001HLV_trimmed_bowtie2_sorted_nofilt.log
 
 ```
 
