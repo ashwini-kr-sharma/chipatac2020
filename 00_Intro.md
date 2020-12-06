@@ -1,6 +1,6 @@
 # Data background
 
-In this workshop, we will analyse different genomic data generated from wild-type [HCT116](https://www.lgcstandards-atcc.org/products/all/CCL-247.aspx?geo_country=de#generalinformation) colon cancer cell-lines. These data will comprise of genome-wide chromatin accessibility measurements using ATACseq, histone modification of H3K4me3 and H3K4me1 marks and CTCF transcription factor binding using ChIPseq.
+In this workshop, we will analyse different genomic data generated from wild-type [HCT116](https://www.lgcstandards-atcc.org/products/all/CCL-247.aspx?geo_country=de#generalinformation) colon cancer cell-lines. These data will comprise of genome-wide chromatin accessibility measurements using **ATACseq**, histone modification of **H3K4me3** and **H3K4me1** marks and **CTCF** transcription factor binding using ChIPseq.
 
 H3K4me3 is known to mark active promoters around their TSS, H3K4me1 are known to mark enhancer regions and the transcription factor CTCF is known to mediate enhancer-promoter interactions. Also, genomic regions of activity (active promoter or enhancers) are expected to have an open chromatin landscape to allow the binding of regulatory factors. Thus, integration of ATACseq data and ChIPseq data (H3K4me3, H3K4me1 and CTCF) from the same cell-line will give us an understanding of its regulatory landscape.
 
@@ -23,7 +23,7 @@ Raw data will be downloaded and re-processed from [**ENCODE**](https://www.encod
 | HCT116 | ChIPseq    | ChIPseq control - CTCF         | 1         | [ENCFF001HME](https://www.encodeproject.org/experiments/ENCSR000DTP/) |
 
 # Download data
-> NOTE: You dont need to download any data, all of the data has been pre-downloaded and saved in `/vol/volume/HCT116`. You will directly access these data during the practical training session.
+> NOTE: You don't need to download any data, all of the data has been pre-downloaded and saved in `/vol/volume/HCT116/fastqdata`. You will directly access these data during the practical training session.
 
 ## ATACseq
 We will download the fastq files (2 isogenic replicates) containing sequence reads (paired end) from an ATACseq experiment done on the HCT116 cell-line from the ENCODE database.
