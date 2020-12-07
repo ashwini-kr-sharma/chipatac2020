@@ -16,8 +16,8 @@ docker run \
 -v /vol/volume/HCT116/:/data/ \
 -v /home/sharma/myanalysis/:/data/results \
 fooliu/macs2:latest callpeak \
---treatment /data/analysis/ChIPseq/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_bowtie2_sorted_filt_nodup.bam \
---control /data/analysis/ChIPseq/CTCF/Bowtie2/CTCF_Control_ENCFF001HME_trimmed_bowtie2_sorted_filt_nodup.bam \
+--treatment /data/analysis/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_bowtie2_sorted_filt_nodup.bam \
+--control /data/analysis/CTCF/Bowtie2/CTCF_Control_ENCFF001HME_trimmed_bowtie2_sorted_filt_nodup.bam \
 --name CTCF \
 --format BAM \
 --keep-dup all \
@@ -34,8 +34,8 @@ docker run \
 -v /vol/volume/HCT116/:/data/ \
 -v /home/sharma/myanalysis/:/data/results \
 fooliu/macs2:latest callpeak \
---treatment /data/analysis/ChIPseq/H3K4me1/Bowtie2/H3K4me1_Rep1_ENCFF000VCI_aligned_filt_sort_nodup.bam \
---control /data/analysis/ChIPseq/H3K4me1/Bowtie2/H3K4me1_Control_ENCFF000VCW_aligned_filt_sort_nodup.bam \
+--treatment /data/analysis/H3K4me1/Bowtie2/H3K4me1_Rep1_ENCFF000VCI_aligned_filt_sort_nodup.bam \
+--control /data/analysis/H3K4me1/Bowtie2/H3K4me1_Control_ENCFF000VCW_aligned_filt_sort_nodup.bam \
 --name CTCF \
 --format BAM \
 --keep-dup all \
@@ -55,7 +55,7 @@ docker run \
 -v /vol/volume/HCT116/:/data/ \
 -v /home/sharma/myanalysis/:/data/results \
 fooliu/macs2:latest callpeak \
---treatment ATAC_Rep1__aligned_filt_sort_nodup.bam \
+--treatment /data/analysis/ATAC/ATAC_REP1_aligned_filt_sort_nodup.bam \
 --name ATAC-Rep1 \
 --format BAMPE \
 --nomodel \
