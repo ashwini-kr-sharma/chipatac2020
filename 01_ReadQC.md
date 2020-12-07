@@ -13,7 +13,7 @@ aaB^aaaaQaa^\Wcd^^dSddYcbYIV_BBBBBBB
 
 ```
 
-- Line 1 begining with a `@` character represents a sequence identifier. In this identifier, each value separated by a `:` represents an information about the read. Depending on the sequencing platform, this may vary. You can find more detailed information [here](https://en.wikipedia.org/wiki/FASTQ_format)
+- Line 1 begining with a `@` character represents a sequence identifier. In this identifier, each value separated by a `:` represents an information about the read. Depending on the sequencing platform, this may vary. You can find more detailed information [here](https://en.wikipedia.org/wiki/FASTQ_format).
 - Line 2 consists of the actual sequence reads. 
 - Line 3 begining with a `+` character can have the same information as Line 1, be empty or some additional description of the reads.
 - Line 4 encodes the quality values for the nucleotides in Line 2. It, thus will have same number of letter as Line 2.
