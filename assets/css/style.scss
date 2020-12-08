@@ -109,7 +109,7 @@ img {
 }
 
 header {
-  width:220px;
+  width:270px;
   float:left;
   position:fixed;
   -webkit-font-smoothing:subpixel-antialiased;
@@ -119,6 +119,7 @@ header {
 .downloads li {
   width:89px;
   float:left;
+  border-right:1px solid #e0e0e0;
   height:40px;
 }
 
@@ -166,7 +167,7 @@ strong {
 }
 
 section {
-  width:600px;
+  width:500px;
   float:right;
   padding-bottom:50px;
 }
@@ -204,10 +205,11 @@ footer {
   }
 
   header {
-    padding-right:220px;
+    padding-right:320px;
   }
 
   section {
+    border:1px solid #e5e5e5;
     border-width:1px 0;
     padding:20px 0;
     margin:0 0 20px;
