@@ -20,6 +20,7 @@ Welcome to the page of the workshop on the computational analysis of ChIP-seq an
 4. [Read alignment](./03_Alignment.md)
 5. [Peak calling](./04_PeakCalling.md)
 6. [Peak annotation](./05_PeakAnnotation.md)
+7. [ChIP-seq quality control](./07_QC.md)
 
 ### Day 2: ATAC-seq
 
