@@ -69,7 +69,7 @@ We will use the [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fast
 - [Overrepresented sequences](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/9%20Overrepresented%20Sequences.html)
 - [Adapter Content](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/10%20Adapter%20Content.html)
 
-Based on these parameters one could estimate the sequncing quality and identify major problems right at the begining of a project.
+Based on these parameters one could estimate the sequencing quality and identify major problems right at the begining of a project.
 
 ## FastQC
 
@@ -77,28 +77,21 @@ Let try running FastQC on some of our `fastq` files. Try performing this analysi
 
 ```
 # Go to your home directory
-cd ~/
+cd 
 
 # Create a folder for your analysis
 mkdir -p myanalysis/FastQC
 
-# Docker image for FastQC
-docker pull biocontainers/fastqc:v0.11.9_cv7
 
 # FastQC analysis for two fastq files
 
 # Pseudocode: 
 # fastqc --outdir <name of output directory> <space separated list of fastq files>
 
-##-- NOTE: change /home/sharma/ below to your home directory --##
 
-docker run \
--v /vol/volume/HCT116/:/data/ \
--v /home/sharma/myanalysis/:/data/results \
-biocontainers/fastqc:v0.11.9_cv7 \
-fastqc --outdir /data/results/FastQC \
-fastqdata/ChIPseq/H3K4me3/H3K4me3_Control_ENCFF001HME.fastq.gz \
-fastqdata/ChIPseq/H3K4me3/H3K4me3_Rep1_ENCFF001FIS.fastq.gz 
+fastqc --outdir myanalysis/FastQC \
+/vol/volume/HCT116/ChIPseq/H3K4me3/H3K4me3_Control_ENCFF001HME.fastq.gz \
+vol/volume/HCT116/ChIPseq/H3K4me3/H3K4me3_Rep1_ENCFF001FIS.fastq.gz 
 
 # Find your results here
 cd myanalysis/FastQC
@@ -106,7 +99,7 @@ cd myanalysis/FastQC
 
 ## Analyzing the output
 
-Now you can use Cyberduck to open the genrated html files -
+Now you can use Cyberduck to open the generated html files -
 
 - Can you identify the Phred encoding ?
 - How does the base quality look like ?

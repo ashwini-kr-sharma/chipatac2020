@@ -10,13 +10,11 @@ Lets try Trimming only on those `fastq` files that showed significant adaptor co
 
 ```
 # Go to your home directory
-cd ~/
+cd 
 
 # Create a folder for your analysis
 mkdir -p myanalysis/Trimming
 
-# Docker image for Trim Galore!
-docker pull bschiffthaler/trim-galore:latest
 
 # Run TrimGalore!
 
@@ -28,15 +26,7 @@ docker pull bschiffthaler/trim-galore:latest
 
 ##-- NOTE: change /home/sharma/ below to your home directory --##
 
-docker run \
--v /vol/volume/HCT116/:/home/ \
--v /home/sharma/myanalysis/:/home/results \
-bschiffthaler/trim-galore:latest \
---phred64 \
---fastqc \
---cores 8 \
---output_dir /home/results/Trimming \
-/home/fastqdata/ChIPseq/ChIPseq/CTCF/CTCF_Rep2_ENCFF001HLW.fastq.gz
+trim-galore --phred64 --fastqc --cores 8 --output_dir myanalysis/Trimming /vol/volume/HCT116/ChIPseq/ChIPseq/CTCF/CTCF_Rep2_ENCFF001HLW.fastq.gz
 
 ```
 

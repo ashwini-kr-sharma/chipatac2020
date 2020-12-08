@@ -33,3 +33,4 @@ Check the technical pre-requisites, depending on whether your operating system i
 
 1. Generating ssh-keys and connecting to the server: instructions for all operating systems are [here](./ssh.md)
 2. Installing Cyberduck to access remote files: instructions are [here](./cyberduck.md)
+3. Installing RStudio: instructions are [here](./rstudio.md)

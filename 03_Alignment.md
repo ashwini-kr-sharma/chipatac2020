@@ -1,6 +1,6 @@
 # Read alignment
 
-Aligning the sequenced reads to the refrence genome is the most crucial task of any NGS analysis. Fast aligners like [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#using-samtoolsbcftools-downstream) and [BWA-MEM](https://github.com/bwa-mem2/bwa-mem2) are widely used for aligning, among others, ChIPSeq and ATACseq data. We will exemplarily show how to align reads using **Bowtie2**
+Aligning the sequenced reads to the reference genome is the most crucial task of any NGS analysis. Fast aligners like [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#using-samtoolsbcftools-downstream) and [BWA-MEM](https://github.com/bwa-mem2/bwa-mem2) are widely used for aligning, among others, ChIPSeq and ATACseq data. We will exemplarily show how to align reads using **Bowtie2**
 
 Due to the long computation time and memory constraints, we have precomputed for you all the alignments using **Bowtie2**. You find these data in `/vol/volume/HCT116/analysis/<...>/Bowtie2`
 
@@ -42,13 +42,24 @@ bowtie2 \
 | samtools view -h -b - > <aligned.bam>
 
 #--------------------------------------------
+```
 
+## Pseudocode for filtering
+
+After the alignment, some read have a low mapping quality (possibly with many mismatches); this mapping quality is indicated by the [**MAPQ score**](https://genome.sph.umich.edu/wiki/Mapping_Quality_Scores). This score takes into account the number of mismatches, but also the quality of the sequenced bases, as indicated by the Phred score.
+
+Here, we will:
+
+1. filter out unmapped reads
+2. remove reads which are aligned, but with an alignment quality below MAPQ=30
+
+```
 #----------------------------
 # Low quality read filtering
 #----------------------------
 
 # For Single end
-samtools view -h -b -F 1796 -q 30 -@ 10 -o <aligned_filtered.bam> <aligned.bam> 
+samtools view -h -b -F 4 -q 30 -@ 10 -o <aligned_filtered.bam> <aligned.bam> 
 
 ##OR
 
@@ -62,7 +73,14 @@ samtools view -h -b -F 1804 -f 2 -q 30 -@ 10 -o <aligned_filtered.bam> <aligned.
 #------------------------------------------------------------
 
 samtools view -h -@ 15 <aligned_filtered.bam> | grep -v "chrM" | samtools view -h -b -@ 15 - > <aligned_filt_noMT.bam>
+```
 
+## Pseudocode for duplicate removal
+
+A typical problem in libraries sequenced using a PCR amplification is the presence of PCA duplicates among the reads. 
+These should be filtered out, as they do not bring any additional insights. Usually, these duplicates can be identifiied when many reads have the exact same coordinates. We will delete these duplicates from the bam file using the `samtools markdup` tool.
+
+```
 #---------------------------------------
 # Sorting, Fixmate and Duplicate removal
 #---------------------------------------
@@ -75,7 +93,13 @@ samtools sort -n -O BAM -@ 10 <aligned_filtered.bam or aligned_filt_noMT.bam>  \
 | samtools fixmate -m -@ 10 - - \
 | samtools sort -O BAM -@ 10 - > \
 | samtools markdup -r -S -@ 10 - <aligned_filtered_sorted_duprmv.bam>
+```
 
+## Pseudocode for duplicate removal
+
+Finally, now that we have generated a new bam file by filtering out reads, we need to re-index the bam file. Indexing helps in quickly accessing the reads.
+
+```
 #----------
 # Indexing
 #----------
@@ -97,13 +121,10 @@ After alignment, we also filter out poor quality, unmapped and duplicate reads u
 
 ```
 # Go to your home directory
-cd ~/
+cd 
 
 # Create a folder for your analysis
 mkdir -p myanalysis/AlignmentStats
-
-# Docker image for SAMtools
-docker pull biocontainers/samtools:v1.9-4-deb_cv1
 
 # Flagstat analysis
 
@@ -111,12 +132,8 @@ docker pull biocontainers/samtools:v1.9-4-deb_cv1
 # samtools flagstat <aligned.bam> > <aligned.bam.log>
 # samtools flagstat <aligned_filtered_sorted.bam> > <aligned_filtered_sorted.bam.log> 
 
-##-- NOTE: change /home/sharma/ below to your home directory --##
 
-docker run \
--v /vol/volume/HCT116/:/data/ \
-biocontainers/samtools:v1.9-4-deb_cv1 \
-samtools flagstat analysis/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_bowtie2_sorted_nofilt.bam > /home/sharma/myanalysis/AlignmentStats/CTCF_Rep1_ENCFF001HLV_trimmed_bowtie2_sorted_nofilt.log
+samtools flagstat /vol/volume/HCT116/analysis/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_bowtie2_sorted_nofilt.bam > myanalysis/AlignmentStats/CTCF_Rep1_ENCFF001HLV_trimmed_bowtie2_sorted_nofilt.log
 
 ```
 
