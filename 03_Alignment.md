@@ -126,6 +126,8 @@ cd
 # Create a folder for your analysis
 mkdir -p myanalysis/AlignmentStats
 
+
+
 # Flagstat analysis
 
 # Pseudocode: 

@@ -20,7 +20,7 @@ R
 
 This will open an R session, which you can recognize seing the `>` prompt at the left.
 
-We will load the required packages:
+We will load the required packages *(!!!Warning: make sure to copy the command WITHOUT the `>` sign!!!)*:
 
 ```
 > library(ChIPseeker)
@@ -121,3 +121,8 @@ Finally, we can use the genes which have been associated to the peaks to compute
 ```
 
 Again, you can check the plot, and see which pathways seem to be enriched among the genes which have a proximal CTCF peak.
+
+
+## Questions
+
+> Try to redo the full peak annotation using the H3K4me3 peaks!

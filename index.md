@@ -11,6 +11,17 @@ Welcome to the page of the workshop on the computational analysis of ChIP-seq an
 
 
 ********
+## Practical parts
+
+1. [Introduction](./00_Intro.md)
+2. [Quality control on reads](./01_ReadQC.md)
+3. [Read trimming](./02_Trimming.md)
+4. [Read alignment](./03_Alignment.md)
+5. [Peak calling](./04_PeakCalling.md)
+6. [Peak annotation](./05_PeakAnnotation.md)
+
+
+********
 ## Schedule
 
 The course will run over 2 days (Monday, 14.12 and Tuesday, 15.12) from 9am - 12.30am and 1.30pm - 5.30pm.

@@ -19,26 +19,24 @@ macs2 callpeak \
 --keep-dup all \
 --gsize 2.7e9 \
 --qvalue 0.01 \
---bdg \
 --outdir myanalysis/MACS2/CTCF
 ```
 
-## Broad H3K4me1 peak
+## Broad H3K4me3 peak
 
 ```
 
-fmacs2 callpeak \
---treatment /vol/volume/HCT116/analysis/H3K4me1/Bowtie2/H3K4me1_Rep1_ENCFF000VCI_aligned_filt_sort_nodup.bam \
---control /vol/volume/HCT116/analysis/H3K4me1/Bowtie2/H3K4me1_Control_ENCFF000VCW_aligned_filt_sort_nodup.bam \
---name CTCF \
+macs2 callpeak \
+--treatment /vol/volume/HCT116/analysis/H3K4me3/Bowtie2/H3K4me3_Rep1_ENCFF000VCI_aligned_filt_sort_nodup.bam \
+--control /vol/volume/HCT116/analysis/H3K4me3/Bowtie2/H3K4me3_Control_ENCFF000VCW_aligned_filt_sort_nodup.bam \
+--name H3K4me3 \
 --format BAM \
 --keep-dup all \
 --gsize 2.7e9 \
 --broad \
 --qvalue 0.05 \
 --broad-cutoff 0.05 \
---bdg \
---outdir myanalysis/MACS2/H3K4me1
+--outdir myanalysis/MACS2/H3K4me3
 
 ```
 
@@ -61,7 +59,6 @@ macs2 callpeak \
 --keep-dup all \
 --gsize 2.7e9 \
 --qvalue 0.05 \
---bdg \
 --outdir myanalysis/MACS2/ATAC
 
 ```
