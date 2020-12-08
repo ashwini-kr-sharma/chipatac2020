@@ -1,4 +1,4 @@
-# Raw read quality control - FastQC
+# 2. Raw read quality control - FastQC
 
 ## `fastq` file format
 Raw sequencing reads are stored in text files containg the sequence of nucleotides and its associated quality scores. These are called `fastq` text files and are usually in compressed formats like `XYZ.fastq.gz`. Each read is described by **4 lines**, lets look at the first four lines of an example `fastq` file -

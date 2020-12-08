@@ -1,4 +1,5 @@
-# Data background
+# 1. Introduction
+## Data background
 
 In this workshop, we will analyse different genomic data generated from wild-type [HCT116](https://www.lgcstandards-atcc.org/products/all/CCL-247.aspx?geo_country=de#generalinformation) colon cancer cell-lines. These data will comprise of genome-wide chromatin accessibility measurements using **ATACseq**, histone modification of **H3K4me3** and **H3K4me1** marks and **CTCF** transcription factor binding using ChIPseq.
 
@@ -22,10 +23,10 @@ Raw data will be downloaded and re-processed from [**ENCODE**](https://www.encod
 | HCT116 | ChIPseq    | Transcription factor - CTCF    | 2         | [ENCFF001HLW](https://www.encodeproject.org/experiments/ENCSR000DTO/) |
 | HCT116 | ChIPseq    | ChIPseq control - CTCF         | 1         | [ENCFF001HME](https://www.encodeproject.org/experiments/ENCSR000DTP/) |
 
-# Download data
+## Download data
 > NOTE: You don't need to download any data, all of the data has been pre-downloaded and saved in `/vol/volume/HCT116/fastqdata`. You will directly access these data during the practical training session.
 
-## ATACseq
+### ATACseq
 We will download the fastq files (2 isogenic replicates) containing sequence reads (paired end) from an ATACseq experiment done on the HCT116 cell-line from the ENCODE database.
 
 ```bash
@@ -38,7 +39,7 @@ wget https://www.encodeproject.org/files/ENCFF624DNH/@@download/ENCFF624DNH.fast
 wget https://www.encodeproject.org/files/ENCFF157PAR/@@download/ENCFF157PAR.fastq.gz \
 -O ATAC_Rep2_ENCFF157PAR.fastq_R2.gz
 ```
-## ChIPseq - H3K4me3
+### ChIPseq - H3K4me3
 We will download the fastq files (2 isogenic replicates and 1 control) containing sequence reads (single end) from a H3K4me3 ChIPseq experiment done on the HCT116 cell-line from the ENCODE database.
 
 ```bash
@@ -49,7 +50,7 @@ wget https://www.encodeproject.org/files/ENCFF001FIZ/@@download/ENCFF001FIZ.fast
 wget https://www.encodeproject.org/files/ENCFF001HME/@@download/ENCFF001HME.fastq.gz \
 -O H3K4me3_Control_ENCFF001HME.fastq.gz
 ```
-## ChIPseq - H3K4me1
+### ChIPseq - H3K4me1
 We will download the fastq files (2 isogenic replicates and 1 control) containing sequence reads (single end) from a H3K4me1 ChIPseq experiment done on the HCT116 cell-line from the ENCODE database.
 
 ```bash
@@ -60,7 +61,7 @@ wget https://www.encodeproject.org/files/ENCFF000VCK/@@download/ENCFF000VCK.fast
 wget https://www.encodeproject.org/files/ENCFF000VCW/@@download/ENCFF000VCW.fastq.gz \
 -O H3K4me1_Control_ENCFF000VCW.fastq.gz
 ```
-## ChIPseq - CTCF
+### ChIPseq - CTCF
 We will download the fastq files (2 isogenic replicates and 1 control) containing sequence reads (single end) from a CTCF ChIPseq experiment done on the HCT116 cell-line from the ENCODE database.
 
 ```bash
@@ -71,12 +72,12 @@ wget https://www.encodeproject.org/files/ENCFF001HLW/@@download/ENCFF001HLW.fast
 wget https://www.encodeproject.org/files/ENCFF001HME/@@download/ENCFF001HME.fastq.gz \
 -O CTCF_Control_ENCFF001HME.fastq.gz
 ```
-## hg38 genome index
+### hg38 genome index
 We will also download the precomputed hg38 genome index reference for allignment from iGenomes
 
 ```bash
 wget http://igenomes.illumina.com.s3-website-us-east-1.amazonaws.com/Homo_sapiens/NCBI/GRCh38/Homo_sapiens_NCBI_GRCh38.tar.gz
 ```
 
-# Public datasets
+## Public datasets
 Often one has to use publicly available datasets. These datasets are widely available through [Gene Expression Omnibus - GEO](https://www.ncbi.nlm.nih.gov/geo/) and [Array Express](https://www.ebi.ac.uk/arrayexpress/). Raw data `fastq` from human samples are usually deposited in [The database of Genotypes and Phenotypes - dbGAP](https://www.ncbi.nlm.nih.gov/gap/) and [European Genome-phenome Archive - EGA](https://www.ebi.ac.uk/ega/home) and are available under protected access. These data are usually in `SRA` format and an array of tools called [sra-tools](https://github.com/ncbi/sra-tools) are available to manipulate these formats prior to regular analysis. We will not talk about these files formats in this workshop, but we want to make the participants aware that most of the publically available raw ChIPseq and ATACseq data are in `SRA` format which needs to be converted to `fastq` format using `SRA-tools`.
