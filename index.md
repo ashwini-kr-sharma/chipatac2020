@@ -21,6 +21,7 @@ Welcome to the page of the workshop on the computational analysis of ChIP-seq an
 5. [Peak calling](./04_PeakCalling.md)
 6. [Peak annotation](./05_PeakAnnotation.md)
 7. [ChIP-seq quality control](./07_QC.md)
+8. [Generating signal tracks and using IGV](./08_bigwig.md)
 
 ### Day 2: ATAC-seq
 
