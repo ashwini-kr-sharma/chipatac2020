@@ -66,5 +66,6 @@ Procedure
 
 ### Question
 
-> do the called peaks correspond to regions of higher signal in the bigwig tracks?
-> choose two peaks in the bigwig file which seem to have different height; click on the corresponding peak in the narrowPeak track (blue rectangle) to see the P-values and Q-values; do you see a difference?
+> Do the called peaks correspond to regions of higher signal in the bigwig tracks?
+
+> Choose two peaks in the bigwig file which seem to have different height; click on the corresponding peak in the narrowPeak track (blue rectangle) to see the P-values and Q-values; do you see a difference?
