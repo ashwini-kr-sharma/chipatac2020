@@ -13,15 +13,6 @@ Raw data will be downloaded and re-processed from [**ENCODE**](https://www.encod
 | HCT116 | ATACseq    | Chromatin accessibility - R2   | 1         | [ENCFF795EHY](https://www.encodeproject.org/experiments/ENCSR872WGW/) |
 | HCT116 | ATACseq    | Chromatin accessibility - R1   | 2         | [ENCFF624DNH](https://www.encodeproject.org/experiments/ENCSR872WGW/) |
 | HCT116 | ATACseq    | Chromatin accessibility - R2   | 2         | [ENCFF157PAR](https://www.encodeproject.org/experiments/ENCSR872WGW/) |
-| HCT116 | ChIPseq    | Histone modification - H3K4me3 | 1         | [ENCFF001FIS](https://www.encodeproject.org/experiments/ENCSR000DTQ/) |
-| HCT116 | ChIPseq    | Histone modification - H3K4me3 | 2         | [ENCFF001FIZ](https://www.encodeproject.org/experiments/ENCSR000DTQ/) |
-| HCT116 | ChIPseq    | ChIPseq control - H3K4me3      | 1         | [ENCFF001HME](https://www.encodeproject.org/experiments/ENCSR000DTP/) |
-| HCT116 | ChIPseq    | Histone modification - H3K4me1 | 1         | [ENCFF000VCI](https://www.encodeproject.org/experiments/ENCSR000EUS/) |
-| HCT116 | ChIPseq    | Histone modification - H3K4me1 | 2         | [ENCFF000VCK](https://www.encodeproject.org/experiments/ENCSR000EUS/) |
-| HCT116 | ChIPseq    | ChIPseq control - H3K4me1      | 1         | [ENCFF000VCW](https://www.encodeproject.org/experiments/ENCSR000EUX/) |
-| HCT116 | ChIPseq    | Transcription factor - CTCF    | 1         | [ENCFF001HLV](https://www.encodeproject.org/experiments/ENCSR000DTO/) |
-| HCT116 | ChIPseq    | Transcription factor - CTCF    | 2         | [ENCFF001HLW](https://www.encodeproject.org/experiments/ENCSR000DTO/) |
-| HCT116 | ChIPseq    | ChIPseq control - CTCF         | 1         | [ENCFF001HME](https://www.encodeproject.org/experiments/ENCSR000DTP/) |
 
 ## Download data
 > NOTE: You don't need to download any data, all of the data has been pre-downloaded and saved in `/vol/volume/HCT116/fastqdata`. You will directly access these data during the practical training session.
