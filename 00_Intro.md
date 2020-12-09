@@ -26,19 +26,18 @@ Raw data will be downloaded and re-processed from [**ENCODE**](https://www.encod
 ## Download data
 > NOTE: You don't need to download any data, all of the data has been pre-downloaded and saved in `/vol/volume/HCT116/fastqdata`. You will directly access these data during the practical training session.
 
-### ATACseq
-We will download the fastq files (2 isogenic replicates) containing sequence reads (paired end) from an ATACseq experiment done on the HCT116 cell-line from the ENCODE database.
+### ChIPseq - H3K4me1
+We will download the fastq files (2 isogenic replicates and 1 control) containing sequence reads (single end) from a H3K4me1 ChIPseq experiment done on the HCT116 cell-line from the ENCODE database.
 
 ```bash
-wget https://www.encodeproject.org/files/ENCFF121EPT/@@download/ENCFF121EPT.fastq.gz \
--O ATAC_Rep1_ENCFF121EPT.fastq_R1.gz ;
-wget https://www.encodeproject.org/files/ENCFF795EHY/@@download/ENCFF795EHY.fastq.gz \
--O ATAC_Rep1_ENCFF795EHY.fastq_R2.gz ;
-wget https://www.encodeproject.org/files/ENCFF624DNH/@@download/ENCFF624DNH.fastq.gz \
--O ATAC_Rep2_ENCFF624DNH.fastq_R1.gz ;
-wget https://www.encodeproject.org/files/ENCFF157PAR/@@download/ENCFF157PAR.fastq.gz \
--O ATAC_Rep2_ENCFF157PAR.fastq_R2.gz
+wget https://www.encodeproject.org/files/ENCFF000VCI/@@download/ENCFF000VCI.fastq.gz \
+-O H3K4me1_Rep1_ENCFF000VCI.fastq.gz ;
+wget https://www.encodeproject.org/files/ENCFF000VCK/@@download/ENCFF000VCK.fastq.gz \
+-O H3K4me1_Rep2_ENCFF000VCK.fastq.gz ;
+wget https://www.encodeproject.org/files/ENCFF000VCW/@@download/ENCFF000VCW.fastq.gz \
+-O H3K4me1_Control_ENCFF000VCW.fastq.gz
 ```
+
 ### ChIPseq - H3K4me3
 We will download the fastq files (2 isogenic replicates and 1 control) containing sequence reads (single end) from a H3K4me3 ChIPseq experiment done on the HCT116 cell-line from the ENCODE database.
 
