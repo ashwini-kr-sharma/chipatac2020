@@ -53,7 +53,7 @@ We can now use the [IGV web app](https://igv.org/app/) to visualize the differen
 * the compbined bigwig file
 * the peak files in narrowPeak format
 
-Procedure
+**Procedure**
 
 1. go to to the [IGV web app](https://igv.org/app/)
 2. in the top left menu *Genome*, select the `hg 38` genome version
@@ -67,5 +67,4 @@ Procedure
 ### Question
 
 > Do the called peaks correspond to regions of higher signal in the bigwig tracks?
-
 > Choose two peaks in the bigwig file which seem to have different height; click on the corresponding peak in the narrowPeak track (blue rectangle) to see the P-values and Q-values; do you see a difference?
