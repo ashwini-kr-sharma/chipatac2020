@@ -9,10 +9,6 @@ Raw data will be downloaded and re-processed from [**ENCODE**](https://www.encod
 
 | Sample | Experiment | Assay                          | Replicate | Source   | 
 | -------|------------|--------------------------------|-----------|----------|
-| HCT116 | ATACseq    | Chromatin accessibility - R1   | 1         | [ENCFF121EPT](https://www.encodeproject.org/experiments/ENCSR872WGW/) |
-| HCT116 | ATACseq    | Chromatin accessibility - R2   | 1         | [ENCFF795EHY](https://www.encodeproject.org/experiments/ENCSR872WGW/) |
-| HCT116 | ATACseq    | Chromatin accessibility - R1   | 2         | [ENCFF624DNH](https://www.encodeproject.org/experiments/ENCSR872WGW/) |
-| HCT116 | ATACseq    | Chromatin accessibility - R2   | 2         | [ENCFF157PAR](https://www.encodeproject.org/experiments/ENCSR872WGW/) |
 | HCT116 | ChIPseq    | Histone modification - H3K4me3 | 1         | [ENCFF001FIS](https://www.encodeproject.org/experiments/ENCSR000DTQ/) |
 | HCT116 | ChIPseq    | Histone modification - H3K4me3 | 2         | [ENCFF001FIZ](https://www.encodeproject.org/experiments/ENCSR000DTQ/) |
 | HCT116 | ChIPseq    | ChIPseq control - H3K4me3      | 1         | [ENCFF001HME](https://www.encodeproject.org/experiments/ENCSR000DTP/) |
