@@ -73,7 +73,7 @@ Based on these parameters one could estimate the sequencing quality and identify
 
 ## FastQC
 
-Let try running FastQC on some of our `fastq` files. Try performing this analysis on different `fastq` files of your choice.
+Let us perform a simple FastQC analysis on the `fastq` file that we viewd above and its control.
 
 ```
 # Go to your home directory
@@ -82,13 +82,17 @@ cd
 # Create a folder for your analysis
 mkdir -p myanalysis/FastQC
 
+# Check out all the available parameters in FastQC
+# Do note, when in doubt, its often good practice to use default settings
+# Most options are optional and set to default, focus on the essential parameters that has to be changed
+
+fastqc --help
 
 # FastQC analysis for two fastq files
-
 # Pseudocode: 
 # fastqc --outdir <name of output directory> <space separated list of fastq files>
 
-
+# Actual analysis:
 fastqc --outdir myanalysis/FastQC \
 /vol/volume/HCT116/ChIPseq/H3K4me3/H3K4me3_Control_ENCFF001HME.fastq.gz \
 vol/volume/HCT116/ChIPseq/H3K4me3/H3K4me3_Rep1_ENCFF001FIS.fastq.gz 
@@ -105,5 +109,9 @@ Now you can use Cyberduck to open the generated html files -
 - How does the base quality look like ?
 - Are there any adapter contaminations ?
 - Can you find any issues with the `fastq` files refer to [individual module description](#quality-control)
+
+> Try performing this analysis on different ChIPseq `fastq` files of your choice - compare the read numbers and and other QC properties
+
+> Refer to [ENCODE ChIPseq good practices] (https://www.encodeproject.org/data-standards/chip-seq/)
 
 In the next section, we will perform **adapter trimming/clipping** based on our knowlege of the FastQC results.
