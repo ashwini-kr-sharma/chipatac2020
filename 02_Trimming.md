@@ -6,7 +6,7 @@ There are many well established tools for adapter trimming like [Trimmomatic](ht
 
 # Trimming
 
-Lets try Trimming only on those `fastq` files that showed significant adaptor contamination and/or overrepresented sequences. If your have carefully analyzed the **FastQC** reports from the previous section you will note that only the **CTCF ChIPseq** and **ATACseq** samples require trimming.
+Lets try Trimming only on those `fastq` files that showed significant adaptor contamination and/or overrepresented sequences. If your have carefully analyzed the **FastQC** reports from the previous section you will note that only the **CTCF ChIPseq** samples require trimming.
 
 ```
 # Go to your home directory
@@ -15,26 +15,31 @@ cd
 # Create a folder for your analysis
 mkdir -p myanalysis/Trimming
 
+# Check out all the available parameters in trim_galore
+# Do note, when in doubt, its often good practice to use default settings
+# Most options are optional and set to default, focus on the essential parameters that has to be changed
+
+trim_galore --help
 
 # Run TrimGalore!
 
 # Pseudocode: Single end
 # trim_galore --phred64<or phred33> --fastqc --cores 8  --output_dir <output directory> <input fastq>
-        
-# Pseudocode: Paired end 
-# trim_galore --phred64 --fastqc --cores 8  --output_dir <output directory> <input A_R1.fastq.gz> <input A_R2.fastq.gz> <input B_R1.fastq.gz> <input B_R2.fastq.gz> 
 
-##-- NOTE: change /home/sharma/ below to your home directory --##
-
-trim-galore --phred64 --fastqc --cores 8 --output_dir myanalysis/Trimming /vol/volume/HCT116/ChIPseq/ChIPseq/CTCF/CTCF_Rep2_ENCFF001HLW.fastq.gz
+trim_galore \
+  --phred64 \
+  --fastqc \
+  --cores 8 \
+ --output_dir myanalysis/Trimming \
+ /vol/volume/HCT116/ChIPseq/CTCF_Rep2_ENCFF001HLW.fastq.gz
 
 ```
 
-Now you can run the trimming for all **CTCF** and **ATACseq** `fastq` files. Keep in mind to use your knowledge of -
+Try running trimming for another **CTCF** `fastq` files. Keep in mind to change the **Trim Galore!** parameters according to your knowledge of -
 
 - Read encodings
 - Paired end/ Single end reads
 
-to change the **Trim Galore!** parameters accordingly.
+> Compare the **FastQC** results from the trimmed and untrimmed analysis. Can you spot the differences in numbers and QC reports ?
 
 In the next section, we will perform **read alignment** to the reference genome.
