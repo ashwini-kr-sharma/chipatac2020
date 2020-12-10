@@ -5,7 +5,7 @@ In this workshop, we will analyse different genomic data generated from wild-typ
 
 H3K4me3 is known to mark active promoters around their TSS, H3K4me1 are known to mark enhancer regions and the transcription factor CTCF is known to mediate enhancer-promoter interactions. Also, genomic regions of activity (active promoter or enhancers) are expected to have an open chromatin landscape to allow the binding of regulatory factors. Thus, integration of ATACseq data and ChIPseq data (H3K4me3, H3K4me1 and CTCF) from the same cell-line will give us an understanding of its regulatory landscape.
 
-Raw data will be downloaded and re-processed from [**ENCODE**](https://www.encodeproject.org/) and the following data will be analyzed -
+Raw data will be downloaded and re-processed from [`ENCODE`](https://www.encodeproject.org/) and the following data will be analyzed -
 
 | Sample | Experiment | Assay                          | Replicate | Source   | 
 | -------|------------|--------------------------------|-----------|----------|
