@@ -114,6 +114,6 @@ Now you can use Cyberduck to open the generated html files -
 
 > Try performing this analysis on different ATAcseq `fastq` files of your choice - compare the number of reads in R1/R2 of the same replicate and different replicates can you explain why you see these numbers ?
 
-> Refer to [ENCODE ATACseq good practices](https://www.encodeproject.org/atac-seq/), do the numbers look good ?
+> Refer to [`ENCODE ATACseq good practices`](https://www.encodeproject.org/atac-seq/), do the numbers look good ?
 
 In the next section, we will perform **adapter trimming/clipping** based on our knowlege of the FastQC results.
