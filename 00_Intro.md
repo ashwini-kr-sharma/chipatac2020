@@ -1,7 +1,7 @@
 # 1. ChIP-seq : Introduction and data
 
 
-![ChIP workflow](./workflow_chip.jpg)
+![ChIP workflow](./workflow_chip.png)
 
 
 ## Data background
