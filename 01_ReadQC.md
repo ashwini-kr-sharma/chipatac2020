@@ -112,6 +112,6 @@ Now you can use Cyberduck to open the generated html files -
 
 > Try performing this analysis on different ChIPseq `fastq` files of your choice - compare the read numbers and and other QC properties
 
-> Refer to [ENCODE ChIPseq good practices] (https://www.encodeproject.org/data-standards/chip-seq/)
+> Refer to [`ENCODE ChIPseq good practices`](https://www.encodeproject.org/data-standards/chip-seq/)
 
 In the next section, we will perform **adapter trimming/clipping** based on our knowlege of the FastQC results.
