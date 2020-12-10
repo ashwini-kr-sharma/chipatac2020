@@ -6,8 +6,6 @@ The workflow is the following:
 
 ![Workflow macs2](./macs_workflow.png)
 
-
-
 ## Narrow CTCF peak
 
 ```
@@ -15,8 +13,13 @@ The workflow is the following:
 cd 
 
 # Create a folder for your analysis
-mkdir -p myanalysis/MACS2
+mkdir -p myanalysis/MACS2/CTCF
 
+# Check out all the available parameters in MACS2
+# Do note, when in doubt, its often good practice to use default settings
+# Most options are optional and set to default, focus on the essential parameters that has to be changed
+
+macs2 --help
 
 # Launch the MACS2 peak calling
 macs2 callpeak \
@@ -33,6 +36,17 @@ macs2 callpeak \
 ## Broad H3K4me3 peak
 
 ```
+# Go to your home directory
+cd 
+
+# Create a folder for your analysis
+mkdir -p myanalysis/MACS2/H3K4me3
+
+# Check out all the available parameters in MACS2
+# Do note, when in doubt, its often good practice to use default settings
+# Most options are optional and set to default, focus on the essential parameters that has to be changed
+
+macs2 --help
 
 macs2 callpeak \
 --treatment /vol/volume/HCT116/analysis/H3K4me3/Bowtie2/H3K4me3_Rep1_ENCFF000VCI_aligned_filt_sort_nodup.bam \
@@ -48,25 +62,4 @@ macs2 callpeak \
 
 ```
 
-# ATACseq peaks (Paired end)
-
-For the ATAC-seq dataset, there are two major differences to the ChIP-seq datasets:
-
-1. we do not have a control dataset such as the input for ChIP-seq.
-2. the data comes from paired-end read sequencing.
-
-Regarding the absence of control, we will use the `--nomodel` option in MACS2, which means that MACS2 will build a control from the input BAM file.
-Regarding the fact that the data is paired-end, we will use the `--format BAMPE` option to indicate that the BAM file comes from paired-end alignment.
-
-```
-macs2 callpeak \
---treatment /vol/volume/HCT116/analysis/ATAC/ATAC_REP1_aligned_filt_sort_nodup.bam \
---name ATAC-Rep1 \
---format BAMPE \
---nomodel \
---keep-dup all \
---gsize 2.7e9 \
---qvalue 0.05 \
---outdir myanalysis/MACS2/ATAC
-
-```
+> Analyze the outputs from MACS2, download the peaks `.xls` files using Cyberduck and check its contents
