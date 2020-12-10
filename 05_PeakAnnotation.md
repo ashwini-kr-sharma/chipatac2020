@@ -9,7 +9,7 @@ In order to do so, we will use a package in R called [ChIPseeker](http://www.bio
 
 
 
-## Running ChIPseeker
+## Running ChIPseeker annotation
 
 In the console, open an R session by simply typing 
 
