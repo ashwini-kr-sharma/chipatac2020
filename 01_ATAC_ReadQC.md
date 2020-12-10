@@ -4,12 +4,12 @@
 Raw sequencing reads are stored in text files containg the sequence of nucleotides and its associated quality scores. These are called `fastq` text files and are usually in compressed formats like `XYZ.fastq.gz`. Each read is described by **4 lines**, lets look at the first four lines of an example `fastq` file -
 
 ```
-zcat /vol/volume/HCT116/fastqdata/ChIPseq/H3K4me3/H3K4me3_Control_ENCFF001HME.fastq.gz | head -n 4
+zcat /vol/volume/HCT116/fastqdata/ATACseq/ATAC_Rep1_ENCFF121EPT_R1.fastq.gz | head -n 12
 
-@SOLEXA-1GA-1_0055_FC629PW:6:1:3315:1043#0/1
-TANCTGTGTTTCTCTAAGCAAATCATAATNNNTTGA
-+SOLEXA-1GA-1_0055_FC629PW:6:1:3315:1043#0/1
-aaB^aaaaQaa^\Wcd^^dSddYcbYIV_BBBBBBB
+@J00118:569:HGKLCBBXY:5:1101:1489:1261 1:N:0:GTAGAGGA+AGAGTANA
+AATCAGCACCCTGTGTCTAGCTCANGGTTTGTAAANATACCANTCAGCACTCTNTATCTAGCTAATCNAGTGNAGANCTTTTGTGTCTAGCTNAGGGNTTG
++
+AA-FFJJJJFJJJJJJFJJJJJJF#FFFJJJ7AJJ#FJJ<<F#-FJJ--FFFJ#JJFJJA<AAFJFF#-<JF#7JJ#FFAFJ7J<J-A-F<J#FAFF#JF7
 
 ```
 
@@ -30,8 +30,8 @@ aaB^aaaaQaa^\Wcd^^dSddYcbYIV_BBBBBBB
 Quality encoding: !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
                   |                         |    |        |                              |                     |
                  33                        59   64       73                            104                   126
-Phred 33:         0........................26...31.......40                                
-Phred 64:                                           3.....9..............................41 
+Phred 33:         0........................26...31.......40..                                
+Phred 64:                                        ...3.....9..............................41. 
                                  
 ```
 
@@ -51,7 +51,7 @@ p=0.001%, Q=30
 
 ```
 
-> The reads that we displayed above are encoded using Phred 64 (Illumina 1.5+), can you estimate how good the base calls are based on the map above ?
+> The reads that we displayed above are encoded using Phred 33 (Illumina 1.9), can you estimate how good the base calls are based on the map above ?
 
 # Quality control
 
@@ -73,7 +73,7 @@ Based on these parameters one could estimate the sequencing quality and identify
 
 ## FastQC
 
-Let us perform a simple FastQC analysis on the `fastq` file that we viewd above and its control.
+Let us perform a simple FastQC analysis on the `fastq` file that we viewd above. 
 
 ```
 # Go to your home directory
@@ -89,13 +89,14 @@ mkdir -p myanalysis/FastQC
 fastqc --help
 
 # FastQC analysis for two fastq files
+
 # Pseudocode: 
 # fastqc --outdir <name of output directory> <space separated list of fastq files>
 
 # Actual analysis:
 fastqc --outdir myanalysis/FastQC \
-/vol/volume/HCT116/ChIPseq/H3K4me3/H3K4me3_Control_ENCFF001HME.fastq.gz \
-vol/volume/HCT116/ChIPseq/H3K4me3/H3K4me3_Rep1_ENCFF001FIS.fastq.gz 
+/vol/volume/HCT116/ATACseq/ATAC_Rep2_ENCFF624DNH_R1.fastq.gz \
+vol/volume/HCT116/ATACseq/ATAC_Rep2_ENCFF157PAR_R2.fastq.gz
 
 # Find your results here
 cd myanalysis/FastQC
@@ -108,10 +109,11 @@ Now you can use Cyberduck to open the generated html files -
 - Can you identify the Phred encoding ?
 - How does the base quality look like ?
 - Are there any adapter contaminations ?
-- Can you find any issues with the `fastq` files refer to [individual module description](#quality-control)
+- Can you find any issues with the `fastq` files? Refer to [individual module description](#quality-control)
+- What differences do you see with the ChIPseq FastQC you performed yesterday ?
 
-> Try performing this analysis on different ChIPseq `fastq` files of your choice - compare the read numbers and and other QC properties
+> Try performing this analysis on different ATAcseq `fastq` files of your choice - compare the number of reads in R1/R2 of the same replicate and different replicates can you explain why you see these numbers ?
 
-> Refer to [`ENCODE ChIPseq good practices`](https://www.encodeproject.org/data-standards/chip-seq/)
+> Refer to [`ENCODE ATACseq good practices`](https://www.encodeproject.org/atac-seq/), do the numbers look good ?
 
 In the next section, we will perform **adapter trimming/clipping** based on our knowlege of the FastQC results.

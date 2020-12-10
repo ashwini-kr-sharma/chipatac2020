@@ -1,23 +1,25 @@
 # Read alignment
 
-Aligning the sequenced reads to the reference genome is the most crucial task of any NGS analysis. Fast aligners like [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#using-samtoolsbcftools-downstream) and [BWA-MEM](https://github.com/bwa-mem2/bwa-mem2) are widely used for aligning, among others, ChIPSeq and ATACseq data. We will exemplarily show how to align reads using **Bowtie2**
+Aligning the sequenced reads to the reference genome is the most crucial task of any NGS analysis. Fast aligners like [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#using-samtoolsbcftools-downstream) and [BWA-MEM](https://github.com/bwa-mem2/bwa-mem2) are widely used for alignment, among others, ChIPSeq and ATACseq data. We will exemplarily show how to align reads using **Bowtie2**
 
-Due to the long computation time and memory constraints, we have precomputed for you all the alignments using **Bowtie2**. You find these data in `/vol/volume/HCT116/analysis/<...>/Bowtie2`
+**Due to the long computation time and memory constraints, we have precomputed for you all the alignments using **Bowtie2**. You find these data in `/vol/volume/HCT116/analysis/ATACseq/Bowtie2`**
 
 ## Pseudocode for alignment
 
 ```
 #------------------------------------------
-# Read alignment with Bowtie2 - Single end
+# Read alignment with Bowtie2 - Paired end
 #------------------------------------------
 
 bowtie2 \
 --phred33 \
 --mm \
+--maxins 2000 \
 --very-sensitive \
 --threads 10 \
 -x <hg38 genome index> \
--U <input fastq> \
+-1 <A_R1.fastq.gz> \
+-2 <A_R2.fastq.gz> \
 2> \
 <bowtie2.log> \
 | samtools view -h -b - > <aligned.bam>
@@ -39,9 +41,16 @@ Here, we will:
 # Low quality read filtering
 #----------------------------
 
-# For Single end
-samtools view -h -b -F 4 -q 30 -@ 10 -o <aligned_filtered.bam> <aligned.bam> 
+# For paired end
+samtools view -h -b -F 1804 -f 2 -q 30 -@ 10 -o <aligned_filtered.bam> <aligned.bam> 
 
+#------------------------------------------------------------
+# NOTE:[Only for ATACseq] - Filtering Mitochondrial reads 
+# NOTE: With the new ATACseq protocol - OMNI-ATAC, 
+# mitochondrial contamination should no longer be a problem
+#------------------------------------------------------------
+
+samtools view -h -@ 15 <aligned_filtered.bam> | grep -v "chrM" | samtools view -h -b -@ 15 - > <aligned_filt_noMT.bam>
 ```
 
 ## Pseudocode for duplicate removal
@@ -58,7 +67,7 @@ These should be filtered out, as they do not bring any additional insights. Usua
 # the downstream processes need co-ordinate sorted bam files, hence the two sorting steps
 # Fixmate is needed to add mate tags (-m), which is used for proper duplicate identification by markdup
 
-samtools sort -n -O BAM -@ 10 <aligned_filtered.bam>  \
+samtools sort -n -O BAM -@ 10 <aligned_filt_noMT.bam>  \
 | samtools fixmate -m -@ 10 - - \
 | samtools sort -O BAM -@ 10 - > \
 | samtools markdup -r -S -@ 10 - <aligned_filtered_sorted_duprmv.bam>
@@ -100,7 +109,8 @@ mkdir -p myanalysis/AlignmentStats
 # samtools flagstat <aligned.bam> > <aligned.bam.log>
 # samtools flagstat <aligned_filtered_sorted_duprmv.bam> > <aligned_filtered_sorted_duprmv.bam.log> 
 
-samtools flagstat /vol/volume/HCT116/analysis/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_bowtie2_sorted_nofilt.bam > myanalysis/AlignmentStats/CTCF_Rep1_ENCFF001HLV_trimmed_bowtie2_sorted_nofilt.log
+samtools flagstat /vol/volume/HCT116/analysis/ATAC/Bowtie2/ATAC/ATAC_REP1_aligned_nofilt.bam > \
+myanalysis/AlignmentStats/ATAC_REP1_aligned_nofilt.bam.log
 
 ```
 

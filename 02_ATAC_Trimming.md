@@ -6,7 +6,7 @@ There are many well established tools for adapter trimming like [Trimmomatic](ht
 
 # Trimming
 
-Lets try Trimming only on those `fastq` files that showed significant adaptor contamination and/or overrepresented sequences. If your have carefully analyzed the **FastQC** reports from the previous section you will note that only the **CTCF ChIPseq** samples require trimming.
+Lets try Trimming only on those `fastq` files that showed significant adaptor contamination and/or overrepresented sequences. If your have carefully analyzed the **FastQC** reports from the previous section you will note that **ATACseq** samples showed adaptor contamination and thus requires trimming.
 
 ```
 # Go to your home directory
@@ -22,24 +22,24 @@ mkdir -p myanalysis/Trimming
 trim_galore --help
 
 # Run TrimGalore!
-
-# Pseudocode: Single end
-# trim_galore --phred64<or phred33> --fastqc --cores 8  --output_dir <output directory> <input fastq>
+        
+# Pseudocode: Paired end 
+# trim_galore --phred64<or phred33> --paired --fastqc --cores 8 --output_dir <output directory> <input A_R1.fastq.gz> <input A_R2.fastq.gz> <input B_R1.fastq.gz> <input B_R2.fastq.gz> 
 
 trim_galore \
-  --phred64 \
+  --phred33 \
+  --paired \
   --fastqc \
   --cores 8 \
- --output_dir myanalysis/Trimming \
- /vol/volume/HCT116/ChIPseq/CTCF_Rep2_ENCFF001HLW.fastq.gz
-
+  --output_dir myanalysis/Trimming \
+  /vol/volume/HCT116/ATACseq/ATAC_Rep1_ENCFF121EPT_R1.fastq.gz /vol/volume/HCT116/ATACseq/ATAC_Rep1_ENCFF795EHY_R2.fastq.gz
 ```
 
-Try running trimming for another **CTCF** `fastq` files. Keep in mind to change the **Trim Galore!** parameters according to your knowledge of -
+Always keep in mind to change the **Trim Galore!** parameters according to your knowledge of -
 
 - Read encodings
 - Paired end/ Single end reads
 
-> Compare the **FastQC** results from the trimmed and untrimmed analysis. Can you spot the differences in numbers and QC reports ?
+> Compare the **FastQC** results from the trimmed and untrimmed ATACseq analysis. Can you spot the differences in numbers and QC reports ?
 
 In the next section, we will perform **read alignment** to the reference genome.
