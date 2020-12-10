@@ -46,7 +46,7 @@ samtools view -h -b -F 4 -q 30 -@ 10 -o <aligned_filtered.bam> <aligned.bam>
 
 ## Pseudocode for duplicate removal
 
-A typical problem in libraries sequenced using a PCR amplification is the presence of PCA duplicates among the reads. 
+A typical problem in libraries sequenced using a PCR amplification is the presence of PCR duplicates among the reads. 
 These should be filtered out, as they do not bring any additional insights. Usually, these duplicates can be identifiied when many reads have the exact same coordinates. We will delete these duplicates from the bam file using the `samtools markdup` tool.
 
 ```

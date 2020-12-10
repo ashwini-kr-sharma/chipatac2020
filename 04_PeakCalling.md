@@ -1,5 +1,11 @@
 # 5. ChIP-seq : Peak Calling
 
+Once the IP and control libraries have been aligned, and the aligned bam files filtered for low-quality reads, we want to determine the regions in which the IP signal is significantly higher than the control (=background) signal. This is called **peak calling**. There are many peak calling tools available, which are based on different statistical assumptions. We will use a widely used too called [MACS2](https://github.com/jsh58/MACS).
+
+The workflow is the following:
+
+![Workflow macs2](./macs_workflow.png)
+
 
 
 ## Narrow CTCF peak
