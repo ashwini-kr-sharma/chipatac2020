@@ -1,4 +1,4 @@
-# 1. Introduction
+# 1. ChIP-seq : Introduction
 ## Data background
 
 In this workshop, we will analyse different genomic data generated from wild-type [HCT116](https://www.lgcstandards-atcc.org/products/all/CCL-247.aspx?geo_country=de#generalinformation) colon cancer cell-lines. These data will comprise of genome-wide chromatin accessibility measurements using **ATACseq**, histone modification of **H3K4me3** and **H3K4me1** marks and **CTCF** transcription factor binding using ChIPseq.

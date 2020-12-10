@@ -1,4 +1,4 @@
-# Generating signal files
+# 8. ChIP-seq : Generating signal files
 
 So far, we have worked with the following files
 

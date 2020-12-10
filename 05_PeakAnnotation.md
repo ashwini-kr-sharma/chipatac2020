@@ -1,4 +1,4 @@
-# Peak annotation
+# 6. ChIP-seq: Peak annotation
 
 One we have determined the peaks for the ChIP-seq and ATAC-seq data, we can use them to
 

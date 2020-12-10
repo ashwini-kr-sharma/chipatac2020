@@ -1,4 +1,6 @@
-# ChIPseq
+# 5. ChIP-seq : Peak Calling
+
+
 
 ## Narrow CTCF peak
 
