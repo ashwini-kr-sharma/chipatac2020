@@ -18,7 +18,7 @@ aaB^aaaaQaa^\Wcd^^dSddYcbYIV_BBBBBBB
 - Line 3 begining with a `+` character can have the same information as Line 1, be empty or some additional description of the reads.
 - Line 4 encodes the quality values for the nucleotides in Line 2. It, thus will have same number of letter as Line 2.
 
-> Do you know the difference between `fast[q]` and `fast[a]` file formats ? see [here](https://en.wikipedia.org/wiki/FASTA_format)
+> Do you know the difference between `fast[q]` and `fast[a]` file formats ? see [`here`](https://en.wikipedia.org/wiki/FASTA_format)
 
 ## Read quality encoding
 
