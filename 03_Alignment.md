@@ -22,25 +22,6 @@ bowtie2 \
 <bowtie2.log> \
 | samtools view -h -b - > <aligned.bam>
 
-## OR
-
-#------------------------------------------
-# Read alignment with Bowtie2 - Paired end
-#------------------------------------------
-
-bowtie2 \
---phred33 \
---mm \
---maxins 2000 \
---very-sensitive \
---threads 10 \
--x <hg38 genome index> \
--1 <A_R1.fastq.gz> \
--2 <A_R2.fastq.gz> \
-2> \
-<bowtie2.log> \
-| samtools view -h -b - > <aligned.bam>
-
 #--------------------------------------------
 ```
 
@@ -61,18 +42,6 @@ Here, we will:
 # For Single end
 samtools view -h -b -F 4 -q 30 -@ 10 -o <aligned_filtered.bam> <aligned.bam> 
 
-##OR
-
-# For paired end
-samtools view -h -b -F 1804 -f 2 -q 30 -@ 10 -o <aligned_filtered.bam> <aligned.bam> 
-
-#------------------------------------------------------------
-# NOTE:[Only for ATACseq] - Filtering Mitochondrial reads 
-# NOTE: With the new ATACseq protocol - OMNI-ATAC, 
-# mitochondrial contamination should no longer be a problem
-#------------------------------------------------------------
-
-samtools view -h -@ 15 <aligned_filtered.bam> | grep -v "chrM" | samtools view -h -b -@ 15 - > <aligned_filt_noMT.bam>
 ```
 
 ## Pseudocode for duplicate removal
@@ -89,7 +58,7 @@ These should be filtered out, as they do not bring any additional insights. Usua
 # the downstream processes need co-ordinate sorted bam files, hence the two sorting steps
 # Fixmate is needed to add mate tags (-m), which is used for proper duplicate identification by markdup
 
-samtools sort -n -O BAM -@ 10 <aligned_filtered.bam or aligned_filt_noMT.bam>  \
+samtools sort -n -O BAM -@ 10 <aligned_filtered.bam>  \
 | samtools fixmate -m -@ 10 - - \
 | samtools sort -O BAM -@ 10 - > \
 | samtools markdup -r -S -@ 10 - <aligned_filtered_sorted_duprmv.bam>
@@ -104,20 +73,19 @@ Finally, now that we have generated a new bam file by filtering out reads, we ne
 # Indexing
 #----------
 
-samtools index <aligned_filtered_sorted.bam> <aligned_filtered_sorted.bam.bai>
+samtools index <aligned_filtered_sorted_duprmv.bam> <aligned_filtered_sorted_duprmv.bam.bam.bai>
 
 ```
 
 A detailed explaination of the parameters used for alignment can be found [here](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#using-samtoolsbcftools-downstream), it is important to notice the difference for paired end and single end sequencing.
 
-After alignment, we also filter out poor quality, unmapped and duplicate reads using [samtools](http://www.htslib.org/doc/samtools.html). The parameters `-F, -f, q` along with `markdup` are used to filter out reads. Using this [tool](https://broadinstitute.github.io/picard/explain-flags.html), one can find the exact meaning of the filtering flags like `1796, 1804, 2, etc`.
+After alignment, we also filter out poor quality, unmapped and duplicate reads using [samtools](http://www.htslib.org/doc/samtools.html). The parameters `-F, -f, q` along with `markdup` are used to filter out reads. 
+
+> Using this [tool](https://broadinstitute.github.io/picard/explain-flags.html), one can find the exact meaning of the filtering flags like `1796, 1804, 2, etc`.
 
 # Alignment statistics
 
-**SAMtools** provides some functions like `flagstats, stats and idxstats` to compute overall summary of read alignment statistics. We will use them to compute alignment statistics and compare -
-
-- pre-filtering and post-filtering numbers
-- observe how the statistics are computed for paired end and single end data
+**SAMtools** provides some functions like `flagstat, stats and idxstats` to compute overall summary of read alignment statistics. You can find more information on the **flagstat** [here](http://www.htslib.org/doc/samtools-flagstat.html)
 
 ```
 # Go to your home directory
@@ -126,19 +94,16 @@ cd
 # Create a folder for your analysis
 mkdir -p myanalysis/AlignmentStats
 
-
-
 # Flagstat analysis
 
 # Pseudocode: 
 # samtools flagstat <aligned.bam> > <aligned.bam.log>
-# samtools flagstat <aligned_filtered_sorted.bam> > <aligned_filtered_sorted.bam.log> 
-
+# samtools flagstat <aligned_filtered_sorted_duprmv.bam> > <aligned_filtered_sorted_duprmv.bam.log> 
 
 samtools flagstat /vol/volume/HCT116/analysis/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_bowtie2_sorted_nofilt.bam > myanalysis/AlignmentStats/CTCF_Rep1_ENCFF001HLV_trimmed_bowtie2_sorted_nofilt.log
 
 ```
 
-Can you modify the code above to run flagstas also on the corresponding **filtered and duplicate** removed `.bam` and compare the numbers from the two files. What do you learn ?
+ > Can you modify the code above to run flagstat also on the corresponding **filtered and unfiltered** `.bam` and compare the numbers from the two files. What do you learn ?
 
-
+In the next section, we will perform **peak calling** using these aligned `.bam` files.
