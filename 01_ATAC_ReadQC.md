@@ -24,14 +24,14 @@ AA-FFJJJJFJJJJJJFJJJJJJF#FFFJJJ7AJJ#FJJ<<F#-FJJ--FFFJ#JJFJJA<AAFJFF#-<JF#7JJ#FFA
 
 ### phred 33 and phred 64
 
-**Phred 33** and **Phred 64** are two encoding schemes, the former is commonly used by Illumina based sequencers and seen in most mordern sequencing while the latter was used in older Illumina sequenced reads. In both, quality values range from 0-40, however, they are represented by entirely different symbols in the `fastq` files. For instance, a quality score of 0 is represented by `!` in Phred 33 while its represented as `@` in Phred 64 encoding.
+**Phred 33** and **Phred 64** are two [encoding schemes](https://www.drive5.com/usearch/manual/quality_score.html), the former is commonly used by Illumina based sequencers and seen in most mordern sequencing while the latter was used in older Illumina sequenced reads. In both, quality values range from 0-40, however, they are represented by entirely different symbols in the `fastq` files. For instance, a quality score of 0 is represented by `!` in Phred 33 while its represented as `@` in Phred 64 encoding.
 
 ```
 Quality encoding: !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
                   |                         |    |        |                              |                     |
                  33                        59   64       73                            104                   126
-Phred 33:         0........................26...31.......40                                
-Phred 64:                                           3.....9..............................41 
+Phred 33:         0........................26...31.......40..                                
+Phred 64:                                        ...3.....9..............................41. 
                                  
 ```
 
