@@ -23,32 +23,32 @@ This will open an R session, which you can recognize seing the `>` prompt at the
 We will load the required packages *(!!!Warning: make sure to copy the command WITHOUT the `>` sign!!!)*:
 
 ```
-> library(ChIPseeker)
-> library(TxDb.Hsapiens.UCSC.hg38.knownGene)
-> txdb = TxDb.Hsapiens.UCSC.hg38.knownGene
+library(ChIPseeker)
+library(TxDb.Hsapiens.UCSC.hg38.knownGene)
+txdb = TxDb.Hsapiens.UCSC.hg38.knownGene
 ```
 
 Now, let's read in the list of peaks for the CTCF dataset
 
 ```
-> peaks =  read.table('myanalysis/MACS2/CTCF/CTCF_peaks.narrowPeak')
-> colnames(peaks) = c('chr','start','end','name','score','strand','signal','pval','qval','peak')
-> peaks.gr = makeGRangesFromDataFrame(peaks,keep.extra.columns=TRUE)
-> peaks.gr
+peaks =  read.table('myanalysis/MACS2/CTCF/CTCF_peaks.narrowPeak')
+colnames(peaks) = c('chr','start','end','name','score','strand','signal','pval','qval','peak')
+peaks.gr = makeGRangesFromDataFrame(peaks,keep.extra.columns=TRUE)
+peaks.gr
 ```
 
 We can briefly check how many peaks map to each chromosome:
 
 ```
-> table(as.character(seqnames(peaks.gr)))
+table(as.character(seqnames(peaks.gr)))
 ```
 
 As you see, some peaks map to incomplete chromosomes (like `chr1_KI270711v1_random`); we will remove these few peaks:
 
 ```
-> i.remove = grep('_',as.character(seqnames(peaks.gr)))
-> peaks.gr = peaks.gr[-i.remove]
-> table(as.character(seqnames(peaks.gr)))
+i.remove = grep('_',as.character(seqnames(peaks.gr)))
+peaks.gr = peaks.gr[-i.remove]
+table(as.character(seqnames(peaks.gr)))
 ```
 
 ## Genomic coverage of peaks
@@ -56,9 +56,9 @@ As you see, some peaks map to incomplete chromosomes (like `chr1_KI270711v1_rand
 Let us see how the peaks are distributed over the genome:
 
 ```
-> pdf('CTCF_coverage.pdf')
-> covplot(peaks.gr,weightCol='signal')
-> dev.off()
+pdf('CTCF_coverage.pdf')
+covplot(peaks.gr,weightCol='signal')
+dev.off()
 ```
 
 Using CyberDuck, you can browse your home folder on the VM; you should see the file `CTCF_coverage.pdf`; open the file and look at the genomic distribution of the peaks.
@@ -69,15 +69,15 @@ As a quality control, we can check the read density on the transcription start s
 
 ```
 ## define promoter regions as +/- 3kb
-> promoter = getPromoters(TxDb=txdb, upstream=3000, downstream=3000)
+promoter = getPromoters(TxDb=txdb, upstream=3000, downstream=3000)
 
 ## get the reads around the TSS regions
-> tagMatrix = getTagMatrix(peaks.gr, windows=promoter)
+tagMatrix = getTagMatrix(peaks.gr, windows=promoter)
 
 ## plot this as density heatmap
-> pdf('CTCF_heatmap.pdf')
-> tagHeatmap(tagMatrix, xlim=c(-3000, 3000), color="red")
-> dev.off()
+pdf('CTCF_heatmap.pdf')
+tagHeatmap(tagMatrix, xlim=c(-3000, 3000), color="red")
+dev.off()
 ```
 
 Check the figure `CTCF_heatmap.pdf` in your  home folder using CyberDuck, and open this file.
@@ -87,9 +87,9 @@ Check the figure `CTCF_heatmap.pdf` in your  home folder using CyberDuck, and op
 An important analysis is to assign the peaks to the nearest gene(s).
 
 ```
-> peakAnno  = annotatePeak(peaks.gr,tssRegion=c(-3000,3000), TxDb=txdb, annoDb="org.Hs.eg.db")
-> peak.anno = as.data.frame(peakAnno)
-> head(peak.anno)
+peakAnno  = annotatePeak(peaks.gr,tssRegion=c(-3000,3000), TxDb=txdb, annoDb="org.Hs.eg.db")
+peak.anno = as.data.frame(peakAnno)
+head(peak.anno)
 ```
 
 The `peak.anno` object is a data table with multiple columns; each row represents a peak, and the subsequent columns represent different annotations:
@@ -101,9 +101,9 @@ The `peak.anno` object is a data table with multiple columns; each row represent
 We can check the distribution of the peak location:
 
 ```
-> pdf('CTCF_distribution.pdf')
-> plotAnnoPie(peakAnno)
-> dev.off()
+pdf('CTCF_distribution.pdf')
+plotAnnoPie(peakAnno)
+dev.off()
 ```
 
 Check the corresponding figure!
@@ -111,13 +111,13 @@ Check the corresponding figure!
 Finally, we can use the genes which have been associated to the peaks to compute the enrichment of certain pathways or biological functions:
 
 ```
-> library(ReactomePA)
+library(ReactomePA)
 
 ## get all genes which have a peak within +/- 1 kb around TSS
-> gene = seq2gene(peak, tssRegion = c(-1000, 1000), flankDistance = 3000, TxDb=txdb)
-> pathway = enrichPathway(gene)
-> dp = dotplot(pathway)
-> ggsave(dp,'CTCF_pathways.pdf')
+gene = seq2gene(peak, tssRegion = c(-1000, 1000), flankDistance = 3000, TxDb=txdb)
+pathway = enrichPathway(gene)
+dp = dotplot(pathway)
+ggsave(dp,'CTCF_pathways.pdf')
 ```
 
 Again, you can check the plot, and see which pathways seem to be enriched among the genes which have a proximal CTCF peak.
