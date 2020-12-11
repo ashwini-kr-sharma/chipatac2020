@@ -92,7 +92,7 @@ An important analysis is to assign the peaks to the nearest gene(s).
 > head(peak.anno)
 ```
 
-The `peak.anno` object is a data table with multiple columnt; each row represents a peak, and the subsequent columns represent different annotations:
+The `peak.anno` object is a data table with multiple columns; each row represents a peak, and the subsequent columns represent different annotations:
 
 * `annotation`: indicates the genomic loci in which the peak is located
 * `distanceToTSS`: distance to the closest TSS
