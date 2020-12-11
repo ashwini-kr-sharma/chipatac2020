@@ -26,7 +26,7 @@ mkdir -p myanalysis/MACS2/ATAC
 macs2 --help
 
 macs2 callpeak \
---treatment /vol/volume/HCT116/analysis/ATACseq/ATAC_REP1_aligned_filt_sort_nodup.bam \
+--treatment /vol/volume/HCT116/analysis/ATACseq/Bowtie2/ATAC_REP1_aligned_filt_sort_nodup.bam \
 --name ATAC-Rep1 \
 --format BAMPE \
 --nomodel \
