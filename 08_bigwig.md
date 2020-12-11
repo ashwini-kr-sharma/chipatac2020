@@ -8,7 +8,7 @@ So far, we have worked with the following files
 
 In a final step, we will generate *signal files* in the `bigwig` format, which represent continuous signals along the genome. Another format to do this is the `bedgraph` format. For both formats, the files can then be loaded into a genomic browser in order to explore the signal and the peak regions.
 
-For ChIP-seq, we have the **IP** file representing the signalm, and the **control** file (generally input), which represents the level of background noise. When generating the signal file, we can (1) either generate separate bigwig files for IP and control, or (2) generate a single bigwig file, in which we substract the background noise from the IP.
+For ChIP-seq, we have the **IP** file representing the signal, and the **control** file (generally input), which represents the level of background noise. When generating the signal file, we can (1) either generate separate bigwig files for IP and control, or (2) generate a single bigwig file, in which we substract the background noise from the IP.
 
 ## Generating separate bigwig
 
