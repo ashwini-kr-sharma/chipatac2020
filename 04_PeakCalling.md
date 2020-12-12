@@ -63,3 +63,14 @@ macs2 callpeak \
 ```
 
 > Analyze the outputs from MACS2, download the peaks `.xls` files using Cyberduck and check its contents
+
+
+<details>
+  <summary>Click to expand!</summary>
+  
+  ## Heading
+  1. A numbered
+  2. list
+     * With some
+     * Sub bullets
+</details>
