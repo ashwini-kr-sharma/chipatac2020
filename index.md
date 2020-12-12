@@ -30,7 +30,7 @@ Welcome to the page of the workshop on the computational analysis of ChIP-seq an
 4. [Read alignment](./03_ATAC_Alignment.md)
 5. [Peak calling](./04_ATAC_PeakCalling.md)
 6. [Peak annotation](./05_ATAC_PeakAnnotation.md)
-7. [Footprinting](./05_ATAC_Footprinting.md)
+7. [Footprinting](./06_ATAC_Footprinting.md)
 8. [ATAC-seq quality control](./07_ATAC_QC.md)
 9. [Generating signal tracks and using IGV](./08_ATAC_bigwig.md)
 
