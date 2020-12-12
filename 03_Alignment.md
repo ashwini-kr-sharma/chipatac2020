@@ -100,7 +100,7 @@ mkdir -p myanalysis/AlignmentStats
 # samtools flagstat <aligned.bam> > <aligned.bam.log>
 # samtools flagstat <aligned_filtered_sorted_duprmv.bam> > <aligned_filtered_sorted_duprmv.bam.log> 
 
-samtools flagstat /vol/volume/HCT116/analysis/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_bowtie2_sorted_nofilt.bam > myanalysis/AlignmentStats/CTCF_Rep1_ENCFF001HLV_trimmed_bowtie2_sorted_nofilt.log
+samtools flagstat /vol/volume/HCT116/analysis/CTCF/Bowtie2//vol/volume/HCT116/analysis/CTCF/Bowtie2/CTCF_Rep2_ENCFF001HLW_trimmed_aligned_nofilt.bam > myanalysis/AlignmentStats//vol/volume/HCT116/analysis/CTCF/Bowtie2/CTCF_Rep2_ENCFF001HLW_trimmed_aligned_nofilt.bam.flagstat.log
 
 ```
 
