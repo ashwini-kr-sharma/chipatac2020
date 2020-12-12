@@ -28,7 +28,7 @@ Raw data will be downloaded and re-processed from [`ENCODE`](https://www.encodep
 > NOTE: You don't need to download any data, all of the data has been pre-downloaded and saved in `/vol/volume/HCT116/fastqdata`. You will directly access these data during the practical training session.
 
 ### ChIPseq - H3K4me1
-We will download the fastq files (2 isogenic replicates and 1 control) containing sequence reads (single end) from a H3K4me1 ChIPseq experiment done on the HCT116 cell-line from the ENCODE database.
+We have downloaded the fastq files (2 isogenic replicates and 1 control) containing sequence reads (single end) from a H3K4me1 ChIPseq experiment done on the HCT116 cell-line from the ENCODE database.
 
 ```bash
 wget https://www.encodeproject.org/files/ENCFF000VCI/@@download/ENCFF000VCI.fastq.gz \
@@ -40,7 +40,7 @@ wget https://www.encodeproject.org/files/ENCFF000VCW/@@download/ENCFF000VCW.fast
 ```
 
 ### ChIPseq - H3K4me3
-We will download the fastq files (2 isogenic replicates and 1 control) containing sequence reads (single end) from a H3K4me3 ChIPseq experiment done on the HCT116 cell-line from the ENCODE database.
+We have downloaded the fastq files (2 isogenic replicates and 1 control) containing sequence reads (single end) from a H3K4me3 ChIPseq experiment done on the HCT116 cell-line from the ENCODE database.
 
 ```bash
 wget https://www.encodeproject.org/files/ENCFF001FIS/@@download/ENCFF001FIS.fastq.gz \
@@ -52,7 +52,7 @@ wget https://www.encodeproject.org/files/ENCFF001HME/@@download/ENCFF001HME.fast
 ```
 
 ### ChIPseq - CTCF
-We will download the fastq files (2 isogenic replicates and 1 control) containing sequence reads (single end) from a CTCF ChIPseq experiment done on the HCT116 cell-line from the ENCODE database.
+We have downloaded the fastq files (2 isogenic replicates and 1 control) containing sequence reads (single end) from a CTCF ChIPseq experiment done on the HCT116 cell-line from the ENCODE database.
 
 ```bash
 wget https://www.encodeproject.org/files/ENCFF001HLV/@@download/ENCFF001HLV.fastq.gz \
@@ -63,7 +63,7 @@ wget https://www.encodeproject.org/files/ENCFF001HME/@@download/ENCFF001HME.fast
 -O CTCF_Control_ENCFF001HME.fastq.gz
 ```
 ### hg38 genome index
-We will also download the precomputed hg38 genome index reference for allignment from iGenomes
+We have also downloaded the precomputed hg38 genome index reference for alignment from iGenomes
 
 ```bash
 wget http://igenomes.illumina.com.s3-website-us-east-1.amazonaws.com/Homo_sapiens/NCBI/GRCh38/Homo_sapiens_NCBI_GRCh38.tar.gz
