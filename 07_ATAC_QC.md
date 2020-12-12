@@ -38,14 +38,13 @@ calc 5087398/77784521*100
 
 ```
 
-# Nucleosome positioning
+## Nucleosome positioning
 
 We know that chromatin consists of repeated wrapping of 146bp of DNA around histone octamer (nucleosome) followed by 80bp of linker open/free DNA. The Tn5 transposoon will insert adapters in these linker DNA region. Thus, genome wide we will have increased probability of observing fragments of ~80bp, ~200bp, ~400bp, ~600bp representing nucleosome free regions, mono-, di-, tri- nucleosomes.
 
 Observing such periodicity from the fragment lenth distribution is a good indicator of a successful experiment. In the next step we will perform this analysis to assess the quality of the ATACseq data.
 
 ```
-
 cd
 
 /usr/bin/R
@@ -60,8 +59,7 @@ bamFiles.labels = "ATAC")
 
 q()
 
-# type N
-
+# type N to exit without saving an image
 ```
 
 There will be a `.pdf` file nameed `Rplots.pdf` in your home directory - type `cd` in your terminal, open this file using Cyberduck and analyse the results.
