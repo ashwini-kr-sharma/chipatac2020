@@ -4,7 +4,7 @@
 
 The library complexity metrics used for ChIPseq like  Non-Redundant Fraction and PCR Bottlenecking Coefficients are also relavant for ATACseq. 
 
-> Can you repeat these analysis by adapting the code used for ChIPseq yesterday ? Evaluate your results based on the [`ENCODE recommendations`](https://www.encodeproject.org/atac-seq/). 
+> Can you repeat these analysis by adapting the code used for ChIPseq yesterday ? Evaluate your results based on the [`ENCODE recommendations`](https://www.encodeproject.org/atac-seq/) for ATACseq experiments. 
 
 ## Mitochondrial content
 
