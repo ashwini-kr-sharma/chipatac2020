@@ -62,4 +62,4 @@ q()
 # type N to exit without saving an image
 ```
 
-There will be a `.pdf` file nameed `Rplots.pdf` in your home directory - type `cd` in your terminal, open this file using Cyberduck and analyse the results.
+There will be a `.pdf` file named `Rplots.pdf` in your home directory - type `cd` in your terminal, open this file using Cyberduck and analyse the results.
