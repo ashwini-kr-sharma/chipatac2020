@@ -111,7 +111,7 @@ samtools flagstat /vol/volume/HCT116/analysis/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV
  
  # Counting duplicates
  
- The aligned `.bam` files output of `Bowtie2` does not have duplicate reads marked by any Flags recognized by `Samtools`. Thus, the `flasgstat` output might give an impression that there are no duplicates in you data and you dont need to perform duplicate remopval. However, this is highly misleading !!.
+ The aligned `.bam` files output of `Bowtie2` does not have duplicate reads marked by any Flags recognized by `Samtools`. Thus, the `flasgstat` output might give an impression that there are no duplicates in your data and that you don't need to perform duplicate removal. However, this is highly misleading !!.
  
  These aligned files has to be -
  
