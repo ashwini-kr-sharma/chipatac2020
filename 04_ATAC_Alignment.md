@@ -116,7 +116,7 @@ analysis/AlignmentStats/ATAC/ATAC_REP1_aligned_filt_sort_nodup.flagstat.log
 
  > Can you modify the code above to run flagstat also on the corresponding **filtered and unfiltered** `.bam` and compare the numbers from the two files. What do you learn ?
  
- > The **unflitered** alignment file is named as `CTCF_Rep1_ENCFF001HLV_trimmed_aligned_nofilt.bam`
+ > The **unflitered** alignment file is named as `ATAC_REP1_aligned_nofilt.bam`
  
  > Can you count duplicates from the unfiltered file. Follow the instructions from yesterday.
 
