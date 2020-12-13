@@ -1,4 +1,4 @@
-# ATAC QC
+# 8. ATAC-seq : ATAC QC
 
 ## Library complexity
 
