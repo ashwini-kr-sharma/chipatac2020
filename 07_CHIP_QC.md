@@ -85,7 +85,13 @@ We now run the `plotFingerprint` function from the `DeepTools` package; to limit
 ```
 cd
 
-plotFingerprint -b data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_filt_sort_nodup.bam data/processed/CTCF/Bowtie2/CTCF_Control_ENCFF001HME_trimmed_aligned_filt_sort_nodup.bam -l CTCF Control -o analysis/QC/ChIP/CTCF_fingerprint.png -r chr10
+plotFingerprint \
+--bamfiles data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_filt_sort_nodup.bam \
+data/processed/CTCF/Bowtie2/CTCF_Control_ENCFF001HME_trimmed_aligned_filt_sort_nodup.bam \
+--labels CTCF Control \
+--region chr10 \
+--numberOfProcessors 3 \
+--plotFile analysis/QC/ChIP/CTCF_fingerprint.png 
 
 ```
 
