@@ -31,6 +31,12 @@ macs2 callpeak \
 --gsize 2.7e9 \
 --qvalue 0.01 \
 --outdir analysis/MACS2/CTCF
+
+# Find you results here
+cd analysis/MACS2/CTCF
+
+# Genrate the figures for the model used by MACS2
+/usr/bin/Rscript CTCF_model.r
 ```
 
 ## Broad H3K4me3 peak
@@ -64,15 +70,7 @@ macs2 callpeak \
 
 > Analyze the outputs from MACS2, download the peaks `.xls` files using Cyberduck and check its contents
 
-> Run the H3K4me3 peak calling **without** the `--broad` option; do you get more/less peaks? 
+> Run the H3K4me3 peak calling **without** the `--broad` and `--broad-cutoff` option; i.e. in narrow peak finding mode. Do you get more/less peaks?
 
+> Can you think of a reason why we keep `--keep-dup all` option ? Hint: think about the filterig steps used during alignment.
 
-<details>
-  <summary>Click to expand!</summary>
-  
-  ## Heading
-  1. A numbered
-  2. list
-     * With some
-     * Sub bullets
-</details>
