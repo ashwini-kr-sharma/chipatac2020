@@ -1,7 +1,7 @@
 # 2. ATAC-seq : Raw read quality control - FastQC
 
 ## `fastq` file format
-Raw sequencing reads are stored in text files containing the sequence of nucleotides and its associated quality scores. These are called `fastq` text files and are usually in compressed formats like `XYZ.fastq.gz`. Each read is described by **4 lines**, lets look at the first four lines of an example `fastq` file -
+Raw sequencing reads are stored in text files containing the sequence of nucleotides and its associated quality scores. These are called `fastq` text files and are usually in compressed formats like `XYZ.fastq.gz`. Each read is described by **4 lines**, let's look at the first four lines of an example `fastq` file -
 
 ```
 cd
@@ -16,7 +16,7 @@ AA-FFJJJJFJJJJJJFJJJJJJF#FFFJJJ7AJJ#FJJ<<F#-FJJ--FFFJ#JJFJJA<AAFJFF#-<JF#7JJ#FFA
 
 - Line 1 beginning with a `@` character represents a sequence identifier. In this identifier, each value separated by a `:` represents an information about the read. Depending on the sequencing platform, this may vary. You can find more detailed information [here](https://en.wikipedia.org/wiki/FASTQ_format).
 - Line 2 consists of the actual sequence reads. 
-- Line 3 beginning with a `+` character can have the same information as Line 1, be empty or some additional description of the reads.
+- Line 3 beginning with a `+` character can have the same information as Line 1, be empty or may have some additional description of the reads.
 - Line 4 encodes the quality values for the nucleotides in Line 2. It, thus will have same number of letter as Line 2.
 
 > Do you know the difference between `fast[q]` and `fast[a]` file formats ? see [`here`](https://en.wikipedia.org/wiki/FASTA_format)
@@ -81,7 +81,7 @@ Let us perform a simple FastQC analysis on the `fastq` file that we viewed above
 cd 
 
 # Create a folder for your analysis
-mkdir -p analysis/FastQC
+mkdir -p analysis/FastQC/ATAC
 
 # Check out all the available parameters in FastQC
 # Do note, when in doubt, its often good practice to use default settings
@@ -95,12 +95,11 @@ fastqc --help
 # fastqc --outdir <name of output directory> <space separated list of fastq files>
 
 # Actual analysis:
-fastqc --outdir analysis/FastQC \
-/vol/volume/HCT116/ATACseq/ATAC_Rep2_ENCFF624DNH_R1.fastq.gz \
-vol/volume/HCT116/ATACseq/ATAC_Rep2_ENCFF157PAR_R2.fastq.gz
+fastqc --outdir analysis/FastQC/ATAC \
+data/fastqdata/ATACseq/ATAC_Rep1_ENCFF121EPT.fastq_R1.gz
 
 # Find your results here
-cd analysis/FastQC
+cd analysis/FastQC/ATAC
 ```
 
 ## Analyzing the output
@@ -113,7 +112,7 @@ Now you can use Cyberduck to open the generated html files -
 - Can you find any issues with the `fastq` files? Refer to [individual module description](#quality-control)
 - What differences do you see with the ChIPseq FastQC you performed yesterday ?
 
-> Try performing this analysis on different ATAcseq `fastq` files of your choice - compare the number of reads in R1/R2 of the same replicate and different replicates can you explain why you see these numbers ?
+> Try performing this analysis on another ATAcseq `fastq` files of your choice - compare the number of reads in R1/R2 of the same replicate can you explain why you see these numbers ?
 
 > Refer to [`ENCODE ATACseq good practices`](https://www.encodeproject.org/atac-seq/), do the numbers look good ?
 
