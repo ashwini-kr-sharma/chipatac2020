@@ -92,7 +92,7 @@ After alignment, we also filter out poor quality, unmapped and duplicate reads u
 cd 
 
 # Create a folder for your analysis
-mkdir -p analysis/AlignmentStats
+mkdir -p analysis/AlignmentStats/ChIP
 
 # Flagstat analysis
 
@@ -100,19 +100,22 @@ mkdir -p analysis/AlignmentStats
 # samtools flagstat <aligned.bam> > <aligned.bam.log>
 # samtools flagstat <aligned_filtered_sorted_duprmv.bam> > <aligned_filtered_sorted_duprmv.bam.log> 
 
-samtools flagstat data/processed/CTCF/Bowtie2/CTCF_Rep2_ENCFF001HLW_trimmed_aligned_nofilt.bam > \
-analysis/AlignmentStats/Bowtie2/CTCF_Rep2_ENCFF001HLW_trimmed_aligned_nofilt.bam.flagstat.log
+samtools flagstat -@ 3 data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_filt_sort_nodup.bam > \
+analysis/AlignmentStats/ChIP/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_filt_sort_nodup.flagstat.log
 
 ```
 
- > Can you modify the code above to run flagstat also on the corresponding **filtered and unfiltered** `.bam` and compare the numbers from the two files. What do you learn ?
+ > Can you modify the code above to run flagstat also on the corresponding **filtered and unfiltered** `.bam` and compare the numbers from the two files. What do you learn ? The **unflitered** alignment file is named as `CTCF_Rep1_ENCFF001HLV_trimmed_aligned_nofilt.bam`
+ 
  
 <details>
   <summary> Peek only if you have to ! </summary>
  
 ```
-samtools flagstat data/processed/CTCF/Bowtie2/CTCF_Rep2_ENCFF001HLW_trimmed_aligned_filt_sort_nodup.bam > \ 
-analysis/AlignmentStats/CTCF_Rep2_filter.flagstat.log
+cd
+
+samtools flagstat -@ 3 data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_nofilt.bam > \
+analysis/AlignmentStats/ChIP/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_nofilt.flagstat.log
 
 ```
  
@@ -137,11 +140,11 @@ analysis/AlignmentStats/CTCF_Rep2_filter.flagstat.log
  ```
  cd
  
- samtools sort -O BAM -n -@ 3 data/processed/CTCF/Bowtie2/CTCF_Rep2_ENCFF001HLW_trimmed_aligned_nofilt.bam \
+ samtools sort -O BAM -n -@ 3 data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_nofilt.bam \
 | samtools fixmate -m -@ 3 - - \
 | samtools sort -O BAM -@ 3 \
 | samtools markdup -@ 3 - - \
-| samtools flagstat - > analysis/AlignmentStats/CTCF_Rep2_nofilter_dupmarked_flagstat.log
+| samtools flagstat - > analysis/AlignmentStats/ChIP/CTCF_Rep2_nofilter_dupmarked_flagstat.log
 
  ```
 
