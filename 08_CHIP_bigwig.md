@@ -18,13 +18,13 @@ We will use a tool form the `bedtools` suite, namely `genomecov`, to build the b
 cd
 
 ## create a directory
-mkdir -p analysis/bigwig
+mkdir -p analysis/bigwig/ChIP
 
 # create and sort bedgraph file for the CTCF IP
-bedtools genomecov -bg -ibam data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_filt_sort_nodup.bam | sort -k1,1 -k2,2n > analysis/bigwig/CTCF_Rep1.bg
+bedtools genomecov -bg -ibam data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_filt_sort_nodup.bam | sort -k1,1 -k2,2n > analysis/bigwig/ChIP/CTCF_Rep1.bg
 
 # convert bedgraph to bigwig
-bedGraphToBigWig analysis/bigwig/CTCF_Rep1.bg data/ext_data/hg38.genome analysis/bigwig/CTCF_Rep1.bw
+bedGraphToBigWig analysis/bigwig/ChIP/CTCF_Rep1.bg data/ext_data/hg38.genome analysis/bigwig/ChIP/CTCF_Rep1.bw
 
 # delete the bedgraph file
 rm analysis/bigwigCTCF_Rep1.bg
@@ -32,25 +32,25 @@ rm analysis/bigwigCTCF_Rep1.bg
 
 ### Exercice
 
-> create the bigwig file for the control `data/processed/CTCF/Bowtie2/CTCF_Control_ENCFF001HME_trimmed_aligned_filt_sort_nodup.bam`; MAKE SURE TO GIVE A DIFFERENT NAME TO THE OUTPUT FILES!!
+> Create the bigwig file for the control `data/processed/CTCF/Bowtie2/CTCF_Control_ENCFF001HME_trimmed_aligned_filt_sort_nodup.bam`; MAKE SURE TO GIVE A DIFFERENT NAME TO THE OUTPUT FILES!!
 
 ## Generating a merged bigwig file
 
-We can also create a single bigwig file by substracting the Control from the IP; scaling Control and IP is highly non-trivial, a good method is the **SES** method implemented in DeepTools
+We can also create a single bigwig file by subtracting the Control from the IP; scaling Control and IP is highly non-trivial, a good method is the **SES** method implemented in DeepTools
 
 ```
 bamCompare -b1 data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_filt_sort_nodup.bam \
  -b2 data/processed/CTCF/Bowtie2/CTCF_Control_ENCFF001HME_trimmed_aligned_filt_sort_nodup.bam \
- --scaleFactorsMethod SES -p 4 \
+ --scaleFactorsMethod SES -p 3 \
  --operation subtract \
-  -o analysis/bigwig/CTCF_ses_subtract.bw
+  -o analysis/bigwig/ChIP/CTCF_ses_subtract.bw
 ```
 
 ## Loading the files into the IGV app       
 
 We can now use the [IGV web app](https://igv.org/app/) to visualize the different datasets into a genomic browser; here, we will load
 * the individual bigwig files for IP and control
-* the compbined bigwig file
+* the combined bigwig file
 * the peak files in narrowPeak format
 
 **Procedure**
