@@ -74,6 +74,32 @@ data
 
 During the analysis, we will create further subdirectories into the `analysis` directory.
 
+**+++ GOOD PRACTICE ADVICE++**
+ 
+1. structure you analysis directory such that you can easily trace back what type of file/results is stored in which folder!
+2. often, some input files are processed and generate new output files. Some tools give automatically names to the output file, otherwise it is a good practice to give names that make it clear what the file contains...
+Example:
+```
+## original fastq file
+CTCF_rep1_IP.fq.gz
+
+## aligned file
+
+### bad name
+IP.bam 
+
+### good name
+CTCF_rep1_IP.bam
+
+## after filtering
+
+### bad name
+filtered_file.bam
+
+### good name
+CTCF_rep1_IP.mapq_filtered.dup_removed.bam
+```
+
 ## 3. How do I access the tools needed for the analysis?
 
 We will use a number of software tools for the analysis; we have prepared a **virtual environment** using **conda** containing all required tools. You first need to activate this environment, by running the simple command (in the bash console):
@@ -94,3 +120,6 @@ to
 
 Now you can use all tools described in the tutorial!
 
+## 4. Why is it so slow??
+
+You are working on a server with 26 CPU cores and 512 Gb memory. Some steps of the analysis are quite computationally intensive, and can lead to delays, especially if run simultaneously by several users! In that case, take a break while it is running, and get a fresh cup of coffee, you might need it ;-)
