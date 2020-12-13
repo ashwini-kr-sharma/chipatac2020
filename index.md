@@ -17,14 +17,14 @@ Welcome to the page of the workshop on the computational analysis of ChIP-seq an
 
 ### Day 1: ChIP-seq                                         
 
-1. [Introduction](./01_Intro.md)                             
-2. [Quality control on reads](./02_ReadQC.md)                  
-3. [Read trimming](./03_Trimming.md)                          
-4. [Read alignment](./04_Alignment.md)                        
-5. [Peak calling](./05_PeakCalling.md)                         
-6. [Peak annotation](./06_PeakAnnotation.md)                   
-7. [ChIP-seq quality control](./07_QC.md)                      
-8. [Generating signal tracks and using IGV](./08_bigwig.md)    
+1. [Introduction](./01_CHIP_Intro.md)                             
+2. [Quality control on reads](./02_CHIP_ReadQC.md)                  
+3. [Read trimming](./03_CHIP_Trimming.md)                          
+4. [Read alignment](./04_CHIP_Alignment.md)                        
+5. [Peak calling](./05_CHIP_PeakCalling.md)                         
+6. [Peak annotation](./06_CHIP_PeakAnnotation.md)                   
+7. [ChIP-seq quality control](./07_CHIP_QC.md)                      
+8. [Generating signal tracks and using IGV](./08_CHIP_bigwig.md)    
                                                    
 
 ### Day 2: ATAC-seq
