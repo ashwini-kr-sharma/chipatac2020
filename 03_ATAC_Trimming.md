@@ -13,7 +13,7 @@ Lets try Trimming only on those `fastq` files that showed significant adaptor co
 cd 
 
 # Create a folder for your analysis
-mkdir -p analysis/Trimming
+mkdir -p analysis/Trimming/ATAC
 
 # Check out all the available parameters in trim_galore
 # Do note, when in doubt, its often good practice to use default settings
@@ -30,9 +30,13 @@ trim_galore \
   --phred33 \
   --paired \
   --fastqc \
-  --cores 8 \
-  --output_dir analysis/Trimming \
-  /vol/volume/HCT116/ATACseq/ATAC_Rep1_ENCFF121EPT_R1.fastq.gz /vol/volume/HCT116/ATACseq/ATAC_Rep1_ENCFF795EHY_R2.fastq.gz
+  --cores 3 \
+  --output_dir analysis/Trimming/ATAC \
+  data/fastqdata/ATACseq/ATAC_Rep1_ENCFF121EPT.fastq_R1.gz  data/fastqdata/ATACseq/ATAC_Rep1_ENCFF795EHY.fastq_R2.gz
+
+# See your results here
+cd analysis/Trimming/ATAC
+
 ```
 
 Always keep in mind to change the **Trim Galore!** parameters according to your knowledge of -
