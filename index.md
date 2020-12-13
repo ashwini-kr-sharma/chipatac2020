@@ -13,7 +13,7 @@ Welcome to the page of the workshop on the computational analysis of ChIP-seq an
 ********
 ## Practical parts
 
-[General instructions](./00_generalInstructions.md)
+[General instructions before you start](./00_generalInstructions.md)
 
 ### Day 1: ChIP-seq
 1. [Introduction](./00_Intro.md)
