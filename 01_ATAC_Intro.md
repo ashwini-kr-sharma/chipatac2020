@@ -10,12 +10,14 @@ H3K4me3 is known to mark active promoters around their TSS, H3K4me1 are known to
 
 Raw data will be downloaded and re-processed from [`ENCODE`](https://www.encodeproject.org/) and the following data will be analyzed -
 
+
 | Sample | Experiment | Assay                          | Replicate | Source   | 
 | -------|------------|--------------------------------|-----------|----------|
 | HCT116 | ATACseq    | Chromatin accessibility - R1   | 1         | [ENCFF121EPT](https://www.encodeproject.org/experiments/ENCSR872WGW/) |
 | HCT116 | ATACseq    | Chromatin accessibility - R2   | 1         | [ENCFF795EHY](https://www.encodeproject.org/experiments/ENCSR872WGW/) |
 | HCT116 | ATACseq    | Chromatin accessibility - R1   | 2         | [ENCFF624DNH](https://www.encodeproject.org/experiments/ENCSR872WGW/) |
 | HCT116 | ATACseq    | Chromatin accessibility - R2   | 2         | [ENCFF157PAR](https://www.encodeproject.org/experiments/ENCSR872WGW/) |
+
 
 ## Download data
 > NOTE: You don't need to download any data, all of the data has been pre-downloaded and saved in `home/<username>/data/fastqdata`. You will directly access these data during the practical training session.

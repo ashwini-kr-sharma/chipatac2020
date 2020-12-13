@@ -11,7 +11,7 @@ TOBIAS ATACorrect \
 --bam data/processed/ATACseq/Bowtie2/ATAC_REP1_aligned_filt_sort_nodup.bam  \
 --genome data/ext_data/genome.fa \
 --peaks analysis/MACS2/ATAC/ATAC-Rep1_peaks.narrowPeak \
---cores 26 \
+--cores 3 \
 --outdir analysis/Footprint/
 
 ```
@@ -23,7 +23,7 @@ cd
 TOBIAS ScoreBigWig \
 --signal analysis/Footprint/ATAC_REP1_aligned_filt_sort_nodup_corrected.bw \
 --regions analysis/MACS2/ATAC/ATAC-Rep1_peaks.narrowPeak \
---cores 26 \
+--cores 3 \
 --output analysis/Footprint/ATAC_footprints.bw 
 
 ## delete some files
@@ -42,9 +42,7 @@ TOBIAS BINDetect \
 --signals analysis/Footprint/ATAC_footprints.bw  \
 --genome data/ext_data/genome.fa \
 --peaks analysis/MACS2/ATAC/ATAC-Rep1_peaks.narrowPeak \
---cores 26 \
+--cores 3 \
 --outdir analysis/Footprint/BINDdetect
 
 ```
-
-
