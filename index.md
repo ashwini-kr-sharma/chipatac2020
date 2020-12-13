@@ -17,26 +17,30 @@ Welcome to the page of the workshop on the computational analysis of ChIP-seq an
 
 ### Day 1: ChIP-seq**                                           
 
-1. [Introduction](./00_Intro.md)                             
-2. [Quality control on reads](./01_ReadQC.md)                  
-3. [Read trimming](./02_Trimming.md)                          
-4. [Read alignment](./03_Alignment.md)                        
-5. [Peak calling](./04_PeakCalling.md)                         
-6. [Peak annotation](./05_PeakAnnotation.md)                   
+1. [Introduction](./01_Intro.md)                             
+2. [Quality control on reads](./02_ReadQC.md)                  
+3. [Read trimming](./03_Trimming.md)                          
+4. [Read alignment](./04_Alignment.md)                        
+5. [Peak calling](./05_PeakCalling.md)                         
+6. [Peak annotation](./06_PeakAnnotation.md)                   
 7. [ChIP-seq quality control](./07_QC.md)                      
 8. [Generating signal tracks and using IGV](./08_bigwig.md)    
                                                    
 
 ### Day 2: ATAC-seq
-1. [Introduction](./00_ATAC_Intro.md)
-2. [Quality control on reads](./01_ATAC_ReadQC.md)
-3. [Read trimming](./02_ATAC_Trimming.md)
-4. [Read alignment](./03_ATAC_Alignment.md)
-5. [Peak calling](./04_ATAC_PeakCalling.md)
-6. [Peak annotation](./05_ATAC_PeakAnnotation.md)
-7. [Footprinting](./06_ATAC_Footprinting.md)
-8. [ATAC-seq quality control](./07_ATAC_QC.md)
-9. [Generating signal tracks and using IGV](./08_ATAC_bigwig.md)
+1. [Introduction](./01_ATAC_Intro.md)
+2. [Quality control on reads](./02_ATAC_ReadQC.md)
+3. [Read trimming](./03_ATAC_Trimming.md)
+4. [Read alignment](./04_ATAC_Alignment.md)
+5. [Peak calling](./05_ATAC_PeakCalling.md)
+6. [Peak annotation](./06_ATAC_PeakAnnotation.md)
+7. [Footprinting](./07_ATAC_Footprinting.md)
+8. [ATAC-seq quality control](./08_ATAC_QC.md)
+9. [Generating signal tracks and using IGV](./09_ATAC_bigwig.md)
+
+### Day 2: Going further: integrating/comparing ChIP-seq/ATAC-seq
+
+10. [Motif analysis on CTCF peaks]()
 
 
 ********
