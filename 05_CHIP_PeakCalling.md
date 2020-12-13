@@ -31,14 +31,9 @@ macs2 callpeak \
 --gsize 2.7e9 \
 --qvalue 0.01 \
 --outdir analysis/MACS2/CTCF
-
-# Find you results here
-cd analysis/MACS2/CTCF
-
-# Genrate the figures for the model used by MACS2
-/usr/bin/Rscript CTCF_model.r
 ```
 
+You can find all generated files in the `analysis/MACS2/CTCF` folder.
 ## Broad H3K4me3 peak
 
 ```
@@ -68,9 +63,33 @@ macs2 callpeak \
 
 ```
 
-> Analyze the outputs from MACS2, download the peaks `.xls` files using Cyberduck and check its contents
+> Analyze the outputs from MACS2, download the peaks `.xls` files using Cyberduck and check its contents; how many peaks do you get for each ChIP dataset?
+
+> From the output of MACS2 on the screen, what is the infered fragment length?
+
+Regarding this last point, MACS2 also generates an R script, which we can execute, in order to better understand the model built by MACS2:
+
+```bash
+cd 
+
+/usr/bin/Rscript analysis/MACS2/CTCF/CTCF_model.r
+
+/usr/bin/Rscript analysis/MACS2/H3K4me3/H3K4me3_model.r
+```
+
+Using Cyberduck, look at the pdf files generated in your home folder.
+
+> Do you understand these plots?
+
 
 > Run the H3K4me3 peak calling **without** the `--broad` and `--broad-cutoff` option; i.e. in narrow peak finding mode. Do you get more/less peaks?
 
 > Can you think of a reason why we keep `--keep-dup all` option ? Hint: think about the filtering steps used during alignment.
+<details>
+  <summary>[Click to show answer!]</summary>
+  
+  We have already removed all duplicate reads using the `samtools markdup` command, hence there are no duplicates left in the file! Without this preliminary filtering, we could have used the `auto` option to let MACS2 decide on a maximal number of duopliactes to keep!
+</details>
+
+
 
