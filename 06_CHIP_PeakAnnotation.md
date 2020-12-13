@@ -121,7 +121,7 @@ library(ggplot2)
 gene = seq2gene(peaks.gr, tssRegion = c(-1000, 1000), flankDistance = 3000, TxDb=txdb)
 pathway = enrichPathway(gene)
 dp = dotplot(pathway)
-ggsave(dp,'analysis/PeakAnnotation/ChIP/CTCF_pathways.pdf')
+ggsave(filename = "analysis/PeakAnnotation/ChIP/CTCF_pathways.pdf", plot = dp)
 ```
 
 Again, you can check the plot, and see which pathways seem to be enriched among the genes which have a proximal CTCF peak.
