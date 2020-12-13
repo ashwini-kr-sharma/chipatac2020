@@ -13,6 +13,8 @@ Welcome to the page of the workshop on the computational analysis of ChIP-seq an
 ********
 ## Practical parts
 
+[General instructions](./00_generalInstructions.md)
+
 ### Day 1: ChIP-seq
 1. [Introduction](./00_Intro.md)
 2. [Quality control on reads](./01_ReadQC.md)
@@ -46,7 +48,7 @@ Check the detailled schedule [here](./schedule.md)
 ## Organisation
 
 The course will be online only! 
-* Lectures will be over **Zoom** (use [this link]())
+* Lectures will be over **Zoom** (use [this link](https://us02web.zoom.us/j/87513196823?pwd=VURGZkRVZWxzMTFhZkFvaHhiL0s4dz09))
 * We will use **Discord channels** for the practical sessions (register [using this link](https://discord.gg/xNpc66eZbW))
 
 **********
