@@ -43,7 +43,13 @@ q()
 
 You should be back to the **bash console** (check the prompt)!
 
-## 2. Where is the data?
+## 2. Do I really need to type all the commands?
+
+In the tutorial, we have written the commands in the grey boxes in such a way that you can copy/paste the command into your bash console, and execute it. If you do so, make sure that you understand how the command is structured and what it does!
+
+You can also type the command yourself in the console; it that case, make sure to respect the blank spaces inside the command!
+
+## 3. Where is the data?
 
 Each user has in his home directory 2 folders:
 * `data`: this folder contains all the data (fastq / bam / ...) that you will need for the analysis
@@ -100,7 +106,7 @@ filtered_file.bam
 CTCF_rep1_IP.mapq_filtered.dup_removed.bam
 ```
 
-## 3. How do I access the tools needed for the analysis?
+## 4. How do I access the tools needed for the analysis?
 
 We will use a number of software tools for the analysis; we have prepared a **virtual environment** using **conda** containing all required tools. You first need to activate this environment, by running the simple command (in the bash console):
 
@@ -120,6 +126,6 @@ to
 
 Now you can use all tools described in the tutorial!
 
-## 4. Why is it so slow??
+## 5. Why is it so slow??
 
 You are working on a server with 26 CPU cores and 512 Gb memory. Some steps of the analysis are quite computationally intensive, and can lead to delays, especially if run simultaneously by several users! In that case, take a break while it is running, and get a fresh cup of coffee, you might need it ;-)
