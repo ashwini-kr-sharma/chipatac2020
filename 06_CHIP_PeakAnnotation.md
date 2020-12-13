@@ -115,9 +115,10 @@ Finally, we can use the genes which have been associated to the peaks to compute
 
 ```
 library(ReactomePA)
+library(ggplot2)
 
 ## get all genes which have a peak within +/- 1 kb around TSS
-gene = seq2gene(peak, tssRegion = c(-1000, 1000), flankDistance = 3000, TxDb=txdb)
+gene = seq2gene(peaks.gr, tssRegion = c(-1000, 1000), flankDistance = 3000, TxDb=txdb)
 pathway = enrichPathway(gene)
 dp = dotplot(pathway)
 ggsave(dp,'analysis/PeakAnnotation/ChIP/CTCF_pathways.pdf')
