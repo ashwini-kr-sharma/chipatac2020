@@ -1,4 +1,4 @@
-# 3. Read Trimming
+# 3. ATAC-seq : Read Trimming
 
 Adapters are synthetic sequences attached to the biological read fragments during library preparation. These adapters contain crucial barcoding information, forward/reverse primers and sequences needed to bind to flowcell during the bridge amplification step of Illumina sequencing. In  short read sequencing, if the DNA insert/fragment (biological sequence of interest) is shorter than the number of bases sequenced (cycles), the machine will also sequence into the 3' adapter. Thus, it is considered good practice to remove these artificial reads prior to alignment. Also, note that there is a [discussion](https://www.ecseq.com/support/ngs/trimming-adapter-sequences-is-it-necessary) going on in the bioinformatics community in which situations is adapter trimming actually required !!
 
