@@ -26,6 +26,8 @@ TOBIAS ScoreBigWig \
 --cores 26 \
 --output analysis/Footprint/ATAC_footprints.bw 
 
+## delete some files
+rm *corrected.bw *expected.bw *bias.bw
 ```
 
 ## Transcription factor binding prediction
