@@ -14,7 +14,7 @@ bamCoverage \
 --normalizeUsing RPKM \
 --ignoreDuplicates --centerReads \
 --binSize 200 \
---numberOfProcessors 8
+--numberOfProcessors 3
 
 ```
 
