@@ -64,6 +64,8 @@ macs2 callpeak \
 
 > Analyze the outputs from MACS2, download the peaks `.xls` files using Cyberduck and check its contents
 
+> Run the H3K4me3 peak calling **without** the `--broad` option; do you get more/less peaks? 
+
 
 <details>
   <summary>Click to expand!</summary>
