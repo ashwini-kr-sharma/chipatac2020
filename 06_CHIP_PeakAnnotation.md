@@ -52,6 +52,9 @@ As you see, some peaks map to incomplete chromosomes (like `chr1_KI270711v1_rand
 i.remove = grep('_',as.character(seqnames(peaks.gr)))
 peaks.gr = peaks.gr[-i.remove]
 table(as.character(seqnames(peaks.gr)))
+
+# OR simply
+peaks.gr = keepStandardChromosomes(peaks.gr, pruning.mode="coarse")
 ```
 
 ## Genomic coverage of peaks
@@ -115,12 +118,13 @@ Finally, we can use the genes which have been associated to the peaks to compute
 
 ```
 library(ReactomePA)
+library(ggplot2)
 
 ## get all genes which have a peak within +/- 1 kb around TSS
-gene = seq2gene(peak, tssRegion = c(-1000, 1000), flankDistance = 3000, TxDb=txdb)
+gene = seq2gene(peaks.gr, tssRegion = c(-1000, 1000), flankDistance = 3000, TxDb=txdb)
 pathway = enrichPathway(gene)
 dp = dotplot(pathway)
-ggsave(dp,'analysis/PeakAnnotation/ChIP/CTCF_pathways.pdf')
+ggsave(filename = "analysis/PeakAnnotation/ChIP/CTCF_pathways.pdf", plot = dp)
 ```
 
 Again, you can check the plot, and see which pathways seem to be enriched among the genes which have a proximal CTCF peak.
