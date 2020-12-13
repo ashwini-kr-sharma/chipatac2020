@@ -11,7 +11,7 @@ TOBIAS ATACorrect \
 --genome /vol/volume/HCT116/data/genome.fa \
 --peaks myanalysis/MACS2/ATAC/ATAC-Rep1_summits.bed \
 --cores 3 \
---outdir myanalysis/Footprint/
+--outdir myanalysis/Footprint
 
 ```
 
