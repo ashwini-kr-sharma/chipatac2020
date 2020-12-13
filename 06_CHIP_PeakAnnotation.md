@@ -46,16 +46,13 @@ We can briefly check how many peaks map to each chromosome:
 table(as.character(seqnames(peaks.gr)))
 ```
 
-As you see, some peaks map to incomplete chromosomes (like `chr1_KI270711v1_random`); we will remove these few peaks:
+As you see, some peaks map to incomplete chromosomes (like `chr1_KI270711v1_random`); we will remove these few peaks, and keep only those mapping to the 23 chromosomes:
 
 ```
-i.remove = grep('_',as.character(seqnames(peaks.gr)))
-peaks.gr = peaks.gr[-i.remove]
-table(as.character(seqnames(peaks.gr)))
-
-# OR simply
 peaks.gr = keepStandardChromosomes(peaks.gr, pruning.mode="coarse")
 ```
+
+> Rerun the command with `table` to check that we only have peaks on the 23 chromosomes.
 
 ## Genomic coverage of peaks
 
@@ -129,7 +126,5 @@ ggsave(filename = "analysis/PeakAnnotation/ChIP/CTCF_pathways.pdf", plot = dp)
 
 Again, you can check the plot, and see which pathways seem to be enriched among the genes which have a proximal CTCF peak.
 
-
-## Questions
 
 > Try to redo the full peak annotation using the H3K4me3 peaks!

@@ -18,17 +18,17 @@ The **PCR bottleneck coefficient (PBC)** measures the proportion of the genomic 
 
 We will use the R library `encodeChIPqc`, which implements some of these metrics; this library is available on [this GitHub repository](https://github.com/hdsu-bioquant/encodeChIPqc)
 
-```
-> library(encodeChIPqc)
-> PCB("data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_nofilt.bam")
+```r
+library(encodeChIPqc)
+PBC("data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_nofilt.bam")
 ```
 
 > What does the value mean? Is the data of good quality?
 
 Now run
 
-```
-> PCB("data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_filt_sort_nodup.bam")
+```r
+PBC("data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_filt_sort_nodup.bam")
 ```
 
 > Do you understand the result?
@@ -40,17 +40,17 @@ The **Fraction of reads in  peaks (FRiP)** determines, as the name says, the pro
 We first read the peaks called using MACS2:
 
 ```
-> peaks =  read.table('analysis/MACS2/CTCF/CTCF_peaks.narrowPeak')
-> colnames(peaks) = c('chr','start','end','name','score','strand','signal','pval','qval','peak')
-> peaks.gr = makeGRangesFromDataFrame(peaks,keep.extra.columns=TRUE)
-> peaks.gr
+peaks =  read.table('analysis/MACS2/CTCF/CTCF_peaks.narrowPeak')
+colnames(peaks) = c('chr','start','end','name','score','strand','signal','pval','qval','peak')
+peaks.gr = makeGRangesFromDataFrame(peaks,keep.extra.columns=TRUE)
+peaks.gr
 ```
 
 Now we compute the FRiP value:
 
 ```
-> bam.file = "data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_filt_sort_nodup.bam"
-> frip(bam.file,peaks.gr)
+bam.file = "data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_filt_sort_nodup.bam"
+frip(bam.file,peaks.gr)
 ```
 
 > What does this mean? What would be the maximum value?
@@ -62,8 +62,7 @@ The **fingerprint plot** displays how unevenly the signal is distributed over th
 If you are still in the R console (check if you see a `>` as the prompt), you first need to quit R:
 
 ```
-> quit()
-$ 
+quit()
 ```
 
 Make sure that you see a `$` sign as a prompt: you are now back in the bash console!
@@ -90,5 +89,4 @@ samtools view -c data/processed/CTCF/Bowtie2/CTCF_Rep2_ENCFF001HLW_trimmed_align
 If you take the ratio of these 2 numbers, you will get something like the [non-redundant franction (NFR)](https://www.encodeproject.org/data-standards/terms/#library).
 
 
-## Exercices
 > We have a second replicate of CTCF in the folder `data/processed/CTCF/Bowtie2/`; determine the different quality metrisc for this second replicate; which replicate seems to be better?
