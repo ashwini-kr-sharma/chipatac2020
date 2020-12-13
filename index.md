@@ -2,7 +2,7 @@
 
 ![Gene regulation](./Regomics_cover.png)
 
-Welcome to the page of the workshop on the computational analysis of ChIP-seq and ATAC-seq analysis! This workshop is meant for people with little previous knowledge of bioinformatics, and will guide you through the main steps of the bioinformatic analysis of ChIP-seq and ATAC-seq data.
+Welcome to the **workshop on the computational analysis of ChIP-seq and ATAC-seq data.** This workshop is meant for individuals with little to no previous knowledge of bioinformatics. We will guide you through each of the main steps of the bioinformatic analysis.
 
 
 ******
@@ -50,7 +50,7 @@ Welcome to the page of the workshop on the computational analysis of ChIP-seq an
 
 The course will run over 2 days (Monday, 14.12 and Tuesday, 15.12) from 9am - 12.30am and 1.30pm - 5.30pm.
 
-Check the detailled schedule [here](./schedule.md)
+Check the detailed schedule [here](./schedule.md)
 
 *********
 ## Organisation
