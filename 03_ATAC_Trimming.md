@@ -6,7 +6,7 @@ There are many well established tools for adapter trimming like [Trimmomatic](ht
 
 # Trimming
 
-Lets try Trimming only on those `fastq` files that showed significant adaptor contamination and/or overrepresented sequences. If your have carefully analyzed the **FastQC** reports from the previous section you will note that **ATACseq** samples showed adaptor contamination and thus requires trimming.
+Let's try Trimming only on those `fastq` files that showed significant adaptor contamination and/or overrepresented sequences. If your have carefully analyzed the **FastQC** reports from the previous section you will note that **ATACseq** samples showed adaptor contamination and thus requires trimming.
 
 ```
 # Go to your home directory
