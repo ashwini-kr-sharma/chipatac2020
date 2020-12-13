@@ -22,7 +22,7 @@ mkdir -p analysis/bigwig/ChIP
 
 bamCoverage \
 --bam data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_filt_sort_nodup.bam \
---outFileName analysis/bigwig/ChIP/CTCF_REP1.bw \
+--outFileName analysis/bigwig/ChIP/CTCF_Rep1.bw \
 --outFileFormat bigwig \
 --normalizeUsing RPKM \
 --ignoreDuplicates --centerReads \
