@@ -1,21 +1,23 @@
 # 2. ChIP-seq : Raw read quality control - FastQC
 
 ## `fastq` file format
-Raw sequencing reads are stored in text files containg the sequence of nucleotides and its associated quality scores. These are called `fastq` text files and are usually in compressed formats like `XYZ.fastq.gz`. Each read is described by **4 lines**, lets look at the first four lines of an example `fastq` file -
+Raw sequencing reads are stored in text files containing the sequence of nucleotides and its associated quality scores. These are called `fastq` text files and are usually in compressed formats like `XYZ.fastq.gz`. Each read is described by **4 lines**, let's look at the first four lines of an example `fastq` file -
 
 ```
-zcat /vol/volume/HCT116/fastqdata/ChIPseq/H3K4me3/H3K4me3_Control_ENCFF001HME.fastq.gz | head -n 4
+cd
 
-@SOLEXA-1GA-1_0055_FC629PW:6:1:3315:1043#0/1
-TANCTGTGTTTCTCTAAGCAAATCATAATNNNTTGA
-+SOLEXA-1GA-1_0055_FC629PW:6:1:3315:1043#0/1
-aaB^aaaaQaa^\Wcd^^dSddYcbYIV_BBBBBBB
+zcat data/fastqdata/ChIPseq/H3K4me3/H3K4me3_Rep1_ENCFF001FIS.fastq.gz | head -n 4
+
+@SOLEXA-1GA-2_0051_FC62478:3:1:1371:1211#0/1
+ACAATAATAGGTTAGGTGGATTCCCAGGNNNNNNNN
++SOLEXA-1GA-2_0051_FC62478:3:1:1371:1211#0/1
+afaagggg_ddffcfffc_cfffffBBBBBBBBBBB
 
 ```
 
-- Line 1 begining with a `@` character represents a sequence identifier. In this identifier, each value separated by a `:` represents an information about the read. Depending on the sequencing platform, this may vary. You can find more detailed information [here](https://en.wikipedia.org/wiki/FASTQ_format).
+- Line 1 beginning with a `@` character represents a sequence identifier. In this identifier, each value separated by a `:` represents an information about the read. Depending on the sequencing platform, this may vary. You can find more detailed information [here](https://en.wikipedia.org/wiki/FASTQ_format).
 - Line 2 consists of the actual sequence reads. 
-- Line 3 begining with a `+` character can have the same information as Line 1, be empty or some additional description of the reads.
+- Line 3 beginning with a `+` character can have the same information as Line 1, be empty or may have some additional description of the reads.
 - Line 4 encodes the quality values for the nucleotides in Line 2. It, thus will have same number of letter as Line 2.
 
 > Do you know the difference between `fast[q]` and `fast[a]` file formats ? see [`here`](https://en.wikipedia.org/wiki/FASTA_format)
@@ -30,8 +32,8 @@ aaB^aaaaQaa^\Wcd^^dSddYcbYIV_BBBBBBB
 Quality encoding: !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
                   |                         |    |        |                              |                     |
                  33                        59   64       73                            104                   126
-Phred 33:         0........................26...31.......40                                
-Phred 64:                                           3.....9..............................41 
+Phred 33:         0........................26...31.......40..                                
+Phred 64:                                        ...3.....9..............................41. 
                                  
 ```
 
@@ -55,7 +57,7 @@ p=0.001%, Q=30
 
 # Quality control
 
-We will use the [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) tool to perform basis quality assesment of the raw reads. This tools give us the following information -
+We will use the [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) tool to perform basis quality assessment of the raw reads. This tools give us the following information -
 
 - [Basic Statistics](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/1%20Basic%20Statistics.html)
 - [Per base sequence quality](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/2%20Per%20Base%20Sequence%20Quality.html)
@@ -69,18 +71,18 @@ We will use the [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fast
 - [Overrepresented sequences](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/9%20Overrepresented%20Sequences.html)
 - [Adapter Content](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/10%20Adapter%20Content.html)
 
-Based on these parameters one could estimate the sequencing quality and identify major problems right at the begining of a project.
+Based on these parameters one could estimate the sequencing quality and identify major problems right at the beginning of a project.
 
 ## FastQC
 
-Let us perform a simple FastQC analysis on the `fastq` file that we viewd above and its control.
+Let us perform a simple FastQC analysis on the `fastq` file that we viewed above and its control.
 
 ```
 # Go to your home directory
 cd 
 
 # Create a folder for your analysis
-mkdir -p analysis/FastQC
+mkdir -p analysis/FastQC/ChIP
 
 # Check out all the available parameters in FastQC
 # Do note, when in doubt, its often good practice to use default settings
@@ -93,12 +95,11 @@ fastqc --help
 # fastqc --outdir <name of output directory> <space separated list of fastq files>
 
 # Actual analysis:
-fastqc --outdir analysis/FastQC \
-/vol/volume/HCT116/ChIPseq/H3K4me3/H3K4me3_Control_ENCFF001HME.fastq.gz \
-vol/volume/HCT116/ChIPseq/H3K4me3/H3K4me3_Rep1_ENCFF001FIS.fastq.gz 
+fastqc --outdir analysis/FastQC/ChIP \
+data/fastqdata/ChIPseq/H3K4me3/H3K4me3_Rep1_ENCFF001FIS.fastq.gz
 
 # Find your results here
-cd analysis/FastQC
+cd analysis/FastQC/ChIP
 ```
 
 ## Analyzing the output
@@ -114,4 +115,4 @@ Now you can use Cyberduck to open the generated html files -
 
 > Refer to [`ENCODE ChIPseq good practices`](https://www.encodeproject.org/data-standards/chip-seq/)
 
-In the next section, we will perform **adapter trimming/clipping** based on our knowlege of the FastQC results.
+In the next section, we will perform **adapter trimming/clipping** based on our knowledge of the FastQC results.
