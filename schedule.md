@@ -2,7 +2,7 @@
 
 ### Day 1 - Monday, 14.12
 
-#### Morning session (9am - 12.30am)
+#### Morning session (10am - 12.30am)
 
 * Lecture : General introduction to the concepts of ChIP-seq / ATAC-seq
 * Lecture : Introduction to the processing of sequencing data
