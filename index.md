@@ -1,5 +1,7 @@
 # ChIP-seq and ATAC-seq Bioinformatics Analysis Workshop
 
+![Gene regulation](./Regomics_cover.png)
+
 Welcome to the page of the workshop on the computational analysis of ChIP-seq and ATAC-seq analysis! This workshop is meant for people with little previous knowledge of bioinformatics, and will guide you through the main steps of the bioinformatic analysis of ChIP-seq and ATAC-seq data.
 
 
