@@ -1,6 +1,6 @@
 # 9. ATAC-seq : ATAC signal file
 
-In a final step, we will generate *signal files* in the `bigwig` format, which represent continuous signals along the genome. Another format to do this is the `bedgraph` format. For both formats, the files can then be loaded into a genomic browser in order to explore the signal and the peak regions.
+In a final step, we will generate *signal files* in the `bigwig` format, which represent continuous signals along the genome. We will use the function [`bamCoverage`](https://deeptools.readthedocs.io/en/develop/content/tools/bamCoverage.html) from **`deepTools`** to acheive this.
 
 ```
 cd 
@@ -17,6 +17,9 @@ bamCoverage \
 --numberOfProcessors 3
 
 ```
+
+Look at the extra parameters from the [`bamCoverage`](https://deeptools.readthedocs.io/en/develop/content/tools/bamCoverage.html), that you could possibly incorporate.
+
 
 # Extra challenge
 
