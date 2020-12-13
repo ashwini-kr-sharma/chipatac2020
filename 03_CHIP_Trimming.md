@@ -33,6 +33,8 @@ trim_galore \
  --output_dir analysis/Trimming/ChIP \
  data/fastqdata/ChIPseq/CTCF/CTCF_Rep2_ENCFF001HLW.fastq.gz
 
+# See your results here
+cd analysis/Trimming/ChIP
 ```
 
 Try running trimming for another **CTCF** `fastq` files. Keep in mind to change the **Trim Galore!** parameters according to your knowledge of -
