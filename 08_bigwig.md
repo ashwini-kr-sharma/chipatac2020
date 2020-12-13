@@ -24,7 +24,7 @@ mkdir -p analysis/bigwig
 bedtools genomecov -bg -ibam data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_filt_sort_nodup.bam | sort -k1,1 -k2,2n > analysis/bigwig/CTCF_Rep1.bg
 
 # convert bedgraph to bigwig
-bedGraphToBigWig analysis/bigwig/CTCF_Rep1.bg /vol/volume/HCT116/data/hg38.genome analysis/bigwig/CTCF_Rep1.bw
+bedGraphToBigWig analysis/bigwig/CTCF_Rep1.bg data/ext_data/hg38.genome analysis/bigwig/CTCF_Rep1.bw
 
 # delete the bedgraph file
 rm analysis/bigwigCTCF_Rep1.bg

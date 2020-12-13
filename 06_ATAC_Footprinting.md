@@ -9,7 +9,7 @@ mkdir -p analysis/Footprint
 
 TOBIAS ATACorrect \
 --bam data/processed/ATACseq/Bowtie2/ATAC_REP1_aligned_filt_sort_nodup.bam  \
---genome /vol/volume/HCT116/data/genome.fa \
+--genome data/ext_data/genome.fa \
 --peaks analysis/MACS2/ATAC/ATAC-Rep1_peaks.narrowPeak \
 --cores 26 \
 --outdir analysis/Footprint/
@@ -38,9 +38,9 @@ cd
 mkdir -p analysis/Footprint/BINDdetect
 
 TOBIAS BINDetect \
---motifs /vol/volume/HCT116/data/motifs.jaspar \
+--motifs data/ext_data/motifs.jaspar \
 --signals analysis/Footprint/ATAC_footprints.bw  \
---genome /vol/volume/HCT116/data/genome.fa \
+--genome data/ext_data/genome.fa \
 --peaks analysis/MACS2/ATAC/ATAC-Rep1_peaks.narrowPeak \
 --cores 26 \
 --outdir analysis/Footprint/BINDdetect
