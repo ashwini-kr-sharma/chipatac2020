@@ -59,7 +59,7 @@ table(as.character(seqnames(peaks.gr)))
 Let us see how the peaks are distributed over the genome:
 
 ```
-pdf('CTCF_coverage.pdf')
+pdf('analysis/PeakAnnotation/ChIP/CTCF_coverage.pdf')
 covplot(peaks.gr,weightCol='signal')
 dev.off()
 ```
@@ -78,7 +78,7 @@ promoter = getPromoters(TxDb=txdb, upstream=3000, downstream=3000)
 tagMatrix = getTagMatrix(peaks.gr, windows=promoter)
 
 ## plot this as density heatmap
-pdf('CTCF_heatmap.pdf')
+pdf('analysis/PeakAnnotation/ChIP/CTCF_heatmap.pdf')
 tagHeatmap(tagMatrix, xlim=c(-3000, 3000), color="red")
 dev.off()
 ```
@@ -104,7 +104,7 @@ The `peak.anno` object is a data table with multiple columns; each row represent
 We can check the distribution of the peak location:
 
 ```
-pdf('CTCF_distribution.pdf')
+pdf('analysis/PeakAnnotation/ChIP/CTCF_distribution.pdf')
 plotAnnoPie(peakAnno)
 dev.off()
 ```
@@ -120,7 +120,7 @@ library(ReactomePA)
 gene = seq2gene(peak, tssRegion = c(-1000, 1000), flankDistance = 3000, TxDb=txdb)
 pathway = enrichPathway(gene)
 dp = dotplot(pathway)
-ggsave(dp,'CTCF_pathways.pdf')
+ggsave(dp,'analysis/PeakAnnotation/ChIP/CTCF_pathways.pdf')
 ```
 
 Again, you can check the plot, and see which pathways seem to be enriched among the genes which have a proximal CTCF peak.
