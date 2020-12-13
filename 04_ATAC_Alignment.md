@@ -56,7 +56,7 @@ samtools view -h -@ 15 <aligned_filtered.bam> | grep -v "chrM" | samtools view -
 ## Pseudocode for duplicate removal
 
 A typical problem in libraries sequenced using a PCR amplification is the presence of PCA duplicates among the reads. 
-These should be filtered out, as they do not bring any additional insights. Usually, these duplicates can be identifiied when many reads have the exact same coordinates. We will delete these duplicates from the bam file using the `samtools markdup` tool.
+These should be filtered out, as they do not bring any additional insights. Usually, these duplicates can be identified when many reads have the exact same coordinates. We will delete these duplicates from the bam file using the `samtools markdup` tool.
 
 ```
 #---------------------------------------
@@ -73,7 +73,7 @@ samtools sort -n -O BAM -@ 10 <aligned_filt_noMT.bam>  \
 | samtools markdup -r -S -@ 10 - <aligned_filtered_sorted_duprmv.bam>
 ```
 
-## Pseudocode for duplicate removal
+## Pseudocode for indexing
 
 Finally, now that we have generated a new bam file by filtering out reads, we need to re-index the bam file. Indexing helps in quickly accessing the reads.
 
@@ -86,7 +86,7 @@ samtools index <aligned_filtered_sorted_duprmv.bam> <aligned_filtered_sorted_dup
 
 ```
 
-A detailed explaination of the parameters used for alignment can be found [here](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#using-samtoolsbcftools-downstream), it is important to notice the difference for paired end and single end sequencing.
+A detailed explanation of the parameters used for alignment can be found [here](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#using-samtoolsbcftools-downstream), it is important to notice the difference for paired end and single end sequencing.
 
 After alignment, we also filter out poor quality, unmapped and duplicate reads using [samtools](http://www.htslib.org/doc/samtools.html). The parameters `-F, -f, q` along with `markdup` are used to filter out reads. 
 
@@ -101,7 +101,7 @@ After alignment, we also filter out poor quality, unmapped and duplicate reads u
 cd 
 
 # Create a folder for your analysis
-mkdir -p analysis/AlignmentStats
+mkdir -p analysis/AlignmentStats/ATAC
 
 # Flagstat analysis
 
@@ -109,11 +109,15 @@ mkdir -p analysis/AlignmentStats
 # samtools flagstat <aligned.bam> > <aligned.bam.log>
 # samtools flagstat <aligned_filtered_sorted_duprmv.bam> > <aligned_filtered_sorted_duprmv.bam.log> 
 
-samtools flagstat data/processed/ATAC/Bowtie2/ATAC/ATAC_REP1_aligned_nofilt.bam > \
-analysis/AlignmentStats/ATAC_REP1_aligned_nofilt.bam.log
+samtools flagstat -@ 3 data/processed/ATACseq/Bowtie2/ATAC_REP1_aligned_filt_sort_nodup.bam > \
+analysis/AlignmentStats/ATAC/ATAC_REP1_aligned_filt_sort_nodup.flagstat.log
 
 ```
 
  > Can you modify the code above to run flagstat also on the corresponding **filtered and unfiltered** `.bam` and compare the numbers from the two files. What do you learn ?
+ 
+ > The **unflitered** alignment file is named as `CTCF_Rep1_ENCFF001HLV_trimmed_aligned_nofilt.bam`
+ 
+ > Can you count duplicates from the unfiltered file. Follow the instructions from yesterday.
 
 In the next section, we will perform **peak calling** using these aligned `.bam` files.
