@@ -81,7 +81,7 @@ A detailed explaination of the parameters used for alignment can be found [here]
 
 After alignment, we also filter out poor quality, unmapped and duplicate reads using [samtools](http://www.htslib.org/doc/samtools.html). The parameters `-F, -f, q` along with `markdup` are used to filter out reads. 
 
-> Using this [tool](https://broadinstitute.github.io/picard/explain-flags.html), one can find the exact meaning of the filtering flags like `1796, 1804, 2, etc`.
+> Using this [tool](https://broadinstitute.github.io/picard/explain-flags.html), one can find the exact meaning of the filtering flags like `4, 1804, 2, etc`.
 
 # Alignment statistics
 
@@ -121,17 +121,17 @@ analysis/AlignmentStats/ChIP/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_nofilt.flagst
  
 </details>
  
- > Look at the duplicates field in both files. What does it say? This might be MISLEADING !! see next section why ?
+ > Look at the duplicates field in both files. What does it say? This might be MISLEADING !! See next section why...
  
  
  # Counting duplicates
  
  The aligned `.bam` files output of `Bowtie2` does not have duplicate reads marked by any Flags recognized by `Samtools`. Thus, the `flasgstat` output might give an impression that there are no duplicates in your data and that you don't need to perform duplicate removal. However, this is highly misleading !!.
  
- These aligned files has to be -
+ These aligned files has to be 
  
  1. Sorted by read names  (because the Fixmate step only recognizes this form of sorting)
- 2. Mate pairing identified by fixmate
+ 2. Mate pairing identified by fixmate (for paired-end)
  3. Re-sorted by co-ordinates (because most downstream methods only work on co-ordinated sorted alignment files)
  4. Identify duplicated using `markdup`
  
@@ -148,6 +148,6 @@ analysis/AlignmentStats/ChIP/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_nofilt.flagst
 
  ```
 
-> Compare this `flagstat` output with the alignment statistis identified in the previous section. Do you notice a difference
+> Compare this `flagstat` output with the alignment statistics identified in the previous section. Do you notice a difference
 
 In the next section, we will perform **peak calling** using these aligned `.bam` files.
