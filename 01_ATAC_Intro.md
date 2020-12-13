@@ -1,4 +1,4 @@
-# 1. ATAC-seq : Background on the data
+# 1. ATAC-seq : Introduction and data background
 
 ![ATAC workflow](./workflow_atac.png)
 
