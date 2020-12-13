@@ -12,7 +12,7 @@ For ChIP-seq, we have the **IP** file representing the signal, and the **control
 
 ## Generating separate bigwig
 
-We will use a tool form the `bedtools` suite, namely `genomecov`, to build the bigwig files. We need to proceed in 2 steps: (1) create a bedgraph file, (2) convert bedgraph to bigwig
+We will use a tool form the `bedtools` suite, namely `genomecov`, to build the bigwig files.
 
 ```
 cd
