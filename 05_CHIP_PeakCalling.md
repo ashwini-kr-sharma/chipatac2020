@@ -72,5 +72,5 @@ macs2 callpeak \
 
 > Run the H3K4me3 peak calling **without** the `--broad` and `--broad-cutoff` option; i.e. in narrow peak finding mode. Do you get more/less peaks?
 
-> Can you think of a reason why we keep `--keep-dup all` option ? Hint: think about the filterig steps used during alignment.
+> Can you think of a reason why we keep `--keep-dup all` option ? Hint: think about the filtering steps used during alignment.
 
