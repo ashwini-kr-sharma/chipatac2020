@@ -1,4 +1,4 @@
-# ATAC Peak Annotation
+# 6. ATAC-seq : Peak Annotation
 
 You performed peak annotation yesterday for ChIPseq data using [ChIPseeker](http://www.bioconductor.org/packages/release/bioc/vignettes/ChIPseeker/inst/doc/ChIPseeker.html).
 
