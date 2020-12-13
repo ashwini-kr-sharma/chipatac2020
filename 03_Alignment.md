@@ -1,8 +1,8 @@
 # 4. ChIP-seq : Read alignment
 
-Aligning the sequenced reads to the reference genome is the most crucial task of any NGS analysis. Fast aligners like [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#using-samtoolsbcftools-downstream) and [BWA-MEM](https://github.com/bwa-mem2/bwa-mem2) are widely used for aligning, among others, ChIPSeq and ATACseq data. We will exemplarily show how to align reads using **Bowtie2**
+Aligning the sequenced reads to the reference genome is the most crucial task of any NGS analysis. Fast aligners like [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#using-samtoolsbcftools-downstream) and [BWA-MEM](https://github.com/bwa-mem2/bwa-mem2) are widely used for aligning, among others, ChIPSeq and ATACseq data. We will exemplarily show how to align your sequencing reads using **Bowtie2**
 
-Due to the long computation time and memory constraints, we have precomputed for you all the alignments using **Bowtie2**. You find these data in `/vol/volume/HCT116/analysis/<...>/Bowtie2`
+Due to the long computation time and memory constraints, we have precomputed for you all the alignments using **Bowtie2**. You find these data in `/vol/volume/HCT116/analysis/<CTCF/H3K4me3>/Bowtie2`
 
 ## Pseudocode for alignment
 
@@ -25,7 +25,7 @@ bowtie2 \
 #--------------------------------------------
 ```
 
-## Pseudocode for filtering
+## Pseudocode for filtering poor quality and unmapped reads
 
 After the alignment, some read have a low mapping quality (possibly with many mismatches); this mapping quality is indicated by the [**MAPQ score**](https://genome.sph.umich.edu/wiki/Mapping_Quality_Scores). This score takes into account the number of mismatches, but also the quality of the sequenced bases, as indicated by the Phred score.
 
@@ -64,7 +64,7 @@ samtools sort -n -O BAM -@ 10 <aligned_filtered.bam>  \
 | samtools markdup -r -S -@ 10 - <aligned_filtered_sorted_duprmv.bam>
 ```
 
-## Pseudocode for duplicate removal
+## Pseudocode for indexing
 
 Finally, now that we have generated a new bam file by filtering out reads, we need to re-index the bam file. Indexing helps in quickly accessing the reads.
 
@@ -100,10 +100,51 @@ mkdir -p myanalysis/AlignmentStats
 # samtools flagstat <aligned.bam> > <aligned.bam.log>
 # samtools flagstat <aligned_filtered_sorted_duprmv.bam> > <aligned_filtered_sorted_duprmv.bam.log> 
 
-samtools flagstat /vol/volume/HCT116/analysis/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_bowtie2_sorted_nofilt.bam > myanalysis/AlignmentStats/CTCF_Rep1_ENCFF001HLV_trimmed_bowtie2_sorted_nofilt.log
+samtools flagstat /vol/volume/HCT116/analysis/CTCF/Bowtie2/CTCF_Rep2_ENCFF001HLW_trimmed_aligned_nofilt.bam > \
+myanalysis/AlignmentStats/Bowtie2/CTCF_Rep2_ENCFF001HLW_trimmed_aligned_nofilt.bam.flagstat.log
 
 ```
 
  > Can you modify the code above to run flagstat also on the corresponding **filtered and unfiltered** `.bam` and compare the numbers from the two files. What do you learn ?
+ 
+<details>
+  <summary> Peek only if you have to ! </summary>
+ 
+```
+samtools flagstat /vol/volume/HCT116/analysis/CTCF/Bowtie2/CTCF_Rep2_ENCFF001HLW_trimmed_aligned_filt_sort_nodup.bam > \ 
+myanalysis/AlignmentStats/CTCF_Rep2_filter.flagstat.log
+
+```
+ 
+</details>
+ 
+ > Look at the duplicates field in both files. What does it say? This might be MISLEADING !! see next section why ?
+ 
+ 
+ # Counting duplicates
+ 
+ The aligned `.bam` files output of `Bowtie2` does not have duplicate reads marked by any Flags recognized by `Samtools`. Thus, the `flasgstat` output might give an impression that there are no duplicates in your data and that you don't need to perform duplicate removal. However, this is highly misleading !!.
+ 
+ These aligned files has to be -
+ 
+ 1. Sorted by read names  (because the Fixmate step only recognizes this form of sorting)
+ 2. Mate pairing identified by fixmate
+ 3. Re-sorted by co-ordinates (because most downstream methods only work on co-ordinated sorted alignment files)
+ 4. Identify duplicated using `markdup`
+ 
+ We will use one such unfiltered alignment file output from `Bowtie2`, perform the steps above and using `flagstat` again count the number of duplicates in our data.
+ 
+ ```
+ cd
+ 
+ samtools sort -O BAM -n -@ 3 /vol/volume/HCT116/analysis/CTCF/Bowtie2/CTCF_Rep2_ENCFF001HLW_trimmed_aligned_nofilt.bam \
+| samtools fixmate -m -@ 3 - - \
+| samtools sort -O BAM -@ 3 \
+| samtools markdup -@ 3 - - \
+| samtools flagstat - > myanalysis/AlignmentStats/CTCF_Rep2_nofilter_dupmarked_flagstat.log
+
+ ```
+
+> Compare this `flagstat` output with the alignment statistis identified in the previous section. Do you notice a difference
 
 In the next section, we will perform **peak calling** using these aligned `.bam` files.
