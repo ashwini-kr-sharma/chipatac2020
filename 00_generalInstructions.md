@@ -49,6 +49,29 @@ Each user has in his home directory 2 folders:
 * `data`: this folder contains all the data (fastq / bam / ...) that you will need for the analysis
 * `analysis`: this folder will be used to store all the outputs of your analysis.
 
+The `data` folder has the following structure:
+
+```
+data
+├── ext_data
+│   ├── genome.fa
+│   ├── genome.fa.fai
+│   ├── hg38.genome
+│   ├── MA0139.1.jaspar
+│   └── motifs.jaspar
+├── fastqdata
+│   ├── ATACseq
+│   └── ChIPseq
+└── processed
+    ├── ATACseq
+    ├── CTCF
+    └── H3K4me3
+```
+
+* `ext_data`: contains files  needed for the analysis
+* `fastqdata`: contains some of the raw and trimmed fastq files
+* `processed`: contains some of the pre-processed files (like the aligned bam files)
+
 During the analysis, we will create further subdirectories into the `analysis` directory.
 
 ## 3. How do I access the tools needed for the analysis?

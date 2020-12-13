@@ -15,19 +15,17 @@ Welcome to the page of the workshop on the computational analysis of ChIP-seq an
 
 [General instructions before you start](./00_generalInstructions.md)
 
-**Day 1: ChIP-seq**                                            | **Day 2: ATAC-seq**  
----------------------------------------------------------------|-------------------------------------------------------------------
-1. [Introduction](./00_Intro.md)                               |1. [Introduction](./00_ATAC_Intro.md)
-2. [Quality control on reads](./01_ReadQC.md)                  |2. [Quality control on reads](./01_ATAC_ReadQC.md)
-3. [Read trimming](./02_Trimming.md)                           |3. [Read trimming](./02_ATAC_Trimming.md)
-4. [Read alignment](./03_Alignment.md)                         |4. [Read alignment](./03_ATAC_Alignment.md)
-5. [Peak calling](./04_PeakCalling.md)                         |5. [Peak calling](./04_ATAC_PeakCalling.md)
-6. [Peak annotation](./05_PeakAnnotation.md)                   |6. [Peak annotation](./05_ATAC_PeakAnnotation.md)
-7. [ChIP-seq quality control](./07_QC.md)                      |7. [Footprinting](./06_ATAC_Footprinting.md)
-8. [Generating signal tracks and using IGV](./08_bigwig.md)    |8. [ATAC-seq quality control](./07_ATAC_QC.md)
-                                                               |9. [Generating signal tracks and using IGV](./08_ATAC_bigwig.md)
----------------------------------------------------------------|-------------------------------------------------------------------
-                                                    
+### Day 1: ChIP-seq**                                           
+
+1. [Introduction](./00_Intro.md)                             
+2. [Quality control on reads](./01_ReadQC.md)                  
+3. [Read trimming](./02_Trimming.md)                          
+4. [Read alignment](./03_Alignment.md)                        
+5. [Peak calling](./04_PeakCalling.md)                         
+6. [Peak annotation](./05_PeakAnnotation.md)                   
+7. [ChIP-seq quality control](./07_QC.md)                      
+8. [Generating signal tracks and using IGV](./08_bigwig.md)    
+                                                   
 
 ### Day 2: ATAC-seq
 1. [Introduction](./00_ATAC_Intro.md)
