@@ -101,11 +101,12 @@ The simplest quality control is to check the number of reads, in the unfiltered 
 
 ```
 ## Number of reads in the unfiltered bam file
-samtools view -c data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_nofilt.bam
+samtools view -c -@ 3 data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_nofilt.bam
 
 ## Number of reads in the filtered bam file (remember how we filtered the file? [check again here](./03_Alignment.md))
-samtools view -c data/processed/CTCF/Bowtie2/CTCF_Rep2_ENCFF001HLW_trimmed_aligned_filt_sort_nodup.bam
+samtools view -c -@ 3 data/processed/CTCF/Bowtie2/CTCF_Rep2_ENCFF001HLW_trimmed_aligned_filt_sort_nodup.bam
 
+calc 12308756/18238437
 
 ```
 
