@@ -18,32 +18,32 @@ We will use a tool form the `bedtools` suite, namely `genomecov`, to build the b
 cd
 
 ## create a directory
-mkdir -p myanalysis/bigwig
+mkdir -p analysis/bigwig
 
 # create and sort bedgraph file for the CTCF IP
-bedtools genomecov -bg -ibam /vol/volume/HCT116/analysis/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_filt_sort_nodup.bam | sort -k1,1 -k2,2n > myanalysis/bigwig/CTCF_Rep1.bg
+bedtools genomecov -bg -ibam data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_filt_sort_nodup.bam | sort -k1,1 -k2,2n > analysis/bigwig/CTCF_Rep1.bg
 
 # convert bedgraph to bigwig
-bedGraphToBigWig myanalysis/bigwig/CTCF_Rep1.bg /vol/volume/HCT116/data/hg38.genome myanalysis/bigwig/CTCF_Rep1.bw
+bedGraphToBigWig analysis/bigwig/CTCF_Rep1.bg /vol/volume/HCT116/data/hg38.genome analysis/bigwig/CTCF_Rep1.bw
 
 # delete the bedgraph file
-rm myanalysis/bigwigCTCF_Rep1.bg
+rm analysis/bigwigCTCF_Rep1.bg
 ```
 
 ### Exercice
 
-> create the bigwig file for the control `/vol/volume/HCT116/analysis/CTCF/Bowtie2/CTCF_Control_ENCFF001HME_trimmed_aligned_filt_sort_nodup.bam`; MAKE SURE TO GIVE A DIFFERENT NAME TO THE OUTPUT FILES!!
+> create the bigwig file for the control `data/processed/CTCF/Bowtie2/CTCF_Control_ENCFF001HME_trimmed_aligned_filt_sort_nodup.bam`; MAKE SURE TO GIVE A DIFFERENT NAME TO THE OUTPUT FILES!!
 
 ## Generating a merged bigwig file
 
 We can also create a single bigwig file by substracting the Control from the IP; scaling Control and IP is highly non-trivial, a good method is the **SES** method implemented in DeepTools
 
 ```
-bamCompare -b1 /vol/volume/HCT116/analysis/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_filt_sort_nodup.bam \
- -b2 /vol/volume/HCT116/analysis/CTCF/Bowtie2/CTCF_Control_ENCFF001HME_trimmed_aligned_filt_sort_nodup.bam \
+bamCompare -b1 data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_filt_sort_nodup.bam \
+ -b2 data/processed/CTCF/Bowtie2/CTCF_Control_ENCFF001HME_trimmed_aligned_filt_sort_nodup.bam \
  --scaleFactorsMethod SES -p 4 \
  --operation subtract \
-  -o myanalysis/bigwig/CTCF_ses_subtract.bw
+  -o analysis/bigwig/CTCF_ses_subtract.bw
 ```
 
 ## Loading the files into the IGV app       
@@ -60,7 +60,7 @@ We can now use the [IGV web app](https://igv.org/app/) to visualize the differen
 3. using Cyberduck, download the following files onto your local computer
    * `CTCF_ses_subtract.bw`
    * `CTCF_Rep1.bw`
-   * `CTCF_peak.narrowPeak` (should be in the `myanalysis/MACS2/CTCF` folder!)
+   * `CTCF_peak.narrowPeak` (should be in the `analysis/MACS2/CTCF` folder!)
 4. in the IGV app, go to `Tracks > local files...` and load the bigwig and narrowPeak file
 5. you can now select a specific chromosome in the drop-down menu, or type in a gene name to see this gene locus.
 

@@ -25,13 +25,13 @@ According to [Samtools](http://www.htslib.org/doc/samtools-idxstats.html), the `
 cd
 
 # See the outputs
-samtools idxstats /vol/volume/HCT116/analysis/ATACseq/Bowtie2/ATAC_REP1_aligned_nofilt.bam
+samtools idxstats data/processed/ATACseq/Bowtie2/ATAC_REP1_aligned_nofilt.bam
 
 # Extract number of mapped read-segments for MT
-samtools idxstats /vol/volume/HCT116/analysis/ATACseq/Bowtie2/ATAC_REP1_aligned_nofilt.bam | grep 'chrM' | cut -f 3
+samtools idxstats data/processed/ATACseq/Bowtie2/ATAC_REP1_aligned_nofilt.bam | grep 'chrM' | cut -f 3
 
 # Sum up number of mapped read-segments for all chromosomes
-samtools idxstats /vol/volume/HCT116/analysis/ATACseq/Bowtie2/ATAC_REP1_aligned_nofilt.bam | awk '{SUM += $3} END {print SUM}'
+samtools idxstats data/processed/ATACseq/Bowtie2/ATAC_REP1_aligned_nofilt.bam | awk '{SUM += $3} END {print SUM}'
 
 # Compute the %MT content
 calc 5087398/77784521*100
@@ -53,8 +53,8 @@ cd
 
 library(ATACseqQC)
 
-fragSize <- fragSizeDist(bamFiles = "/vol/volume/HCT116/analysis/ATACseq/Bowtie2/ATAC_REP1_aligned_filt_sort_nodup.bam", 
-index = "/vol/volume/HCT116/analysis/ATACseq/Bowtie2/ATAC_REP1_aligned_filt_sort_nodup.bam",         
+fragSize <- fragSizeDist(bamFiles = "data/processed/ATACseq/Bowtie2/ATAC_REP1_aligned_filt_sort_nodup.bam", 
+index = "data/processed/ATACseq/Bowtie2/ATAC_REP1_aligned_filt_sort_nodup.bam",         
 bamFiles.labels = "ATAC")
 
 q()

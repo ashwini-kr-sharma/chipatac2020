@@ -13,7 +13,7 @@ The workflow is the following:
 cd 
 
 # Create a folder for your analysis
-mkdir -p myanalysis/MACS2/CTCF
+mkdir -p analysis/MACS2/CTCF
 
 # Check out all the available parameters in MACS2
 # Do note, when in doubt, its often good practice to use default settings
@@ -23,14 +23,14 @@ macs2 --help
 
 # Launch the MACS2 peak calling
 macs2 callpeak \
---treatment /vol/volume/HCT116/analysis/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_filt_sort_nodup.bam \
---control /vol/volume/HCT116/analysis/CTCF/Bowtie2/CTCF_Control_ENCFF001HME_trimmed_aligned_filt_sort_nodup.bam \
+--treatment data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_filt_sort_nodup.bam \
+--control data/processed/CTCF/Bowtie2/CTCF_Control_ENCFF001HME_trimmed_aligned_filt_sort_nodup.bam \
 --name CTCF \
 --format BAM \
 --keep-dup all \
 --gsize 2.7e9 \
 --qvalue 0.01 \
---outdir myanalysis/MACS2/CTCF
+--outdir analysis/MACS2/CTCF
 ```
 
 ## Broad H3K4me3 peak
@@ -40,7 +40,7 @@ macs2 callpeak \
 cd 
 
 # Create a folder for your analysis
-mkdir -p myanalysis/MACS2/H3K4me3
+mkdir -p analysis/MACS2/H3K4me3
 
 # Check out all the available parameters in MACS2
 # Do note, when in doubt, its often good practice to use default settings
@@ -49,8 +49,8 @@ mkdir -p myanalysis/MACS2/H3K4me3
 macs2 --help
 
 macs2 callpeak \
---treatment /vol/volume/HCT116/analysis/H3K4me3/Bowtie2/H3K4me3_Rep1_ENCFF000VCI_aligned_filt_sort_nodup.bam \
---control /vol/volume/HCT116/analysis/H3K4me3/Bowtie2/H3K4me3_Control_ENCFF000VCW_aligned_filt_sort_nodup.bam \
+--treatment data/processed/H3K4me3/Bowtie2/H3K4me3_Rep1_ENCFF000VCI_aligned_filt_sort_nodup.bam \
+--control data/processed/H3K4me3/Bowtie2/H3K4me3_Control_ENCFF000VCW_aligned_filt_sort_nodup.bam \
 --name H3K4me3 \
 --format BAM \
 --keep-dup all \
@@ -58,7 +58,7 @@ macs2 callpeak \
 --broad \
 --qvalue 0.05 \
 --broad-cutoff 0.05 \
---outdir myanalysis/MACS2/H3K4me3
+--outdir analysis/MACS2/H3K4me3
 
 ```
 

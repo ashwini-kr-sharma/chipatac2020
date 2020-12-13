@@ -17,7 +17,7 @@ Regarding the fact that the data is paired-end, we will use the `--format BAMPE`
 cd 
 
 # Create a folder for your analysis
-mkdir -p myanalysis/MACS2/ATAC
+mkdir -p analysis/MACS2/ATAC
 
 # Check out all the available parameters in MACS2
 # Do note, when in doubt, its often good practice to use default settings
@@ -26,14 +26,14 @@ mkdir -p myanalysis/MACS2/ATAC
 macs2 --help
 
 macs2 callpeak \
---treatment /vol/volume/HCT116/analysis/ATACseq/Bowtie2/ATAC_REP1_aligned_filt_sort_nodup.bam \
+--treatment data/processed/ATACseq/Bowtie2/ATAC_REP1_aligned_filt_sort_nodup.bam \
 --name ATAC-Rep1 \
 --format BAMPE \
 --nomodel \
 --keep-dup all \
 --gsize 2.7e9 \
 --qvalue 0.05 \
---outdir myanalysis/MACS2/ATAC
+--outdir analysis/MACS2/ATAC
 
 ```
 

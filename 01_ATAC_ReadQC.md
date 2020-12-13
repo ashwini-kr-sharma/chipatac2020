@@ -80,7 +80,7 @@ Let us perform a simple FastQC analysis on the `fastq` file that we viewd above.
 cd 
 
 # Create a folder for your analysis
-mkdir -p myanalysis/FastQC
+mkdir -p analysis/FastQC
 
 # Check out all the available parameters in FastQC
 # Do note, when in doubt, its often good practice to use default settings
@@ -94,12 +94,12 @@ fastqc --help
 # fastqc --outdir <name of output directory> <space separated list of fastq files>
 
 # Actual analysis:
-fastqc --outdir myanalysis/FastQC \
+fastqc --outdir analysis/FastQC \
 /vol/volume/HCT116/ATACseq/ATAC_Rep2_ENCFF624DNH_R1.fastq.gz \
 vol/volume/HCT116/ATACseq/ATAC_Rep2_ENCFF157PAR_R2.fastq.gz
 
 # Find your results here
-cd myanalysis/FastQC
+cd analysis/FastQC
 ```
 
 ## Analyzing the output

@@ -5,14 +5,14 @@
 ```
 cd
 
-mkdir -p myanalysis/Footprint
+mkdir -p analysis/Footprint
 
 TOBIAS ATACorrect \
---bam /vol/volume/HCT116/analysis/ATACseq/Bowtie2/ATAC_REP1_aligned_filt_sort_nodup.bam  \
+--bam data/processed/ATACseq/Bowtie2/ATAC_REP1_aligned_filt_sort_nodup.bam  \
 --genome /vol/volume/HCT116/data/genome.fa \
---peaks myanalysis/MACS2/ATAC/ATAC-Rep1_peaks.narrowPeak \
+--peaks analysis/MACS2/ATAC/ATAC-Rep1_peaks.narrowPeak \
 --cores 26 \
---outdir myanalysis/Footprint/
+--outdir analysis/Footprint/
 
 ```
 ## Footprinting scores
@@ -21,10 +21,10 @@ TOBIAS ATACorrect \
 cd
 
 TOBIAS ScoreBigWig \
---signal myanalysis/Footprint/ATAC_REP1_aligned_filt_sort_nodup_corrected.bw \
---regions myanalysis/MACS2/ATAC/ATAC-Rep1_peaks.narrowPeak \
+--signal analysis/Footprint/ATAC_REP1_aligned_filt_sort_nodup_corrected.bw \
+--regions analysis/MACS2/ATAC/ATAC-Rep1_peaks.narrowPeak \
 --cores 26 \
---output myanalysis/Footprint/ATAC_footprints.bw 
+--output analysis/Footprint/ATAC_footprints.bw 
 
 ```
 
@@ -33,15 +33,15 @@ TOBIAS ScoreBigWig \
 ```
 cd
 
-mkdir -p myanalysis/Footprint/BINDdetect
+mkdir -p analysis/Footprint/BINDdetect
 
 TOBIAS BINDetect \
 --motifs /vol/volume/HCT116/data/motifs.jaspar \
---signals myanalysis/Footprint/ATAC_footprints.bw  \
+--signals analysis/Footprint/ATAC_footprints.bw  \
 --genome /vol/volume/HCT116/data/genome.fa \
---peaks myanalysis/MACS2/ATAC/ATAC-Rep1_peaks.narrowPeak \
+--peaks analysis/MACS2/ATAC/ATAC-Rep1_peaks.narrowPeak \
 --cores 26 \
---outdir myanalysis/Footprint/BINDdetect
+--outdir analysis/Footprint/BINDdetect
 
 ```
 

@@ -31,7 +31,7 @@ txdb = TxDb.Hsapiens.UCSC.hg38.knownGene
 Now, let's read in the list of peaks for the CTCF dataset
 
 ```
-peaks =  read.table('myanalysis/MACS2/CTCF/CTCF_peaks.narrowPeak')
+peaks =  read.table('analysis/MACS2/CTCF/CTCF_peaks.narrowPeak')
 colnames(peaks) = c('chr','start','end','name','score','strand','signal','pval','qval','peak')
 peaks.gr = makeGRangesFromDataFrame(peaks,keep.extra.columns=TRUE)
 peaks.gr

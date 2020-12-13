@@ -5,11 +5,11 @@ In a final step, we will generate *signal files* in the `bigwig` format, which r
 ```
 cd 
 
-mkdir -p myanalysis/bigwig
+mkdir -p analysis/bigwig
 
 bamCoverage \
---bam /vol/volume/HCT116/analysis/ATACseq/Bowtie2/ATAC_REP1_aligned_filt_sort_nodup.bam \
---outFileName myanalysis/bigwig/ATAC_REP1.bw \
+--bam data/processed/ATACseq/Bowtie2/ATAC_REP1_aligned_filt_sort_nodup.bam \
+--outFileName analysis/bigwig/ATAC_REP1.bw \
 --outFileFormat bigwig \
 --normalizeUsing RPKM \
 --ignoreDuplicates --centerReads \

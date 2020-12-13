@@ -2,7 +2,7 @@
 
 Aligning the sequenced reads to the reference genome is the most crucial task of any NGS analysis. Fast aligners like [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#using-samtoolsbcftools-downstream) and [BWA-MEM](https://github.com/bwa-mem2/bwa-mem2) are widely used for aligning, among others, ChIPSeq and ATACseq data. We will exemplarily show how to align your sequencing reads using **Bowtie2**
 
-Due to the long computation time and memory constraints, we have precomputed for you all the alignments using **Bowtie2**. You find these data in `/vol/volume/HCT116/analysis/<CTCF/H3K4me3>/Bowtie2`
+Due to the long computation time and memory constraints, we have precomputed for you all the alignments using **Bowtie2**. You find these data in `data/processed/<CTCF/H3K4me3>/Bowtie2`
 
 ## Pseudocode for alignment
 
@@ -92,7 +92,7 @@ After alignment, we also filter out poor quality, unmapped and duplicate reads u
 cd 
 
 # Create a folder for your analysis
-mkdir -p myanalysis/AlignmentStats
+mkdir -p analysis/AlignmentStats
 
 # Flagstat analysis
 
@@ -100,8 +100,8 @@ mkdir -p myanalysis/AlignmentStats
 # samtools flagstat <aligned.bam> > <aligned.bam.log>
 # samtools flagstat <aligned_filtered_sorted_duprmv.bam> > <aligned_filtered_sorted_duprmv.bam.log> 
 
-samtools flagstat /vol/volume/HCT116/analysis/CTCF/Bowtie2/CTCF_Rep2_ENCFF001HLW_trimmed_aligned_nofilt.bam > \
-myanalysis/AlignmentStats/Bowtie2/CTCF_Rep2_ENCFF001HLW_trimmed_aligned_nofilt.bam.flagstat.log
+samtools flagstat data/processed/CTCF/Bowtie2/CTCF_Rep2_ENCFF001HLW_trimmed_aligned_nofilt.bam > \
+analysis/AlignmentStats/Bowtie2/CTCF_Rep2_ENCFF001HLW_trimmed_aligned_nofilt.bam.flagstat.log
 
 ```
 
@@ -111,8 +111,8 @@ myanalysis/AlignmentStats/Bowtie2/CTCF_Rep2_ENCFF001HLW_trimmed_aligned_nofilt.b
   <summary> Peek only if you have to ! </summary>
  
 ```
-samtools flagstat /vol/volume/HCT116/analysis/CTCF/Bowtie2/CTCF_Rep2_ENCFF001HLW_trimmed_aligned_filt_sort_nodup.bam > \ 
-myanalysis/AlignmentStats/CTCF_Rep2_filter.flagstat.log
+samtools flagstat data/processed/CTCF/Bowtie2/CTCF_Rep2_ENCFF001HLW_trimmed_aligned_filt_sort_nodup.bam > \ 
+analysis/AlignmentStats/CTCF_Rep2_filter.flagstat.log
 
 ```
  
@@ -137,11 +137,11 @@ myanalysis/AlignmentStats/CTCF_Rep2_filter.flagstat.log
  ```
  cd
  
- samtools sort -O BAM -n -@ 3 /vol/volume/HCT116/analysis/CTCF/Bowtie2/CTCF_Rep2_ENCFF001HLW_trimmed_aligned_nofilt.bam \
+ samtools sort -O BAM -n -@ 3 data/processed/CTCF/Bowtie2/CTCF_Rep2_ENCFF001HLW_trimmed_aligned_nofilt.bam \
 | samtools fixmate -m -@ 3 - - \
 | samtools sort -O BAM -@ 3 \
 | samtools markdup -@ 3 - - \
-| samtools flagstat - > myanalysis/AlignmentStats/CTCF_Rep2_nofilter_dupmarked_flagstat.log
+| samtools flagstat - > analysis/AlignmentStats/CTCF_Rep2_nofilter_dupmarked_flagstat.log
 
  ```
 
