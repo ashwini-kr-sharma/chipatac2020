@@ -37,6 +37,7 @@ Phred 64:                                        ...3.....9.....................
                                  
 ```
 
+
 ### Quality scores
 
 A quality score represents the probability that a called nucleotide in a sequence in incorrect. This is represented mathematically as -
@@ -53,7 +54,19 @@ p=0.001%, Q=30
 
 ```
 
-> The reads that we displayed above are encoded using Phred 64 (Illumina 1.5+), can you estimate how good the base calls are based on the map above ?
+> Looking at the quality scores (4th line of the fastq), can you guess what quality encoding (Phred 64 or Phred 33) was used?
+
+<details>
+  <summary>[Click to show answer!]</summary>
+  
+  The read quality contains the following characters:
+  ```
+  afaagggg_ddffcfffc_cfffffBBBBBBBBBBB
+  ```
+  Looking at the encoding table above, this can only correspond to Phred 64, as the characters `a,b,c,...` do not occur in the Phred 33 encoding! In Phred 64, the have a=33, b=34, ...
+</details>
+
+<br></br>
 
 # Quality control
 
