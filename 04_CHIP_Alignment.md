@@ -144,7 +144,7 @@ analysis/AlignmentStats/ChIP/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_nofilt.flagst
 | samtools fixmate -m -@ 3 - - \
 | samtools sort -O BAM -@ 3 \
 | samtools markdup -@ 3 - - \
-| samtools flagstat - > analysis/AlignmentStats/ChIP/CTCF_Rep2_nofilter_dupmarked_flagstat.log
+| samtools flagstat - > analysis/AlignmentStats/ChIP/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_nofilt_dupmarked_flagstat.log
 
  ```
 
