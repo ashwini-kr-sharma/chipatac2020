@@ -6,7 +6,7 @@ So far, we have worked with the following files
 * `bam` files, which represent aligned reads;
 * `bed` or  `narrowPeak` files, which represent discrete  genomic regions containing signal.
 
-In a final step, we will generate *signal files* in the `bigwig` format, which represent continuous signals along the genome. Another format to do this is the `bedgraph` format. For both formats, the files can then be loaded into a genomic browser in order to explore the signal and the peak regions.
+In a final step, we will generate *signal files* in the `bigwig` format, which represent continuous signals along the genome. We will use the function [`bamCoverage`](https://deeptools.readthedocs.io/en/develop/content/tools/bamCoverage.html) from **`deepTools`** to acheive this, the files can then be loaded into a genomic browser in order to explore the signal and the peak regions.
 
 For ChIP-seq, we have the **IP** file representing the signal, and the **control** file (generally input), which represents the level of background noise. When generating the signal file, we can (1) either generate separate bigwig files for IP and control, or (2) generate a single bigwig file, in which we substract the background noise from the IP.
 
@@ -20,14 +20,15 @@ cd
 ## create a directory
 mkdir -p analysis/bigwig/ChIP
 
-# create and sort bedgraph file for the CTCF IP
-bedtools genomecov -bg -ibam data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_filt_sort_nodup.bam | sort -k1,1 -k2,2n > analysis/bigwig/ChIP/CTCF_Rep1.bg
+bamCoverage \
+--bam data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_filt_sort_nodup.bam \
+--outFileName analysis/bigwig/ChIP/CTCF_REP1.bw \
+--outFileFormat bigwig \
+--normalizeUsing RPKM \
+--ignoreDuplicates --centerReads \
+--binSize 200 \
+--numberOfProcessors 26
 
-# convert bedgraph to bigwig
-bedGraphToBigWig analysis/bigwig/ChIP/CTCF_Rep1.bg data/ext_data/hg38.genome analysis/bigwig/ChIP/CTCF_Rep1.bw
-
-# delete the bedgraph file
-rm analysis/bigwigCTCF_Rep1.bg
 ```
 
 ### Exercice
