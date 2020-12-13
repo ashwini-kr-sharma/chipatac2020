@@ -15,7 +15,8 @@ In the console, open an R session by simply typing
 
 ```
 cd
-R
+
+/usr/bin/R
 ```
 
 This will open an R session, which you can recognize seing the `>` prompt at the left.
