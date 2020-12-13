@@ -15,7 +15,7 @@ Welcome to the page of the workshop on the computational analysis of ChIP-seq an
 
 [General instructions before you start](./00_generalInstructions.md)
 
-### Day 1: ChIP-seq**                                           
+### Day 1: ChIP-seq                                         
 
 1. [Introduction](./01_Intro.md)                             
 2. [Quality control on reads](./02_ReadQC.md)                  
@@ -40,7 +40,7 @@ Welcome to the page of the workshop on the computational analysis of ChIP-seq an
 
 ### Day 2: Going further: integrating/comparing ChIP-seq/ATAC-seq
 
-10. [Motif analysis on CTCF peaks]()
+10. [Motif analysis on CTCF peaks](./10_motifCTCF.md)
 
 
 ********
