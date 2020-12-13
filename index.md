@@ -48,7 +48,7 @@ Welcome to the **workshop on the computational analysis of ChIP-seq and ATAC-seq
 ********
 ## Schedule
 
-The course will run over 2 days (Monday, 14.12 and Tuesday, 15.12) from 9am - 12.30am and 1.30pm - 5.30pm.
+The course will run over 2 days (Monday, 14.12 and Tuesday, 15.12) from 10 am - 12.30 pm and 1.30 pm - 5.30 pm.
 
 Check the detailed schedule [here](./schedule.md)
 
