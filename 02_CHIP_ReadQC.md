@@ -117,12 +117,33 @@ cd analysis/FastQC/ChIP
 
 ## Analyzing the output
 
-Now you can use Cyberduck to open the generated html files -
+Using Cyberduck, open the folder `analysis/FastQC/ChIP`;  open the generated html files:
 
-- Can you identify the Phred encoding ?
-- How does the base quality look like ?
-- Are there any adapter contaminations ?
-- Can you find any issues with the `fastq` files refer to [individual module description](#quality-control)
+- Can you identify the Phred encoding? <details>
+  <summary>[Click to show answer!]</summary>
+  
+  The encoding is Illumina 1.5, which corresponds to the Phred 64 encoding (see [here](https://en.wikipedia.org/wiki/FASTQ_format#Encoding))
+</details>
+
+- How does the base quality look like?<details>
+  <summary>[Click to show answer!]</summary>
+  
+  Sequencing quality looks very good, with an average quality around 38.
+</details>
+
+- Are there any adapter contaminations?<details>
+  <summary>[Click to show answer!]</summary>
+  
+  No sequencing adapters were found; however, we have contamination due to the Illumina PCA Primer 2 (section "Overrepresented sequences")
+</details>
+
+- Can you find any issues with the `fastq` files refer to [individual module description](#quality-control)<details>
+  <summary>[Click to show answer!]</summary>
+  
+  Possible issues:
+  * PCR primer contamination
+  * some sequence bias at the 5'end of the reads (section "per base sequence content")
+</details>
 
 > Try performing this analysis on different ChIPseq `fastq` files of your choice - compare the read numbers and and other QC properties
 
