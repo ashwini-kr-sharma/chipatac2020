@@ -1,4 +1,4 @@
-# 4. Read alignment
+# 4. ATAC-seq : Read alignment
 
 Aligning the sequenced reads to the reference genome is the most crucial task of any NGS analysis. Fast aligners like [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#using-samtoolsbcftools-downstream) and [BWA-MEM](https://github.com/bwa-mem2/bwa-mem2) are widely used for alignment, among others, ChIPSeq and ATACseq data. We will exemplarily show how to align reads using **Bowtie2**
 
