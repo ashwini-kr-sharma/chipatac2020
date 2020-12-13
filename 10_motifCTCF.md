@@ -38,7 +38,8 @@ sort -nr -k7 analysis/MACS2/CTCF/CTCF_peaks.narrowPeak \
 ### 2. Obtain the corresponding fasta sequences
 
 ```bash
-bedtools getfasta -fi data/ext_data/genome.fa -bed analysis/MACS2/CTCF/CTCF_peaks.top5000.narrowPeak > analysis/rsat/CTCF/CTCF_peaks.top5000.fa
+bedtools getfasta -fi data/ext_data/genome.fa \
+-bed analysis/MACS2/CTCF/CTCF_peaks.top5000.narrowPeak > analysis/rsat/CTCF/CTCF_peaks.top5000.fa
 ```
 
 Using CyberDuck, open the directory `analysis/rsat/CTCF`, and download the fasta file `CTCF_peaks.top5000.fa`  to your local disk
@@ -57,8 +58,18 @@ Using CyberDuck, open the directory `analysis/rsat/CTCF`, and download the fasta
 Check your email; you should have an email from `rsat` with `Job submitted` in the subject. 
 
 * Open the email and click on the link;
-* The page will update itself every 2 minutes, and new results will appear
+* The page will update itself every 2 minutes, and new results will appear.
+
+Once the results are completed, you will see a full report; check the following sections, and explore the report!
+
+![rsat_1](./rsat_1.png)
+
+![rsat_2](./rsat_2.png)
+
+
 
 > Which motifs have been identified?
+
 > Can you find a CTCF-like motif?
+
 > Can you  find other motifs besides CTCF?
