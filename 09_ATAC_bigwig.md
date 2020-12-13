@@ -1,4 +1,4 @@
-# ATAC signal file
+# 9. ATAC-seq : ATAC signal file
 
 In a final step, we will generate *signal files* in the `bigwig` format, which represent continuous signals along the genome. Another format to do this is the `bedgraph` format. For both formats, the files can then be loaded into a genomic browser in order to explore the signal and the peak regions.
 
