@@ -1,4 +1,4 @@
-# ATAC footprinting TOBIAS
+# 7. ATAC-seq : Footprinting analysis using [TOBIAS](https://github.com/loosolab/TOBIAS)
 
 ## Tn5 bias correction
 
