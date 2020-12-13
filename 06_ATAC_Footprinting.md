@@ -20,7 +20,7 @@ TOBIAS ATACorrect \
 ```
 cd
 
-TOBIAS FootprintScores \
+TOBIAS ScoreBigWig \
 --signal myanalysis/Footprint/ATAC_REP1_aligned_filt_sort_nodup_corrected.bw \
 --regions myanalysis/MACS2/ATAC/ATAC-Rep1_peaks.narrowPeak \
 --cores 26 \
