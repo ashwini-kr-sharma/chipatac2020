@@ -6,7 +6,7 @@ There are many well established tools for adapter trimming like [Trimmomatic](ht
 
 # Trimming
 
-Lets try Trimming only on those `fastq` files that showed significant adaptor contamination and/or overrepresented sequences. If your have carefully analyzed the **FastQC** reports from the previous section you will note that only the **CTCF ChIPseq** samples require trimming.
+Let's try Trimming only on those `fastq` files that showed significant adaptor contamination and/or overrepresented sequences. If your have carefully analyzed the **FastQC** reports from the previous section you will note that only the **CTCF ChIPseq** samples require trimming.
 
 ```
 # Go to your home directory
@@ -31,13 +31,13 @@ trim_galore \
   --fastqc \
   --cores 3 \
  --output_dir analysis/Trimming/ChIP \
- data/fastqdata/ChIPseq/CTCF/CTCF_Rep2_ENCFF001HLW.fastq.gz
+ data/fastqdata/ChIPseq/CTCF/CTCF_Rep1_ENCFF001HLV.fastq.gz
 
 # See your results here
 cd analysis/Trimming/ChIP
 ```
 
-Try running trimming for another **CTCF** `fastq` files. Keep in mind to change the **Trim Galore!** parameters according to your knowledge of -
+Try running trimming for the control **CTCF** `fastq` files. Keep in mind to change the **Trim Galore!** parameters according to your knowledge of -
 
 - Read encodings
 - Paired end/ Single end reads
