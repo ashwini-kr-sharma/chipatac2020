@@ -19,13 +19,23 @@ The **PCR bottleneck coefficient (PBC)** measures the proportion of the genomic 
 We will use the R library `encodeChIPqc`, which implements some of these metrics; this library is available on [this GitHub repository](https://github.com/hdsu-bioquant/encodeChIPqc)
 
 ```r
+cd
+
+mkdir -p analysis/QC/ChIP
+
+/usr/bin/R
+
+# You are now in R console !!
+
 library(encodeChIPqc)
+
 PBC("data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_nofilt.bam")
+
 ```
 
 > What does the value mean? Is the data of good quality?
 
-Now run
+Now run, on the **filtered** `.bam`
 
 ```r
 PBC("data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_filt_sort_nodup.bam")
@@ -51,6 +61,7 @@ Now we compute the FRiP value:
 ```
 bam.file = "data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_filt_sort_nodup.bam"
 frip(bam.file,peaks.gr)
+
 ```
 
 > What does this mean? What would be the maximum value?
@@ -63,6 +74,9 @@ If you are still in the R console (check if you see a `>` as the prompt), you fi
 
 ```
 quit()
+
+# and the type "n"
+
 ```
 
 Make sure that you see a `$` sign as a prompt: you are now back in the bash console!
@@ -70,9 +84,10 @@ Make sure that you see a `$` sign as a prompt: you are now back in the bash cons
 We now run the `plotFingerprint` function from the `DeepTools` package; to limit computational time, we run it only on Chromosome 10:
 ```
 cd
-plotFingerprint -b data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_filt_sort_nodup.bam data/processed/CTCF/Bowtie2/CTCF_Control_ENCFF001HME_trimmed_aligned_filt_sort_nodup.bam -l CTCF Control -o CTCF_fingerprint.png -r chr10
-```
 
+plotFingerprint -b data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_aligned_filt_sort_nodup.bam data/processed/CTCF/Bowtie2/CTCF_Control_ENCFF001HME_trimmed_aligned_filt_sort_nodup.bam -l CTCF Control -o analysis/QC/ChIP/CTCF_fingerprint.png -r chr10
+
+```
 
 ## Number of reads and non-redundant reads
 
@@ -84,9 +99,10 @@ samtools view -c data/processed/CTCF/Bowtie2/CTCF_Rep1_ENCFF001HLV_trimmed_align
 
 ## Number of reads in the filtered bam file (remember how we filtered the file? [check again here](./03_Alignment.md))
 samtools view -c data/processed/CTCF/Bowtie2/CTCF_Rep2_ENCFF001HLW_trimmed_aligned_filt_sort_nodup.bam
+
+
 ```
 
-If you take the ratio of these 2 numbers, you will get something like the [non-redundant franction (NFR)](https://www.encodeproject.org/data-standards/terms/#library).
+If you take the ratio of these 2 numbers, you will get something like the [non-redundant fraction (NFR)](https://www.encodeproject.org/data-standards/terms/#library).
 
-
-> We have a second replicate of CTCF in the folder `data/processed/CTCF/Bowtie2/`; determine the different quality metrisc for this second replicate; which replicate seems to be better?
+> We have a second replicate of CTCF in the folder `data/processed/CTCF/Bowtie2/`; determine the different quality metrics for this second replicate; which replicate seems to be better?
