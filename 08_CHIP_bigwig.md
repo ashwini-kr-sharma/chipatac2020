@@ -33,7 +33,7 @@ bamCoverage \
 
 ### Exercice
 
-> Create the bigwig file for the control `data/processed/CTCF/Bowtie2/CTCF_Control_ENCFF001HME_trimmed_aligned_filt_sort_nodup.bam`; MAKE SURE TO GIVE A DIFFERENT NAME TO THE OUTPUT FILES!!
+> Create the bigwig file for the control `data/processed/CTCF/Bowtie2/CTCF_Control_ENCFF001HME_trimmed_aligned_filt_sort_nodup.bam`<br></br> MAKE SURE TO GIVE A DIFFERENT NAME TO THE OUTPUT FILES!!
 
 ## Generating a merged bigwig file
 
@@ -65,7 +65,7 @@ We can now use the [IGV web app](https://igv.org/app/) to visualize the differen
 4. in the IGV app, go to `Tracks > local files...` and load the bigwig and narrowPeak file
 5. you can now select a specific chromosome in the drop-down menu, or type in a gene name to see this gene locus.
 
-### Question
 
 > Do the called peaks correspond to regions of higher signal in the bigwig tracks?
+
 > Choose two peaks in the bigwig file which seem to have different height; click on the corresponding peak in the narrowPeak track (blue rectangle) to see the P-values and Q-values; do you see a difference?
