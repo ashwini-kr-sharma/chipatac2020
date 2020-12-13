@@ -52,6 +52,9 @@ As you see, some peaks map to incomplete chromosomes (like `chr1_KI270711v1_rand
 i.remove = grep('_',as.character(seqnames(peaks.gr)))
 peaks.gr = peaks.gr[-i.remove]
 table(as.character(seqnames(peaks.gr)))
+
+# OR simply
+peaks.gr = keepStandardChromosomes(peaks.gr, pruning.mode="coarse")
 ```
 
 ## Genomic coverage of peaks
