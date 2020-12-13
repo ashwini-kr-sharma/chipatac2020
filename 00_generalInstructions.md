@@ -41,9 +41,9 @@ To get back to the **bash console**, simply type the following in the R console 
 q()
 ```
 
-You should be back to the **bash console** !
+You should be back to the **bash console** (check the prompt)!
 
-## 2. How do I access the data?
+## 2. Where is the data?
 
 Each user has in his home directory 2 folders:
 * `data`: this folder contains all the data (fastq / bam / ...) that you will need for the analysis
@@ -53,7 +53,7 @@ During the analysis, we will create further subdirectories into the `analysis` d
 
 ## 3. How do I access the tools needed for the analysis?
 
-We will use a number of software tools for the analysis; we have prepared a **virtual environment** using **conda** containing all required tools. You first need to activate this environment, by running the simple command:
+We will use a number of software tools for the analysis; we have prepared a **virtual environment** using **conda** containing all required tools. You first need to activate this environment, by running the simple command (in the bash console):
 
 ```bash
 conda activate chipatac
