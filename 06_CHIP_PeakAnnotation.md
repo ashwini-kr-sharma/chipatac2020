@@ -16,6 +16,8 @@ In the console, open an R session by simply typing
 ```
 cd
 
+mkdir -p analysis/PeakAnnotation/ChIP
+
 /usr/bin/R
 ```
 
