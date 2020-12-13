@@ -16,7 +16,7 @@ Raw data will be downloaded and re-processed from [`ENCODE`](https://www.encodep
 | HCT116 | ATACseq    | Chromatin accessibility - R2   | 2         | [ENCFF157PAR](https://www.encodeproject.org/experiments/ENCSR872WGW/) |
 
 ## Download data
-> NOTE: You don't need to download any data, all of the data has been pre-downloaded and saved in `/vol/volume/HCT116/fastqdata`. You will directly access these data during the practical training session.
+> NOTE: You don't need to download any data, all of the data has been pre-downloaded and saved in `home/<username>/data/fastqdata`. You will directly access these data during the practical training session.
 
 ### ATACseq
 We will download the fastq files (2 isogenic replicates) containing sequence reads (paired end) from an ATACseq experiment done on the HCT116 cell-line from the ENCODE database.
@@ -39,4 +39,4 @@ wget http://igenomes.illumina.com.s3-website-us-east-1.amazonaws.com/Homo_sapien
 ```
 
 ## Public datasets
-Often one has to use publicly available datasets. These datasets are widely available through [Gene Expression Omnibus - GEO](https://www.ncbi.nlm.nih.gov/geo/) and [Array Express](https://www.ebi.ac.uk/arrayexpress/). Raw data `fastq` from human samples are usually deposited in [The database of Genotypes and Phenotypes - dbGAP](https://www.ncbi.nlm.nih.gov/gap/) and [European Genome-phenome Archive - EGA](https://www.ebi.ac.uk/ega/home) and are available under protected access. These data are usually in `SRA` format and an array of tools called [sra-tools](https://github.com/ncbi/sra-tools) are available to manipulate these formats prior to regular analysis. We will not talk about these files formats in this workshop, but we want to make the participants aware that most of the publically available raw ChIPseq and ATACseq data are in `SRA` format which needs to be converted to `fastq` format using `SRA-tools`.
+Often one has to use publicly available datasets. These datasets are widely available through [Gene Expression Omnibus - GEO](https://www.ncbi.nlm.nih.gov/geo/) and [Array Express](https://www.ebi.ac.uk/arrayexpress/). Raw data `fastq` from human samples are usually deposited in [The database of Genotypes and Phenotypes - dbGAP](https://www.ncbi.nlm.nih.gov/gap/) and [European Genome-phenome Archive - EGA](https://www.ebi.ac.uk/ega/home) and are available under protected access. These data are usually in `SRA` format and an array of tools called [sra-tools](https://github.com/ncbi/sra-tools) are available to manipulate these formats prior to regular analysis. We will not talk about these files formats in this workshop, but we want to make the participants aware that most of the publicly available raw ChIPseq and ATACseq data are in `SRA` format which needs to be converted to `fastq` format using `SRA-tools`.
