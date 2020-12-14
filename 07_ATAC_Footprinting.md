@@ -29,7 +29,7 @@ TOBIAS ATACorrect \
 ![Footprinting](./footprinting.png)
 *Figure taken from [TOBIAS](https://github.com/loosolab/TOBIAS)*
 
-Using the Tn5 bias corrected signals, this function estimates the footprints (i.e putative TF binding sites) withing peak regions by identifying regions with depleted cutsite signal but flanked by high cutsite signal. Such a signal pattern indicates regions of TF binding.
+Using the Tn5 bias corrected signals, this function estimates the footprints (i.e putative TF binding sites) withing peak regions by identifying regions with depleted cutsite signal and flanked by high cutsite signal. Such a signal pattern indicates regions of TF binding.
 
 ```
 cd
@@ -49,7 +49,7 @@ rm *corrected.bw *expected.bw *bias.bw
 ![TF binding](./bindetect.png)
 *Figure taken from [TOBIAS](https://github.com/loosolab/TOBIAS)*
 
-
+Once the footprint regions are identified, one could look at the sequnce at those regions and compare that with the TF binding motif sequence to estimate the TF binding propensity at the footprint regions. TF binding motifs are provided in standard JASPER format.
 
 ```
 cd
