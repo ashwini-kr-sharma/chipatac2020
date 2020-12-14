@@ -25,13 +25,13 @@ According to [Samtools](http://www.htslib.org/doc/samtools-idxstats.html), the `
 cd
 
 # See the outputs
-samtools idxstats data/processed/ATACseq/Bowtie2/ATAC_REP1_aligned_nofilt.bam
+samtools idxstats -@ 3 data/processed/ATACseq/Bowtie2/ATAC_REP1_aligned_nofilt.bam
 
 # Extract number of mapped read-segments for MT
-samtools idxstats data/processed/ATACseq/Bowtie2/ATAC_REP1_aligned_nofilt.bam | grep 'chrM' | cut -f 3
+samtools idxstats -@ 3 data/processed/ATACseq/Bowtie2/ATAC_REP1_aligned_nofilt.bam | grep 'chrM' | cut -f 3
 
 # Sum up number of mapped read-segments for all chromosomes
-samtools idxstats data/processed/ATACseq/Bowtie2/ATAC_REP1_aligned_nofilt.bam | awk '{SUM += $3} END {print SUM}'
+samtools idxstats -@ 3 data/processed/ATACseq/Bowtie2/ATAC_REP1_aligned_nofilt.bam | awk '{SUM += $3} END {print SUM}'
 
 # Compute the %MT content
 calc 5087398/77784521*100
@@ -47,19 +47,23 @@ Observing such periodicity from the fragment lenth distribution is a good indica
 ```
 cd
 
+mkdir -p analysis/QC/ATAC
+
 /usr/bin/R
 
 # Now you are inside the R console !!
+
+setwd("analysis/QC/ATAC")
 
 library(ATACseqQC)
 
 fragSize <- fragSizeDist(bamFiles = "data/processed/ATACseq/Bowtie2/ATAC_REP1_aligned_filt_sort_nodup.bam", 
 index = "data/processed/ATACseq/Bowtie2/ATAC_REP1_aligned_filt_sort_nodup.bam",         
-bamFiles.labels = "ATAC")
+bamFiles.labels = "nucleosome_patterning")
 
 q()
 
-# type N to exit without saving an image
+# type n to exit without saving an image
 ```
 
 There will be a `.pdf` file named `Rplots.pdf` in your home directory - type `cd` in your terminal, open this file using Cyberduck and analyse the results.
