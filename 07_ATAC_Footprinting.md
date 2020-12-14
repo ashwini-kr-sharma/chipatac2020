@@ -1,8 +1,15 @@
 # 7. ATAC-seq : Footprinting analysis using [TOBIAS](https://github.com/loosolab/TOBIAS)
 
-![ATAC correct](./atacorrect.png)
-
 ## Tn5 bias correction
+
+![ATAC correct](./atacorrect.png)
+*Figure taken from [TOBIAS](https://github.com/loosolab/TOBIAS)*
+
+The function `ATACCorrect` from **TOBIAS** is used for the following reasons -
+
+- During ATACseq libtrary preparation, the Tn5 transposase binds to the open chromatin as a dimer and inserts two adapters separated by 9 bps. This has no major effect in peak calling, however, for footprinting analysis, the + and - strand are shifted by +4 bps and −5 bps repectively see [this](https://dx.doi.org/10.1038%2Fnmeth.2688) and [this](https://www.biostars.org/p/476698/). Doing so helps identify the center of the Tn5 binding.
+
+- Though we expect Tn5 to bind randomly in open regions, in reality, Tn5 has a binding bias towards specific sequence. Thus, within a given open chromatin region, it's more likely to find the Tn5 cutsites over these specific sequences. This inherent bias needs to be corrected to identify the cutsites accurately. The function calculates the difference between the observed vs expected cutsites to correct for this bias. 
 
 ```
 cd
@@ -20,6 +27,9 @@ TOBIAS ATACorrect \
 ## Footprinting scores
 
 ![Footprinting](./footprinting.png)
+*Figure taken from [TOBIAS](https://github.com/loosolab/TOBIAS)*
+
+Using the Tn5 bias corrected signals, this function estimates the footprints (i.e putative TF binding sites) withing peak regions by identifying regions with depleted cutsite signal but flanked by high cutsite signal. Such a signal pattern indicates regions of TF binding.
 
 ```
 cd
@@ -37,6 +47,9 @@ rm *corrected.bw *expected.bw *bias.bw
 ## Transcription factor binding prediction
 
 ![TF binding](./bindetect.png)
+*Figure taken from [TOBIAS](https://github.com/loosolab/TOBIAS)*
+
+
 
 ```
 cd
