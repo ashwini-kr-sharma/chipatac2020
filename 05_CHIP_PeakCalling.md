@@ -50,8 +50,8 @@ mkdir -p analysis/MACS2/H3K4me3
 macs2 --help
 
 macs2 callpeak \
---treatment data/processed/H3K4me3/Bowtie2/H3K4me3_Rep1_ENCFF000VCI_aligned_filt_sort_nodup.bam \
---control data/processed/H3K4me3/Bowtie2/H3K4me3_Control_ENCFF000VCW_aligned_filt_sort_nodup.bam \
+--treatment data/processed/H3K4me3/Bowtie2/H3K4me3_Rep1_ENCFF001FIS_aligned_filt_sort_nodup.bam \
+--control data/processed/H3K4me3/Bowtie2/H3K4me3_Control_ENCFF001HME_aligned_filt_sort_nodup.bam \
 --name H3K4me3 \
 --format BAM \
 --keep-dup all \

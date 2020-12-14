@@ -23,7 +23,7 @@ mkdir -p analysis/PeakAnnotation/ChIP
 
 This will open an R session, which you can recognize seing the `>` prompt at the left.
 
-We will load the required packages *(!!!Warning: make sure to copy the command WITHOUT the `>` sign!!!)*:
+We will load the required packages:
 
 ```
 library(ChIPseeker)
