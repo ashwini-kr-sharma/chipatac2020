@@ -1,5 +1,7 @@
 # 7. ATAC-seq : Footprinting analysis using [TOBIAS](https://github.com/loosolab/TOBIAS)
 
+![ATAC correct](./atacorrect.png)
+
 ## Tn5 bias correction
 
 ```
@@ -17,6 +19,8 @@ TOBIAS ATACorrect \
 ```
 ## Footprinting scores
 
+![Footprinting](./footprinting.png)
+
 ```
 cd
 
@@ -31,6 +35,8 @@ rm *corrected.bw *expected.bw *bias.bw
 ```
 
 ## Transcription factor binding prediction
+
+![TF binding](./bindetect.png)
 
 ```
 cd
