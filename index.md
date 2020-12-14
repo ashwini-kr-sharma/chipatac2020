@@ -15,7 +15,8 @@ Welcome to the **workshop on the computational analysis of ChIP-seq and ATAC-seq
 ********
 ## Practical parts
 
-[General instructions before you start](./00_generalInstructions.md)
+* [General instructions before you start](./00_generalInstructions.md)
+* Make sure to protocol your progress [in this Google Sheet](https://docs.google.com/spreadsheets/d/1LDP_A7_5BJCrq2nWaObHVKb3ZSRMPCWobFNEcVNSwGk/edit?usp=sharing)
 
 ### Day 1: ChIP-seq                                         
 
