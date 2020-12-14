@@ -37,10 +37,14 @@ Welcome to the **workshop on the computational analysis of ChIP-seq and ATAC-seq
                                                    
 
 ### Day 2: ATAC-seq
+
+#### leave this parts for later analysis
 1. [Introduction](./01_ATAC_Intro.md)
 2. [Quality control on reads](./02_ATAC_ReadQC.md)
 3. [Read trimming](./03_ATAC_Trimming.md)
 4. [Read alignment](./04_ATAC_Alignment.md)
+
+#### start from here
 5. [Peak calling](./05_ATAC_PeakCalling.md)
 6. [Peak annotation](./06_ATAC_PeakAnnotation.md)
 7. [Footprinting](./07_ATAC_Footprinting.md)
