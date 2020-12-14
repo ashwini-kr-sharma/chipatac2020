@@ -5,7 +5,7 @@
 ![ATAC correct](./atacorrect.png)
 *Figure taken from [TOBIAS](https://github.com/loosolab/TOBIAS)*
 
-The function `ATACCorrect` from **TOBIAS** is used for the following reasons -
+The function `ATACorrect` from **TOBIAS** is used for the following reasons -
 
 - During ATACseq libtrary preparation, the Tn5 transposase binds to the open chromatin as a dimer and inserts two adapters separated by 9 bps. This has no major effect in peak calling, however, for footprinting analysis, the + and - strand are shifted by +4 bps and −5 bps repectively see [this](https://dx.doi.org/10.1038%2Fnmeth.2688) and [this](https://www.biostars.org/p/476698/). Doing so helps identify the center of the Tn5 binding.
 
@@ -29,7 +29,7 @@ TOBIAS ATACorrect \
 ![Footprinting](./footprinting.png)
 *Figure taken from [TOBIAS](https://github.com/loosolab/TOBIAS)*
 
-Using the Tn5 bias corrected signals, this function estimates the footprints (i.e putative TF binding sites) withing peak regions by identifying regions with depleted cutsite signal and flanked by high cutsite signal. Such a signal pattern indicates regions of TF binding.
+Using the Tn5 bias corrected signals, this function estimates the footprints (i.e putative TF binding sites) within peak regions by identifying regions with depleted cutsite signal and flanked by high cutsite signal. Such a signal pattern indicates regions of TF binding.
 
 ```
 cd
