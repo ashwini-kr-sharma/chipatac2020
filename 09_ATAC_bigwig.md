@@ -21,6 +21,7 @@ bamCoverage \
 Look at the extra parameters from the [`bamCoverage`](https://deeptools.readthedocs.io/en/develop/content/tools/bamCoverage.html), that you could possibly incorporate.
 
 
-# Extra challenge
+## Extra challenge
 
-Like before, visualize your ATAC `bigwig` file in the [IGV web app](https://igv.org/app/). However, try visualizing both ATAC and CTCF `bigwig` together with the corresponding MACS2 peak files. Can you find regions (like near gene promoters) where they overlap? What does this tell you biologically ?
+> Like before, visualize your ATAC `bigwig` file in the [IGV web app](https://igv.org/app/). 
+</br>However, try visualizing both ATAC and CTCF `bigwig` together with the corresponding MACS2 peak files. Can you find regions (like near gene promoters) where they overlap? What does this tell you biologically ?

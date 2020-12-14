@@ -95,11 +95,21 @@ peak.anno = as.data.frame(peakAnno)
 head(peak.anno)
 ```
 
+
+
+
 The `peak.anno` object is a data table with multiple columns; each row represents a peak, and the subsequent columns represent different annotations:
 
 * `annotation`: indicates the genomic loci in which the peak is located
 * `distanceToTSS`: distance to the closest TSS
 * `SYMBOL` : symbol of the closest gene
+
+
+We can write the file to your folder:
+
+```r
+write.table(peak.anno,file='analysis/PeakAnnotation/ChIP/CTCF_peaks.anno.csv',row.names=FALSE,quote=FALSE,sep='\t')
+```
 
 We can check the distribution of the peak location:
 

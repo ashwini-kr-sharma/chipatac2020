@@ -56,6 +56,9 @@ TOBIAS ScoreBigWig \
 
 Once the footprint regions are identified, one could look at the sequence at those regions and compare that with the TF binding motif sequence to estimate the TF binding propensity at the footprint regions. TF binding motifs are provided in standard JASPAR format.
 
+
+** This step takes about ~7 minutes**
+
 ```
 cd
 

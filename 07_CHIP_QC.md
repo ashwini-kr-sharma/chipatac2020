@@ -75,7 +75,7 @@ If you are still in the R console (check if you see a `>` as the prompt), you fi
 ```
 quit()
 
-# and the type "n"
+# and then type "n"
 
 ```
 
