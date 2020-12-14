@@ -63,7 +63,7 @@ mkdir -p analysis/Footprint/BINDdetect
 
 TOBIAS BINDetect \
 --motifs data/ext_data/motifs.jaspar \
---signals analysis/Footprint/ATAC_footprints.bw  \
+--signals data/processed/ATACseq/Footprint/ATAC_footprints.bw  \
 --genome data/ext_data/genome.fa \
 --peaks analysis/MACS2/ATAC/ATAC-Rep1_peaks.narrowPeak \
 --cores 3 \
