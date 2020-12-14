@@ -16,6 +16,10 @@ cd
 
 mkdir -p analysis/Footprint
 
+##################################################
+#### THIS IS A LENGTHY PROCESS, DO NOT RUN IT ####
+##################################################
+
 TOBIAS ATACorrect \
 --bam data/processed/ATACseq/Bowtie2/ATAC_REP1_aligned_filt_sort_nodup.bam  \
 --genome data/ext_data/genome.fa \
@@ -34,14 +38,15 @@ Using the Tn5 bias corrected signals, this function estimates the footprints (i.
 ```
 cd
 
+##################################################
+#### THIS IS A LENGTHY PROCESS, DO NOT RUN IT ####
+##################################################
 TOBIAS ScoreBigWig \
 --signal analysis/Footprint/ATAC_REP1_aligned_filt_sort_nodup_corrected.bw \
 --regions analysis/MACS2/ATAC/ATAC-Rep1_peaks.narrowPeak \
 --cores 3 \
 --output analysis/Footprint/ATAC_footprints.bw 
 
-## delete some files
-rm *corrected.bw *expected.bw *bias.bw
 ```
 
 ## Transcription factor binding prediction
@@ -49,7 +54,7 @@ rm *corrected.bw *expected.bw *bias.bw
 ![TF binding](./bindetect.png)
 *Figure taken from [TOBIAS](https://github.com/loosolab/TOBIAS)*
 
-Once the footprint regions are identified, one could look at the sequnce at those regions and compare that with the TF binding motif sequence to estimate the TF binding propensity at the footprint regions. TF binding motifs are provided in standard JASPER format.
+Once the footprint regions are identified, one could look at the sequence at those regions and compare that with the TF binding motif sequence to estimate the TF binding propensity at the footprint regions. TF binding motifs are provided in standard JASPAR format.
 
 ```
 cd
