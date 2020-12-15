@@ -103,7 +103,7 @@ Load these track in [IGV](https://igv.org/app/) and try to answer the following 
 > Don't forget to change the genome to `hg38` by clicking at **Genome**. Next, click on **Tracks** to load these files from your local computer
 
 You have been working with HCT116 cell-line (colon cancer), [here](https://www.omim.org/entry/114500) is a list of genes implicated in colon cancer. 
-Try looking at genes like `APC`, `CCND1`
+Try looking at genes like `APC`, `CCND1`, `YTHDC2`, `ELL2` etc
 
 1. Do the `.bigwig` peaks (SES) and the MACS2 called `.narrowPeak` correspond in CTCF
 2. Do the `.bigwig` peaks (bamCompare) and the MACS2 called `.narrowPeak` correspond in ATAC
