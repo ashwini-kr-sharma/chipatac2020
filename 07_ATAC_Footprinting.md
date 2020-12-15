@@ -41,6 +41,7 @@ cd
 ##################################################
 #### THIS IS A LENGTHY PROCESS, DO NOT RUN IT ####
 ##################################################
+
 TOBIAS ScoreBigWig \
 --signal analysis/Footprint/ATAC_REP1_aligned_filt_sort_nodup_corrected.bw \
 --regions analysis/MACS2/ATAC/ATAC-Rep1_peaks.narrowPeak \
@@ -77,4 +78,27 @@ TOBIAS BINDetect \
 Using Cyberduck, go to the folder generated (`analysis/Footprint/BINDdetect`). Check one of the folders (for exampe for CTCF):
 * open the png file: what does it show?
 * open the beds folder: do you understand what the content represents?
+
+## Task - integrative analysis
+
+Using Cyberduck download these files to you local machine - 
+
+**CTCF**
+
+1. `/analysis/MACS2/CTCF/CTCF_peaks.narrowPeak`
+2. `/analysis/bigwig/ChIP/CTCF_ses_subtract.bw`
+
+**ATAC**
+
+3. `/analysis/MACS2/ATAC/ATAC-Rep1_peaks.narrowPeak`
+4. `/analysis/bigwig/ATAC/ATAC_REP1.bw`
+
+**Footprints**
+
+3. `/data/processed/ATACseq/Footprint/ATAC_REP1_aligned_filt_sort_nodup_corrected.bw`
+4. `/analysis/Footprint/BINDdetect/CTCF_MA0139.1/beds/CTCF_MA0139.1_ATAC_footprints_bound.bed`
+
+Load these track in [IGV](https://igv.org/app/) and try to answer the following -
+
+1. Do the `.bigwig` 
 
