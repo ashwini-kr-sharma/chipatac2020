@@ -41,6 +41,7 @@ cd
 ##################################################
 #### THIS IS A LENGTHY PROCESS, DO NOT RUN IT ####
 ##################################################
+
 TOBIAS ScoreBigWig \
 --signal analysis/Footprint/ATAC_REP1_aligned_filt_sort_nodup_corrected.bw \
 --regions analysis/MACS2/ATAC/ATAC-Rep1_peaks.narrowPeak \
@@ -77,4 +78,80 @@ TOBIAS BINDetect \
 Using Cyberduck, go to the folder generated (`analysis/Footprint/BINDdetect`). Check one of the folders (for exampe for CTCF):
 * open the png file: what does it show?
 * open the beds folder: do you understand what the content represents?
+
+## Task - integrative analysis
+
+Using Cyberduck download these files to you local machine - 
+
+**CTCF**
+
+1. `/analysis/MACS2/CTCF/CTCF_peaks.narrowPeak`
+2. `/analysis/bigwig/ChIP/CTCF_ses_subtract.bw`
+
+**ATAC**
+
+3. `/analysis/MACS2/ATAC/ATAC-Rep1_peaks.narrowPeak`
+4. `/analysis/bigwig/ATAC/ATAC_REP1.bw`
+
+**Footprints**
+
+5. `/analysis/Footprint/BINDdetect/CTCF_MA0139.1/beds/CTCF_MA0139.1_ATAC_footprints_bound.bed`
+6. `/analysis/Footprint/BINDdetect/KLF4_MA0039.4/beds/KLF4_MA0039.4_ATAC_footprints_bound.bed`
+
+Load these track in [IGV](https://igv.org/app/) and try to answer the following -
+
+> Don't forget to change the genome to `hg38` by clicking at **Genome**. Next, click on **Tracks** to load these files from your local computer
+
+You have been working with HCT116 cell-line (colon cancer), [here](https://www.omim.org/entry/114500) is a list of genes implicated in colon cancer. 
+Try looking at genes like `APC`, `CCND1`, `YTHDC2`, `ELL2` etc
+
+1. Do the `.bigwig` peaks (SES) and the MACS2 called `.narrowPeak` correspond in CTCF
+2. Do the `.bigwig` peaks (bamCompare) and the MACS2 called `.narrowPeak` correspond in ATAC
+3. Are there region where CTCF and ATAC peaks overlap
+4. Can you find CTCF/ATAC overlapping peak regions at the promoter regions or enhancer regions of these genes
+5. Do TF binding site for CTCF and KLF4 overlap ?
+
+
+## Overlap between CTCF Chipseq and CTCF footprinting
+
+The obvious question we have is how well does the CTCF ChIPseq peaks correspond to the CTCF binding sites predicted from the footprinting analysis on ATACseq data.
+
+```
+cd
+
+/usr/bin/R
+
+# Now you are in the R console
+
+library(rtracklayer)
+
+CTCFchip = import("/home/user22/analysis/MACS2/CTCF/CTCF_peaks.narrowPeak")
+
+CTCFfoot = read.table("/home/user22/analysis/Footprint/BINDdetect/CTCF_MA0139.1/beds/CTCF_MA0139.1_ATAC_footprints_bound.bed", stringsAsFactors=F, sep="\t")[,1:4]
+colnames(CTCFfoot) = c('chr','start','end','name')
+CTCFfoot = makeGRangesFromDataFrame(CTCFfoot)
+
+# How many binding sites called ?
+length(CTCFfoot)
+
+# How many peaks in the CTCF ChIPseq ?
+length(CTCFchip)
+
+# Overlap analysis
+CTCFchip_peak_count = length(CTCFchip)
+overlap_count = sum(CTCFchip %over% CTCFfoot)
+
+length(overlap_count)
+
+overlap_count/CTCFchip_peak_count * 100
+
+# 20.51207
+
+```
+
+Given the % overlap you calculated.
+
+- What do you think ? Is the overlap high/low ? Is this expected ?
+- In the overlap analysis above we answer - How many of the CTCF ChIPseq peaks are present in CTCF footprints ? Now try answering the opposite - Of all the predicted CTCF footprints, what % of those were overlapping with CTCF Chipseq peaks. 
+- Biologically speaking why these numbers differ ? Hint: Think of how the regulatory landscape changes by condition/environment etc
 
