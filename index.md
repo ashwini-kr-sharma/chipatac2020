@@ -17,6 +17,8 @@ Welcome to the **workshop on the computational analysis of ChIP-seq and ATAC-seq
 ## Slides
 
 * [Part 1 - general intro](./chipatac2020_part1.pdf)
+* [Part 2 - ChIP : QC, trimming, alignments](./chipatac2020_part2.pdf)
+
 
 ********
 ## Practical parts
