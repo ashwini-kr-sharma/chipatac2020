@@ -100,5 +100,10 @@ Using Cyberduck download these files to you local machine -
 
 Load these track in [IGV](https://igv.org/app/) and try to answer the following -
 
-1. Do the `.bigwig` 
+1. Do the `.bigwig` peaks and the MACS2 called `.narrowPeak` correspond in CTCF
+2. Do the `.bigwig` peaks and the MACS2 called `.narrowPeak` correspond in ATAC
+3. Are there region where CTCF and ATAC peaks overlap
+4. You have been working with HCT116 cell-line (colon cancer), [here](https://www.omim.org/entry/114500) is a list of genes implicated in colon cancer
+4. Can you find CTCF/ATAC overlapping peak regions at the promoter regions or enhancer regions of these genes
+5. 
 
