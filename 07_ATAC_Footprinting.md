@@ -152,5 +152,6 @@ overlap_count/CTCFchip_peak_count * 100
 Given the % overlap you calculated.
 
 - What do you think ? Is the overlap high/low ? Is this expected ?
+- In the overlap analysis above we answer - How many of the CTCF ChIPseq peaks are present in CTCF footprints ? Now try answering the opposite - Of all the predicted CTCF footprints, what % of those were overlapping with CTCF Chipseq peaks. 
 - Biologically speaking why these numbers differ ? Hint: Think of how the regulatory landscape changes by condition/environment etc
 
