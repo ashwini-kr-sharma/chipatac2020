@@ -110,3 +110,47 @@ Try looking at genes like `APC`, `CCND1`, `YTHDC2`, `ELL2` etc
 3. Are there region where CTCF and ATAC peaks overlap
 4. Can you find CTCF/ATAC overlapping peak regions at the promoter regions or enhancer regions of these genes
 5. Do TF binding site for CTCF and KLF4 overlap ?
+
+
+## Overlap between CTCF Chipseq and CTCF footprinting
+
+The obvious question we have is how well does the CTCF ChIPseq peaks correspond to the CTCF binding sites predicted from the footprinting analysis on ATACseq data.
+
+```
+cd
+
+/usr/bin/R
+
+# Now you are in the R console
+
+library(rtracklayer)
+
+CTCFchip = import("/home/user22/analysis/MACS2/CTCF/CTCF_peaks.narrowPeak")
+
+CTCFfoot = read.table("/home/user22/analysis/Footprint/BINDdetect/CTCF_MA0139.1/beds/CTCF_MA0139.1_ATAC_footprints_bound.bed", stringsAsFactors=F, sep="\t")[,1:4]
+colnames(CTCFfoot) = c('chr','start','end','name')
+CTCFfoot = makeGRangesFromDataFrame(CTCFfoot)
+
+# How many binding sites called ?
+length(CTCFfoot)
+
+# How many peaks in the CTCF ChIPseq ?
+length(CTCFchip)
+
+# Overlap analysis
+CTCFchip_peak_count = length(CTCFchip)
+overlap_count = sum(CTCFchip %over% CTCFfoot)
+
+length(overlap_count)
+
+overlap_count/CTCFchip_peak_count * 100
+
+# 20.51207
+
+```
+
+Given the % overlap you calculated.
+
+- What do you think ? Is the overlap high/low ? Is this expected ?
+- Biologically speaking why these numbers differ ? Hint: Think of how the regulatory landscape changes by condition/environment etc
+
