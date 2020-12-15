@@ -95,15 +95,18 @@ Using Cyberduck download these files to you local machine -
 
 **Footprints**
 
-3. `/data/processed/ATACseq/Footprint/ATAC_REP1_aligned_filt_sort_nodup_corrected.bw`
-4. `/analysis/Footprint/BINDdetect/CTCF_MA0139.1/beds/CTCF_MA0139.1_ATAC_footprints_bound.bed`
+5. `/analysis/Footprint/BINDdetect/CTCF_MA0139.1/beds/CTCF_MA0139.1_ATAC_footprints_bound.bed`
+6. `/analysis/Footprint/BINDdetect/KLF4_MA0039.4/beds/KLF4_MA0039.4_ATAC_footprints_bound.bed`
 
 Load these track in [IGV](https://igv.org/app/) and try to answer the following -
 
-1. Do the `.bigwig` peaks and the MACS2 called `.narrowPeak` correspond in CTCF
-2. Do the `.bigwig` peaks and the MACS2 called `.narrowPeak` correspond in ATAC
-3. Are there region where CTCF and ATAC peaks overlap
-4. You have been working with HCT116 cell-line (colon cancer), [here](https://www.omim.org/entry/114500) is a list of genes implicated in colon cancer
-4. Can you find CTCF/ATAC overlapping peak regions at the promoter regions or enhancer regions of these genes
-5. 
+> Don't forget to change the genome to `hg38` by clicking at **Genome**. Next, click on **Tracks** to load these files from your local computer
 
+You have been working with HCT116 cell-line (colon cancer), [here](https://www.omim.org/entry/114500) is a list of genes implicated in colon cancer. 
+Try looking at genes like `APC`, `CCND1`
+
+1. Do the `.bigwig` peaks (SES) and the MACS2 called `.narrowPeak` correspond in CTCF
+2. Do the `.bigwig` peaks (bamCompare) and the MACS2 called `.narrowPeak` correspond in ATAC
+3. Are there region where CTCF and ATAC peaks overlap
+4. Can you find CTCF/ATAC overlapping peak regions at the promoter regions or enhancer regions of these genes
+5. Do TF binding site for CTCF and KLF4 overlap ?
