@@ -19,6 +19,7 @@ Welcome to the **workshop on the computational analysis of ChIP-seq and ATAC-seq
 * [Part 1 - general intro](./chipatac2020_part1.pdf)
 * [Part 2 - ChIP : QC, trimming, alignments](./chipatac2020_part2.pdf)
 * [Part 3 - ChIP : peak calling, annotation, signal tracks, QC](./chipatac2020_part3.pdf)
+* [Part 4 - ChIP : ATAC-seq](./chipatac2020_part4.pdf)
 
 ********
 ## Practical parts
