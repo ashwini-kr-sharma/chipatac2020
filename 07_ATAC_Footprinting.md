@@ -73,3 +73,8 @@ TOBIAS BINDetect \
 --outdir analysis/Footprint/BINDdetect
 
 ```
+
+Using Cyberduck, do to the folder generated (`analysis/Footprint/BINDdetect`). Check one of the folders (for exampe for CTCF):
+* open the png file: what does it show?
+* open the beds folder: do you understand what the content represents?
+
