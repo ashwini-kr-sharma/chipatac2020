@@ -85,18 +85,18 @@ Using Cyberduck download these files to you local machine -
 
 **CTCF**
 
-1. `/analysis/MACS2/CTCF/CTCF_peaks.narrowPeak`
-2. `/analysis/bigwig/ChIP/CTCF_ses_subtract.bw`
+1. `analysis/MACS2/CTCF/CTCF_peaks.narrowPeak`
+2. `analysis/bigwig/ChIP/CTCF_ses_subtract.bw`
 
 **ATAC**
 
-3. `/analysis/MACS2/ATAC/ATAC-Rep1_peaks.narrowPeak`
-4. `/analysis/bigwig/ATAC/ATAC_REP1.bw`
+3. `analysis/MACS2/ATAC/ATAC-Rep1_peaks.narrowPeak`
+4. `data/processed/ATAC/bigwig/ATAC_REP1.bw`
 
 **Footprints**
 
-5. `/analysis/Footprint/BINDdetect/CTCF_MA0139.1/beds/CTCF_MA0139.1_ATAC_footprints_bound.bed`
-6. `/analysis/Footprint/BINDdetect/KLF4_MA0039.4/beds/KLF4_MA0039.4_ATAC_footprints_bound.bed`
+5. `analysis/Footprint/BINDdetect/CTCF_MA0139.1/beds/CTCF_MA0139.1_ATAC_footprints_bound.bed`
+6. `analysis/Footprint/BINDdetect/KLF4_MA0039.4/beds/KLF4_MA0039.4_ATAC_footprints_bound.bed`
 
 Load these track in [IGV](https://igv.org/app/) and try to answer the following -
 
